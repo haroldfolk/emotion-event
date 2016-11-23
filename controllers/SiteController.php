@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use fpdf\FPDF;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -62,9 +63,24 @@ class SiteController extends Controller
     {
         return $this->render('index');
     }
-    public function actionUploader()
+    public function actionPdf()
     {
-        return $this->render('uploader');
+        $pdf = new FPDF();
+        $pdf->AddPage();
+
+        $pdf->SetFont('Arial','B',16);
+//
+//        $file = "filename.jpg";  // Dirección de la imagen
+//
+//        $imagen = getimagesize($file);    //Sacamos la información
+//        $ancho = $imagen[0];              //Ancho
+//        $alto = $imagen[1];               //Alto
+
+        $pdf->Image('filename.jpg',10,10,90,50);
+        $pdf->AddPage();
+        $pdf->Image('imagen2.png',10,10);
+        $pdf->Output();
+        exit;
     }
 
     /**

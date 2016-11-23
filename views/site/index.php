@@ -29,17 +29,25 @@ $this->title = 'My Yii Application';
     }
   ]
 }';
-        $client = new Client();
-        $response = $client->createRequest()
-            ->setMethod('post')
-            ->addHeaders(['content-type' => 'application/json'])
-            ->setUrl('https://vision.googleapis.com/v1/images:annotate?key=AIzaSyDSTRujOfmCPu0B3iZF-0wFFpLhVfDYBOk')
-            ->setContent($data)
-            ->send();
-        if ($response->isOk) {
-//           $decode=json_decode($response->content,true);
-           echo $response->getData()->toString();
-        }
-        ?>
+
+
+        //prueba de api vision de google
+
+//        $client = new Client();
+//        $response = $client->createRequest()
+//            ->setMethod('post')
+//            ->addHeaders(['content-type' => 'application/json'])
+//            ->setUrl('https://vision.googleapis.com/v1/images:annotate?key=AIzaSyDSTRujOfmCPu0B3iZF-0wFFpLhVfDYBOk')
+//            ->setContent($data)
+//            ->send();
+//        if ($response->isOk) {
+////           $decode=json_decode($response->content,true);
+//           echo $response->getData()->toString();
+//        }
+//        ?>
+
+
+
+
     </div>
 </div>
