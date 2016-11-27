@@ -4,6 +4,6 @@ return [
     'class' => 'yii\db\Connection',
     'dsn' => 'mysql:host=localhost;dbname=segparcial',
     'username' => 'root',
-    'password' => 'yohanita2016',
+    'password' => 'yohanita',
     'charset' => 'utf8',
 ];
