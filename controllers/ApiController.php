@@ -6,12 +6,18 @@ use app\models\Imagen;
 use app\models\Tramite;
 use Google\Cloud\Vision\VisionClient;
 use Yii;
-use yii\rest\ActiveController;
+use yii\data\ActiveDataProvider;
+use yii\rest\Controller;
 
-class ApiController extends ActiveController
+class ApiController extends Controller
 {
-    public $modelClass = 'app\models\Imagen';
-
+//    public $modelClass = 'app\models\Imagen';
+    public function actionIndex()
+    {
+        return new ActiveDataProvider([
+            'query' => Tramite::find(),
+        ]);
+    }
     public function actionImageninsert()
     {
         $req = Yii::$app->request;
