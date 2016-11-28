@@ -105,7 +105,8 @@ class ApiController extends Controller
                         $preReturn=[];
                     }
                     $estado = 1;
-                } elseif (strpos($rContent, 'A:')!== false) {
+//                } elseif (strpos($rContent, 'A:')!== false) {
+                } elseif ($rContent=="A:") {
                     if ($estado == 3) {
                          array_push($return, $preReturn);
                         $preReturn=[];
@@ -156,6 +157,9 @@ class ApiController extends Controller
                     }
                     break;
                 }
+            if ($estado==3){
+                array_push($preReturn, $r['description']);
+            }
             } elseif ($estado == 1) {
                 array_push($return, $r['description']);
                 $estado = 0;
