@@ -7,6 +7,12 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
+        'storage' => [
+            'class' => '\jovanialferez\yii2s3\AmazonS3',
+            'key' => 'AKIAJSKG6ZA2TV76IOPA',
+            'secret' => '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',
+            'bucket' => 'fotowebhd',
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'mrRiGNfkUzyLLJ6X5SjUkRPx6ArU0J3-',
