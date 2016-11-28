@@ -35,7 +35,7 @@ class ApiController extends Controller
                 return "ERROR_NO_SAVE";
             }
         } else {
-            return "PARAMETROS_INVALIDOS";
+            return "PARAMETROS_INVALIDOS2";
         }
     }
 
