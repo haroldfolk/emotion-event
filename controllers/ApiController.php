@@ -15,9 +15,10 @@ class ApiController extends Controller
     public function actionIndex()
     {
         return new ActiveDataProvider([
-            'query' => Tramite::find(),
+            'query' => Imagen::find(),
         ]);
     }
+
     public function actionImageninsert()
     {
         $req = Yii::$app->request;
@@ -38,17 +39,24 @@ class ApiController extends Controller
         }
     }
 
-    public function actionVision()
+    public function actionUploadimages3()
     {
-
-
+        $req = Yii::$app->request;
+        $data = base64_decode($req->post('data'));
+        $file = uniqid() . '.jpg';
+        $success = file_put_contents($file, $data);
+        $storage = Yii::$app->storage;
+        $url = $storage->uploadFile($file, "OCR-" . date("Ymd") . time() . "-sw1");
+        $imagenADB = new Imagen();
+        $imagenADB->url = $url;
+        $imagenADB->id_Tramite = $req->get('idtramite');
+        $imagenADB->save();
+        return "OK";
     }
 
     public function actionExecuteocr()
     {
 
-        $apiKey = 'AIzaSyDSTRujOfmCPu0B3iZF-0wFFpLhVfDYBOk';
-        $path = 'image.jpg';
 
         $vision = new VisionClient([
             'keyFilePath' => 'myOCRKey.json',
@@ -56,16 +64,24 @@ class ApiController extends Controller
         ]);
         $req = Yii::$app->request;
         $data = base64_decode($req->post('data'));
-        $file =  uniqid() . '.jpg';
+        $file = uniqid() . '.jpg';
         $success = file_put_contents($file, $data);
+
         $image = $vision->image(file_get_contents($file), ['TEXT_DETECTION']);
         $result = $vision->annotate($image);
+        unlink($file);
+        \GuzzleHttp\json_decode($result->info(),true);
+
+//        $interpretado=new \Interpretador($result->info());
         return $result->info();
 
     }
-public function  actionGettramites(){
-    $req = Yii::$app->request;
-    $tramites=Tramite::find()->where(['idTramite'=>$req->get('idtramite')])->all();
-    return json_encode($tramites);
-}
+
+    public function actionGettramites()
+    {
+        $req = Yii::$app->request;
+        $tramites = Tramite::find()->where(['idTramite' => $req->get('idtramite')])->all();
+
+        return json_encode($tramites);
+    }
 }
