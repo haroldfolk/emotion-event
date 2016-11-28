@@ -18,6 +18,7 @@ class ApiController extends Controller
             'query' => Tramite::find(),
         ]);
     }
+
     public function actionImageninsert()
     {
         $req = Yii::$app->request;
@@ -41,7 +42,6 @@ class ApiController extends Controller
     public function actionVision()
     {
 
-
     }
 
     public function actionExecuteocr()
@@ -56,16 +56,18 @@ class ApiController extends Controller
         ]);
         $req = Yii::$app->request;
         $data = base64_decode($req->post('data'));
-        $file =  uniqid() . '.jpg';
+        $file = uniqid() . '.jpg';
         $success = file_put_contents($file, $data);
         $image = $vision->image(file_get_contents($file), ['TEXT_DETECTION']);
         $result = $vision->annotate($image);
-        return $result->info();
+        return \GuzzleHttp\json_decode($result->info(),true);
 
     }
-public function  actionGettramites(){
-    $req = Yii::$app->request;
-    $tramites=Tramite::find()->where(['idTramite'=>$req->get('idtramite')])->all();
-    return json_encode($tramites);
-}
+
+    public function actionGettramites()
+    {
+        $req = Yii::$app->request;
+        $tramites = Tramite::find()->where(['idTramite' => $req->get('idtramite')])->all();
+        return json_encode($tramites);
+    }
 }
