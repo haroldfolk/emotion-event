@@ -143,10 +143,10 @@ class ApiController extends Controller
                     break;
                 }
             } elseif ($estado == 1) {
-                $return = array_push($return, $r['description']);
+                $return = array_push($return, array($r['description']));
                 $estado = 0;
             } elseif ($estado == 2) {
-                $preReturn = array_push($preReturn, $r['description']);
+                $preReturn = array_push($preReturn,array($r['description']));
                 $estado = 3;
             }
         }
