@@ -71,9 +71,9 @@ class ApiController extends Controller
         $image = $vision->image(file_get_contents($file), ['TEXT_DETECTION']);
         $result = $vision->annotate($image);
 
-        return json_decode($result->info(),true);
-
         unlink($file);
+        return interpretar($result->info());
+
 //        return $result->info();
 
 
@@ -84,5 +84,15 @@ class ApiController extends Controller
         $req = Yii::$app->request;
         $tramites = Tramite::find()->where(['idTramite' => $req->get('idtramite')])->all();
         return json_encode($tramites);
+    }
+    public function interpretar($resultado){
+        if (!isset($resultado)){
+        return null;
+        }
+        $return="";
+        foreach ($resultado as $r){
+            $return=$return.$r['description'];
+        }
+        return $return;
     }
 }
