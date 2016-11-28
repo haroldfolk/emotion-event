@@ -41,10 +41,8 @@ class ApiController extends Controller
 
     public function actionUploadimages3()
     {
-<<<<<<< HEAD
-
-=======
         $req = Yii::$app->request;
+
         $data = base64_decode($req->post('data'));
         $file = uniqid() . '.jpg';
         $success = file_put_contents($file, $data);
@@ -55,7 +53,7 @@ class ApiController extends Controller
         $imagenADB->id_Tramite = $req->get('idtramite');
         $imagenADB->save();
         return "OK";
->>>>>>> 9ab2e0a1cefac722f717fbcb5e944d457d7fc864
+
     }
 
     public function actionExecuteocr()
@@ -73,12 +71,12 @@ class ApiController extends Controller
 
         $image = $vision->image(file_get_contents($file), ['TEXT_DETECTION']);
         $result = $vision->annotate($image);
-<<<<<<< HEAD
+
         return \GuzzleHttp\json_decode($result->info(),true);
-=======
+
         unlink($file);
         return $result->info();
->>>>>>> 9ab2e0a1cefac722f717fbcb5e944d457d7fc864
+
 
     }
 
@@ -86,10 +84,6 @@ class ApiController extends Controller
     {
         $req = Yii::$app->request;
         $tramites = Tramite::find()->where(['idTramite' => $req->get('idtramite')])->all();
-<<<<<<< HEAD
-=======
-
->>>>>>> 9ab2e0a1cefac722f717fbcb5e944d457d7fc864
         return json_encode($tramites);
     }
 }
