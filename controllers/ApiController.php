@@ -104,7 +104,7 @@ class ApiController extends Controller
                          array_push($return, $preReturn);
                     }
                     $estado = 1;
-                } elseif (strpos($rContent, 'A')) {
+                } elseif (strpos($rContent, 'A:')) {
                     if ($estado == 3) {
                          array_push($return, $preReturn);
                     }
