@@ -74,7 +74,7 @@ class ApiController extends Controller
         return json_decode($result->info(),true);
 
         unlink($file);
-        return $result->info();
+//        return $result->info();
 
 
     }
