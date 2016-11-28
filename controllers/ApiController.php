@@ -117,6 +117,12 @@ class ApiController extends Controller
                         $preReturn=[];
                     }
                     $estado = 0;
+                } elseif (strpos($rContent, 'el')!== false) {
+                    if ($estado == 3) {
+                        array_push($return, $preReturn);
+                        $preReturn=[];
+                    }
+                    $estado = 2;
 
                 } elseif (strpos($rContent, 'En')!== false) {
                     if ($estado == 3) {
