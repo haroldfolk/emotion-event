@@ -72,7 +72,7 @@ class ApiController extends Controller
         $result = $vision->annotate($image);
 
         unlink($file);
-        return interpretar($result->info());
+        return $this->interpretar($result->info());
 
 //        return $result->info();
 
