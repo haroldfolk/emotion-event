@@ -70,9 +70,6 @@ class ApiController extends Controller
         $image = $vision->image(file_get_contents($file), ['TEXT_DETECTION']);
         $result = $vision->annotate($image);
         unlink($file);
-        \GuzzleHttp\json_decode($result->info(),true);
-
-//        $interpretado=new \Interpretador($result->info());
         return $result->info();
 
     }
