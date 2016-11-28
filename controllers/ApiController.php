@@ -138,7 +138,7 @@ class ApiController extends Controller
                     }
                     $estado = 0;
 
-                } elseif (strpos($rContent, 'civil')!== false) {
+                } elseif (strpos($rContent, 'Civil')!== false) {
                     if ($estado == 3) {
                          array_push($return, $preReturn);
                         $preReturn=[];
