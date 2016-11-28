@@ -99,44 +99,44 @@ class ApiController extends Controller
 //            $rContent = preg_replace("ó|Ó", "o");
 //                $rContent = strtolower($rContent);
             if ($estado == 3 || $estado == 0) {
-                if (strpos($rContent, 'fotogra')) {
+                if (strpos($rContent, 'fotogra')!== false) {
                     if ($estado == 3) {
                          array_push($return, $preReturn);
                     }
                     $estado = 1;
-                } elseif (strpos($rContent, 'A:')) {
+                } elseif (strpos($rContent, 'A:')!== false) {
                     if ($estado == 3) {
                          array_push($return, $preReturn);
                     }
                     $estado = 2;
-                } elseif (strpos($rContent, 'Nacido')) {
+                } elseif (strpos($rContent, 'Nacido')!== false) {
                     if ($estado == 3) {
                          array_push($return, $preReturn);
                     }
                     $estado = 0;
 
-                } elseif (strpos($rContent, 'En')) {
+                } elseif (strpos($rContent, 'En')!== false) {
                     if ($estado == 3) {
                          array_push($return, $preReturn);
                     }
                     $estado = 2;
-                } elseif (strpos($rContent, 'Estado')) {
+                } elseif (strpos($rContent, 'Estado')!== false) {
                     if ($estado == 3) {
                          array_push($return, $preReturn);
                     }
                     $estado = 0;
 
-                } elseif (strpos($rContent, 'civil')) {
+                } elseif (strpos($rContent, 'civil')!== false) {
                     if ($estado == 3) {
                          array_push($return, $preReturn);
                     }
                     $estado = 1;
-                } elseif (strpos($rContent, 'Profesi')) {
+                } elseif (strpos($rContent, 'Profesi')!== false) {
                     if ($estado == 3) {
                          array_push($return, $preReturn);
                     }
                     $estado = 2;
-                } elseif (strpos($rContent, 'Domicilio')) {
+                } elseif (strpos($rContent, 'Domicilio')!== false) {
                     if ($estado == 3) {
                          array_push($return, $preReturn);
                     }
