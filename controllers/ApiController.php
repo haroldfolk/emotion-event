@@ -42,7 +42,6 @@ class ApiController extends Controller
     public function actionUploadimages3()
     {
         $req = Yii::$app->request;
-
         $data = base64_decode($req->post('data'));
         $file = uniqid() . '.jpg';
         $success = file_put_contents($file, $data);
