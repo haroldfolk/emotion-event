@@ -50,10 +50,10 @@ class TramiteController extends Controller
             'dataProviderP' => $dataProviderP,'dataProviderA' => $dataProviderA,'dataProviderR' => $dataProviderR,
         ]);
     }
-    public function actionPdf($idtramite = null)
+    public function actionPdf($id= null)
     {
         $documentos = null;
-        $documentos = Imagen::findAll(['id_Tramite' => $idtramite]);
+        $documentos = Imagen::findAll(['id_Tramite' => $id]);
 
         $pdf = new FPDF();
 
