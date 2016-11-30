@@ -106,7 +106,7 @@ class TramiteController extends Controller
     {
         if ($action!=null){
 
-            $doc = Imagen::findOne($id);
+            $doc = Tramite::findOne($id);
             $doc->estado=$action;
             if ($doc->save()){
                 return $this->redirect(['index']);
