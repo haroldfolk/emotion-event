@@ -252,14 +252,14 @@ class ApiController extends Controller
     {
         $req = Yii::$app->request;
         $cliente = new Cliente();
-        $cliente->idCi = $req->get('ci');
-        $cliente->nombre = $req->get('nombre');
-        $cliente->fechaNac = $req->get('fechanac');
-        $cliente->lugarNac = $req->get('lugarnac');
-        $cliente->estadoCivil = $req->get('estadocivil');
-        $cliente->profesion = $req->get('profesion');
+        $cliente->idCi = $req->post('ci');
+        $cliente->nombre = $req->post('nombre');
+        $cliente->fechaNac = $req->post('fechanac');
+        $cliente->lugarNac = $req->post('lugarnac');
+        $cliente->estadoCivil = $req->post('estadocivil');
+        $cliente->profesion = $req->post('profesion');
 //        $cliente->domicilio = $this->devolverCara($this->identificarMicrosoft($req->get('domicilio')));//domicilio =url
-        $cliente->domicilio = $req->get('domicilio');
+        $cliente->domicilio = $req->post('domicilio');
         if ($cliente->save()) {
             return ['message' => 'OK'];
         };
