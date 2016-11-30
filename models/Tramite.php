@@ -13,7 +13,7 @@ use Yii;
  * @property integer $estado
  * @property string $id_Cliente
  *
- * @property Imagen $imagen
+ * @property Imagen[] $imagens
  * @property Cliente $idCliente
  */
 class Tramite extends \yii\db\ActiveRecord
@@ -36,7 +36,6 @@ class Tramite extends \yii\db\ActiveRecord
             [['estado'], 'integer'],
             [['id_Cliente'], 'required'],
             [['titulo', 'id_Cliente'], 'string', 'max' => 100],
-            [['id_Cliente'], 'unique'],
             [['id_Cliente'], 'exist', 'skipOnError' => true, 'targetClass' => Cliente::className(), 'targetAttribute' => ['id_Cliente' => 'idCi']],
         ];
     }
@@ -58,9 +57,9 @@ class Tramite extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getImagen()
+    public function getImagens()
     {
-        return $this->hasOne(Imagen::className(), ['id_Tramite' => 'idTramite']);
+        return $this->hasMany(Imagen::className(), ['id_Tramite' => 'idTramite']);
     }
 
     /**

@@ -113,7 +113,7 @@ class ApiController extends Controller
     {
         $req = Yii::$app->request;
         $url = $req->get('url');
-        $faceIdUrl = $this->devolverCara($this->identificarMicrosoft());
+        $faceIdUrl = $this->devolverCara($this->identificarMicrosoft($url));
         $faceIds = Cliente::findAll();
         foreach ($faceIds as $faceIDONE) {
             if (similarMicrosoft($faceIdUrl, $faceIDONE)) {
@@ -137,13 +137,13 @@ class ApiController extends Controller
         return ['message' => 'ERROR'];
     }
 
-    public function actionCreardoc()
+    public function actionCrearimagen()
     {
         $req = Yii::$app->request;
-        $tramite = new Tramite();
-        $tramite->idTramite = $req->get('idtramite');
-        $tramite->titulo = $req->get('titulo');
-        $tramite->id_Cliente = $req->get('cliente');
+        $tramite = new Imagen();
+        $tramite->nombre = $req->get('nombre');
+        $tramite->url = $req->get('url');
+        $tramite->id_Tramite = $req->get('idtramite');
         if ($tramite->save()) {
             return ['message' => 'OK'];
         };
@@ -152,8 +152,22 @@ class ApiController extends Controller
 
     public function identificarMicrosoft($urlToMicrosoft)
     {
-        $client = new Client();
-        $response = $client->createRequest()
+        $clientHTTP = new Client();
+        $response = $clientHTTP->createRequest()
+            ->setMethod('post')
+            ->setUrl('https://api.projectoxford.ai/face/v1.0/detect?returnFaceId=true&subscription-key=58f5d9bbbc2c4e15be44f5d4ce29c0d0')
+            ->addHeaders(['content-type' => 'application/json'])
+            ->setContent('{url:"' . $urlToMicrosoft . '"}')
+            ->send();
+        if ($response->isOk) {
+            return $response->content;
+        }
+        return null;
+    }
+    public function verificarMicrosoft($urlToMicrosoft)
+    {
+        $clientHTTP = new Client();
+        $response = $clientHTTP->createRequest()
             ->setMethod('post')
             ->setUrl('https://api.projectoxford.ai/face/v1.0/detect?returnFaceId=true&subscription-key=58f5d9bbbc2c4e15be44f5d4ce29c0d0')
             ->addHeaders(['content-type' => 'application/json'])
