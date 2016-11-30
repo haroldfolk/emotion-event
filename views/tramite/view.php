@@ -51,11 +51,33 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 
-    <?php foreach ($documents as $doc) {
-        echo LazyLoad::widget(['src' => $doc->url]);
 
-    } ?>
 </div>
 </div>
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--    --><?php //foreach ($documents as $doc) {
+//        echo LazyLoad::widget(['src' => $doc->url]);
+//
+//    } ?>
