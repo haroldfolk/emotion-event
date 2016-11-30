@@ -2,11 +2,11 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-
+use toriphes\lazyload\LazyLoad;
 /* @var $this yii\web\View */
 /* @var $model app\models\Tramite */
 
-$this->title = $model->titulo.':Pendiente';
+$this->title = $model->titulo . ':Pendiente';
 $this->params['breadcrumbs'][] = ['label' => 'Tramites', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -15,8 +15,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Aprobar', ['view', 'id' => $model->idTramite,'action'=>1], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Rechazar', ['view', 'id' => $model->idTramite,'action'=>-1], ['class' => 'btn btn-danger']) ?>
+        <?= Html::a('Aprobar', ['view', 'id' => $model->idTramite, 'action' => 1], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Rechazar', ['view', 'id' => $model->idTramite, 'action' => -1], ['class' => 'btn btn-danger']) ?>
+        <?= Html::a('Ver PDF', ['pdf', 'id' => $model->idTramite], ['class' => 'btn btn-warning']) ?>
     </p>
 
     <?= DetailView::widget([
@@ -39,8 +40,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="panel-heading">
                         <h3 class="panel-title"><?= $doc->nombre ?></h3>
                     </div>
-                    <a href="<?= $doc->url ?>" >
-                        <img  width="230" height="200"  src="<?= $doc->url ?>">
+                    <a href="<?= $doc->url ?>">
+                        <img width="230" height="200" src="<?= $doc->url ?>">
                     </a>
 
 
@@ -50,5 +51,11 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
     </div>
 
+    <?php foreach ($documents as $doc) {
+        echo LazyLoad::widget(['src' => $doc->url]);
+
+    } ?>
+</div>
+</div>
 
 </div>
