@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\models\Imagen;
+use fpdf\FPDF;
 use Yii;
 use app\models\Tramite;
 use yii\data\ActiveDataProvider;
@@ -35,44 +37,103 @@ class TramiteController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Tramite::find(),
+        $dataProviderP = new ActiveDataProvider([
+            'query' => Tramite::find()->where(['estado'=>0]),
         ]);
-
+        $dataProviderR = new ActiveDataProvider([
+            'query' => Tramite::find()->where(['estado'=>-1]),
+        ]);
+        $dataProviderA = new ActiveDataProvider([
+            'query' => Tramite::find()->where(['estado'=>1]),
+        ]);
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
+            'dataProviderP' => $dataProviderP,'dataProviderA' => $dataProviderA,'dataProviderR' => $dataProviderR,
         ]);
     }
+    public function actionPdf($idtramite = null)
+    {
+        $documentos = null;
+        $documentos = Imagen::findAll(['id_Tramite' => $idtramite]);
 
+        $pdf = new FPDF();
+
+        foreach ($documentos as $doc) {
+            $tamaño = getimagesize($doc->url);
+
+            $ancho=$tamaño[0];
+            $alto=$tamaño[1];
+            if ($ancho>$alto){
+                $relacion=(bcdiv($alto,$ancho,7));
+
+                if ($ancho>750){
+                    $ancho=700;
+                    $alto=$ancho*$relacion;
+                }
+            }else{
+                $relacion=(bcdiv($ancho,$alto,7));
+
+                if ($alto>1090){
+                    $alto=1000;
+                    $ancho=$alto*$relacion;
+                }
+            }
+
+            $pdf->AddPage();
+            $pdf->SetFont('Arial', 'B', 16);
+            $pdf->Cell(10,0,$doc->nombre);
+//            Ancho: 793px
+//Alto: 1122px
+//            Oficio/Legal	216 x 356 mm	8,5 x 14,0 pulg	1:1,6471
+            $pdf->Image($doc->url, 10, 15,$ancho*0.264583333, $alto*0.264583333,'JPG');
+
+        }
+
+        $pdf->Output();
+
+    }
     /**
      * Displays a single Tramite model.
      * @param integer $id
      * @return mixed
      */
-    public function actionView($id)
+//    public function actionView($id)
+//    {
+//        return $this->render('view', [
+//            'model' => $this->findModel($id),
+//        ]);
+//    }
+    public function actionView($id,$action=null)
     {
+        if ($action!=null){
+
+            $doc = Imagen::findOne($id);
+            $doc->estado=$action;
+            if ($doc->save()){
+                return $this->redirect(['index']);
+            }
+
+        }
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $this->findModel($id),'documents'=>Imagen::find()->where(['id_Tramite'=>$id])->all(),
         ]);
     }
-
     /**
      * Creates a new Tramite model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
-    {
-        $model = new Tramite();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->idTramite]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
-        }
-    }
+//    public function actionCreate()
+//    {
+//        $model = new Tramite();
+//
+//        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+//            return $this->redirect(['view', 'id' => $model->idTramite]);
+//        } else {
+//            return $this->render('create', [
+//                'model' => $model,
+//            ]);
+//        }
+//    }
 
     /**
      * Updates an existing Tramite model.

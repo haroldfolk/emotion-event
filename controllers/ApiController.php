@@ -116,7 +116,7 @@ class ApiController extends Controller
         $faceIdUrl = $this->devolverCara($this->identificarMicrosoft($url));
         $faceIds = Cliente::findAll();
         foreach ($faceIds as $faceIDONE) {
-            if (similarMicrosoft($faceIdUrl, $faceIDONE)) {
+            if ($this->devolverVerificacion($this->verificarMicrosoft($faceIdUrl),$faceIDONE->domicilio)) {
                 return ['message' => $faceIDONE->idCi];
             }
         }
@@ -258,7 +258,7 @@ class ApiController extends Controller
         $cliente->lugarNac = $req->get('lugarnac');
         $cliente->estadoCivil = $req->get('estadocivil');
         $cliente->profesion = $req->get('profesion');
-        $cliente->domicilio = $req->get('domicilio');
+        $cliente->domicilio = $this->devolverCara($this->identificarMicrosoft($req->get('domicilio')));//domicilio =url
         if ($cliente->save()) {
             return ['message' => 'OK'];
         };

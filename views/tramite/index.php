@@ -14,10 +14,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Tramite', ['create'], ['class' => 'btn btn-success']) ?>
+<!--        --><?php ///*php==*/ Html::a('Create Tramite', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
+    <h2>Tramites Pendientes</h2>
     <?= GridView::widget([
-        'dataProvider' => $dataProvider,
+        'dataProvider' => $dataProviderP,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -28,6 +29,36 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_Cliente',
 
             ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
+    <h2>Tramites Rechazados</h2>
+    <?= GridView::widget([
+        'dataProvider' => $dataProviderR,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            'idTramite',
+            'titulo',
+            'fecha',
+            'estado',
+            'id_Cliente',
+
+//            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
+    <h2>Tramites Aprobados</h2>
+    <?= GridView::widget([
+        'dataProvider' => $dataProviderA,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
+
+            'idTramite',
+            'titulo',
+            'fecha',
+            'estado',
+            'id_Cliente',
+
+//            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 </div>
