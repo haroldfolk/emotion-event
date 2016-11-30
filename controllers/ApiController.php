@@ -8,6 +8,7 @@ use app\models\Tramite;
 use Google\Cloud\Vision\VisionClient;
 use Yii;
 use yii\data\ActiveDataProvider;
+use yii\httpclient\Client;
 use yii\rest\Controller;
 
 class ApiController extends Controller
@@ -55,17 +56,20 @@ class ApiController extends Controller
         return "OK";
 
     }
-public function actionExistecliente(){
-    $req = Yii::$app->request;
-    $cliente=Cliente::findOne(['idCi'=>$req->get('ci')]);
-    if ($cliente!=null){
-        return ['message' => 'OK'];
+
+    public function actionExistecliente()
+    {
+        $req = Yii::$app->request;
+        $cliente = Cliente::findOne(['idCi' => $req->get('ci')]);
+        if ($cliente != null) {
+            return ['message' => 'OK'];
+        }
+        return ['message' => 'ERROR'];
+
     }
-    return ['message' => 'ERROR'];
 
-}
-
-    public function actionListartramites(){
+    public function actionListartramites()
+    {
         $req = Yii::$app->request;
         $activeDataProvider = new ActiveDataProvider([
             'query' => Tramite::find()->where(['id_Cliente' => $req->get('ci')]),
@@ -73,7 +77,9 @@ public function actionExistecliente(){
         return $activeDataProvider;
 
     }
-    public function actionListarimagenes(){
+
+    public function actionListarimagenes()
+    {
         $req = Yii::$app->request;
         $activeDataProvider = new ActiveDataProvider([
             'query' => Imagen::find()->where(['id_Tramite' => $req->get('idtramite')]),
@@ -101,8 +107,116 @@ public function actionExistecliente(){
 //        return $this->interpretar($result->info()['textAnnotations']);
         return $this->getData($result->info()['textAnnotations']);
 //        return $result->info();
+    }
 
+    public function actionReconocimiento()
+    {
+        $req = Yii::$app->request;
+        $url = $req->get('url');
+        $faceIdUrl = $this->devolverCara($this->identificarMicrosoft());
+        $faceIds = Cliente::findAll();
+        foreach ($faceIds as $faceIDONE) {
+            if (similarMicrosoft($faceIdUrl, $faceIDONE)) {
+                return ['message' => 'OK'];
+            }
+        }
+        return ['message' => 'ERROR'];
+        ///////////////
+    }
 
+    public function actionCreartramite()
+    {
+        $req = Yii::$app->request;
+        $tramite = new Tramite();
+        $tramite->idTramite = $req->get('idtramite');
+        $tramite->titulo = $req->get('titulo');
+        $tramite->id_Cliente = $req->get('cliente');
+        if ($tramite->save()) {
+            return ['message' => 'OK'];
+        };
+        return ['message' => 'ERROR'];
+    }
+
+    public function actionCreardoc()
+    {
+        $req = Yii::$app->request;
+        $tramite = new Tramite();
+        $tramite->idTramite = $req->get('idtramite');
+        $tramite->titulo = $req->get('titulo');
+        $tramite->id_Cliente = $req->get('cliente');
+        if ($tramite->save()) {
+            return ['message' => 'OK'];
+        };
+        return ['message' => 'ERROR'];
+    }
+
+    public function identificarMicrosoft($urlToMicrosoft)
+    {
+        $client = new Client();
+        $response = $client->createRequest()
+            ->setMethod('post')
+            ->setUrl('https://api.projectoxford.ai/face/v1.0/detect?returnFaceId=true&subscription-key=58f5d9bbbc2c4e15be44f5d4ce29c0d0')
+            ->addHeaders(['content-type' => 'application/json'])
+            ->setContent('{url:"' . $urlToMicrosoft . '"}')
+            ->send();
+        if ($response->isOk) {
+            return $response->content;
+        }
+        return null;
+    }
+
+    public function devolverCara($json)
+    {
+        $decode = json_decode($json, true);
+        if ($decode != null) {
+            foreach ($decode as $js) {
+                if (!isset($js["faceId"])) {
+                    echo "Error";
+                    return null;
+                }
+                return $js["faceId"];
+            }
+        } else {
+            return null;
+        }
+    }
+
+    public function unaSolaCara($Jsos)
+    {
+        if ($Jsos == null) {
+            echo "No hay Caras";
+            return false;
+        }
+        $i = 0;
+        foreach ($Jsos as $js) {
+            $i++;
+            if ($i > 1) {
+                echo "Tiene mas de una cara";
+                return false;
+            }
+            if (!isset($js["faceId"])) {
+                echo "Error";
+                return false;
+            }
+        }
+        echo "Cara registrada";
+        return true;
+    }
+
+    public function hayCara($json)
+    {
+        $decode = json_decode($json, true);
+        if ($decode != null) {
+            foreach ($decode as $js) {
+                if (!isset($js["faceId"])) {
+                    return false;
+                }
+                return true;
+            }
+            return false;
+        } else {
+            return false;
+        }
     }
 
     public function actionRegistrarcliente()
@@ -116,7 +230,7 @@ public function actionExistecliente(){
         $cliente->estadoCivil = $req->get('estadocivil');
         $cliente->profesion = $req->get('profesion');
         $cliente->domicilio = $req->get('domicilio');
-        if ($cliente->save()){
+        if ($cliente->save()) {
             return ['message' => 'OK'];
         };
         return ['message' => 'ERROR'];
