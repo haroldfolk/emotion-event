@@ -84,7 +84,7 @@ class TramiteController extends Controller
 //            Ancho: 793px
 //Alto: 1122px
 //            Oficio/Legal	216 x 356 mm	8,5 x 14,0 pulg	1:1,6471
-            $pdf->Image($doc->url, 10, 15,$ancho*0.264583333, $alto*0.264583333,'JPEG');
+            $pdf->Image($doc->url, 10, 15,$ancho*0.25, $alto*0.25,'JPEG');
 
         }
 
