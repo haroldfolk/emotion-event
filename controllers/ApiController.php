@@ -258,7 +258,8 @@ class ApiController extends Controller
         $cliente->lugarNac = $req->get('lugarnac');
         $cliente->estadoCivil = $req->get('estadocivil');
         $cliente->profesion = $req->get('profesion');
-        $cliente->domicilio = $this->devolverCara($this->identificarMicrosoft($req->get('domicilio')));//domicilio =url
+//        $cliente->domicilio = $this->devolverCara($this->identificarMicrosoft($req->get('domicilio')));//domicilio =url
+        $cliente->domicilio = $req->get('domicilio');
         if ($cliente->save()) {
             return ['message' => 'OK'];
         };
