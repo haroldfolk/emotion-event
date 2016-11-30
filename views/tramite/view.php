@@ -29,5 +29,29 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_Cliente',
         ],
     ]) ?>
+    <div class="container" style="margin-top:10px;">
+        <div class="row form-group ">
+            <?php foreach ($documents as $doc) {
+                ?>
+
+                <div class="col-xs-6 col-md-4">
+
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><?= $doc->nombre ?></h3>
+                    </div>
+                    <a href="<?= $doc->url ?>" >
+                        <img  width="230" height="200"  src="<?= $doc->url ?>">
+                    </a>
+                    <div class="panel-footer">
+                        <a href="../tramite/view?id=<?= $model->id ?>&idaprobar=<?= $doc->id ?>" class="btn-default"><span class="glyphicon glyphicon-download">Aceptar</span></a>
+                        <a href="../tramite/view?id=<?= $model->id ?>&idrechazar=<?= $doc->id ?>"><span class="glyphicon glyphicon-share-alt">Rechazar</span></a>
+                    </div>
+
+                </div>
+            <?php }
+            ?>
+        </div>
+    </div>
+
 
 </div>
