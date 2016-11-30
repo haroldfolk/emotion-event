@@ -42,10 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <a href="<?= $doc->url ?>" >
                         <img  width="230" height="200"  src="<?= $doc->url ?>">
                     </a>
-                    <div class="panel-footer">
-                        <a href="../tramite/view?id=<?= $model->id ?>&idaprobar=<?= $doc->id ?>" class="btn-default"><span class="glyphicon glyphicon-download">Aceptar</span></a>
-                        <a href="../tramite/view?id=<?= $model->id ?>&idrechazar=<?= $doc->id ?>"><span class="glyphicon glyphicon-share-alt">Rechazar</span></a>
-                    </div>
+
 
                 </div>
             <?php }
