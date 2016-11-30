@@ -66,7 +66,7 @@ class TramiteController extends Controller
                 $relacion=(bcdiv($alto,$ancho,7));
 
                 if ($ancho>750){
-                    $ancho=700;
+                    $ancho=650;
                     $alto=$ancho*$relacion;
                 }
             }else{
