@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Cliente;
 use app\models\Imagen;
 use app\models\Tramite;
 use Google\Cloud\Vision\VisionClient;
@@ -54,6 +55,32 @@ class ApiController extends Controller
         return "OK";
 
     }
+public function actionExistecliente(){
+    $req = Yii::$app->request;
+    $cliente=Cliente::findOne(['idCi'=>$req->get('ci')]);
+    if ($cliente!=null){
+        return ['message' => 'OK'];
+    }
+    return ['message' => 'ERROR'];
+
+}
+
+    public function actionListartramites(){
+        $req = Yii::$app->request;
+        $activeDataProvider = new ActiveDataProvider([
+            'query' => Tramite::find()->where(['id_Cliente' => $req->get('ci')]),
+        ]);
+        return $activeDataProvider;
+
+    }
+    public function actionListarimagenes(){
+        $req = Yii::$app->request;
+        $activeDataProvider = new ActiveDataProvider([
+            'query' => Imagen::find()->where(['id_Tramite' => $req->get('idtramite')]),
+        ]);
+        return $activeDataProvider;
+
+    }
 
     public function actionExecuteocr()
     {
@@ -76,6 +103,23 @@ class ApiController extends Controller
 //        return $result->info();
 
 
+    }
+
+    public function actionRegistrarcliente()
+    {
+        $req = Yii::$app->request;
+        $cliente = new Cliente();
+        $cliente->idCi = $req->get('ci');
+        $cliente->nombre = $req->get('nombre');
+        $cliente->fechaNac = $req->get('fechanac');
+        $cliente->lugarNac = $req->get('lugarnac');
+        $cliente->estadoCivil = $req->get('estadocivil');
+        $cliente->profesion = $req->get('profesion');
+        $cliente->domicilio = $req->get('domicilio');
+        if ($cliente->save()){
+            return ['message' => 'OK'];
+        };
+        return ['message' => 'ERROR'];
     }
 
     public function actionGettramites()
