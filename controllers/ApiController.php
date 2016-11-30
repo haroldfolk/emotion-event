@@ -117,7 +117,7 @@ class ApiController extends Controller
         $faceIds = Cliente::findAll();
         foreach ($faceIds as $faceIDONE) {
             if (similarMicrosoft($faceIdUrl, $faceIDONE)) {
-                return ['message' => 'OK'];
+                return ['message' => $faceIDONE->idCi];
             }
         }
         return ['message' => 'ERROR'];
@@ -169,14 +169,29 @@ class ApiController extends Controller
         $clientHTTP = new Client();
         $response = $clientHTTP->createRequest()
             ->setMethod('post')
-            ->setUrl('https://api.projectoxford.ai/face/v1.0/detect?returnFaceId=true&subscription-key=58f5d9bbbc2c4e15be44f5d4ce29c0d0')
+            ->setUrl('https://api.projectoxford.ai/face/v1.0/verify?subscription-key=58f5d9bbbc2c4e15be44f5d4ce29c0d0')
             ->addHeaders(['content-type' => 'application/json'])
-            ->setContent('{url:"' . $urlToMicrosoft . '"}')
+            ->setContent('{"faceId1":"' . $urlToMicrosoft . '","faceId2":"' . $urlToMicrosoft . '"}')
             ->send();
         if ($response->isOk) {
             return $response->content;
         }
         return null;
+    }
+    public function devolverVerificacion($json)
+    {
+        $decode = json_decode($json, true);
+        if ($decode != null) {
+            foreach ($decode as $js) {
+                if (!isset($js["isIdentical"])) {
+
+                    return false;
+                }
+                return $js["isIdentical"];
+            }
+        } else {
+            return null;
+        }
     }
 
     public function devolverCara($json)
