@@ -71,8 +71,8 @@ class ApiController extends Controller
         $result = $vision->annotate($image);
 
         unlink($file);
-        return $this->interpretar($result->info()['textAnnotations']);
-//        return $this->getData($result->info()['textAnnotations']);
+//        return $this->interpretar($result->info()['textAnnotations']);
+        return $this->getData($result->info()['textAnnotations']);
 //        return $result->info();
 
 
