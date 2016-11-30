@@ -23,7 +23,7 @@ class Tramite extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'tramite';
+        return 'Tramite';
     }
 
     /**
