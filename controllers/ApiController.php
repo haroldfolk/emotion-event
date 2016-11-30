@@ -67,13 +67,12 @@ class ApiController extends Controller
         $data = base64_decode($req->post('data'));
         $file = uniqid() . '.jpg';
         $success = file_put_contents($file, $data);
-
         $image = $vision->image(file_get_contents($file), ['TEXT_DETECTION']);
         $result = $vision->annotate($image);
 
         unlink($file);
-//        return $this->interpretar($result->info()['textAnnotations']);
-        return $this->getData($result->info()['textAnnotations']);
+        return $this->interpretar($result->info()['textAnnotations']);
+//        return $this->getData($result->info()['textAnnotations']);
 //        return $result->info();
 
 
@@ -99,67 +98,67 @@ class ApiController extends Controller
 //            $rContent = preg_replace("ó|Ó", "o");
 //                $rContent = strtolower($rContent);
             if ($estado == 3 || $estado == 0) {
-                if (strpos($rContent, 'fotogra')!== false) {
+                if (strpos($rContent, 'fotogra') !== false) {
                     if ($estado == 3) {
-                         array_push($return, $preReturn);
-                        $preReturn=[];
+                        array_push($return, $preReturn);
+                        $preReturn = [];
                     }
                     $estado = 1;
 //                } elseif (strpos($rContent, 'A:')!== false) {
-                } elseif ($rContent=="A:") {
-                    if ($estado == 3) {
-                         array_push($return, $preReturn);
-                        $preReturn=[];
-                    }
-                    $estado = 2;
-                } elseif (strpos($rContent, 'Nacido')!== false) {
-                    if ($estado == 3) {
-                         array_push($return, $preReturn);
-                        $preReturn=[];
-                    }
-                    $estado = 0;
-                } elseif (strpos($rContent, 'el')!== false) {
+                } elseif ($rContent == "A:") {
                     if ($estado == 3) {
                         array_push($return, $preReturn);
-                        $preReturn=[];
+                        $preReturn = [];
+                    }
+                    $estado = 2;
+                } elseif (strpos($rContent, 'Nacido') !== false) {
+                    if ($estado == 3) {
+                        array_push($return, $preReturn);
+                        $preReturn = [];
+                    }
+                    $estado = 0;
+                } elseif (strpos($rContent, 'el') !== false) {
+                    if ($estado == 3) {
+                        array_push($return, $preReturn);
+                        $preReturn = [];
                     }
                     $estado = 2;
 
-                } elseif (strpos($rContent, 'En')!== false) {
+                } elseif (strpos($rContent, 'En') !== false) {
                     if ($estado == 3) {
-                         array_push($return, $preReturn);
-                        $preReturn=[];
+                        array_push($return, $preReturn);
+                        $preReturn = [];
                     }
                     $estado = 2;
-                } elseif (strpos($rContent, 'Estado')!== false) {
+                } elseif (strpos($rContent, 'Estado') !== false) {
                     if ($estado == 3) {
-                         array_push($return, $preReturn);
-                        $preReturn=[];
+                        array_push($return, $preReturn);
+                        $preReturn = [];
                     }
                     $estado = 0;
 
-                } elseif (strpos($rContent, 'Civil')!== false) {
+                } elseif (strpos($rContent, 'Civil') !== false) {
                     if ($estado == 3) {
-                         array_push($return, $preReturn);
-                        $preReturn=[];
+                        array_push($return, $preReturn);
+                        $preReturn = [];
                     }
                     $estado = 1;
-                } elseif (strpos($rContent, 'Profesi')!== false) {
+                } elseif (strpos($rContent, 'Profesi') !== false) {
                     if ($estado == 3) {
-                         array_push($return, $preReturn);
-                        $preReturn=[];
+                        array_push($return, $preReturn);
+                        $preReturn = [];
                     }
                     $estado = 2;
-                } elseif (strpos($rContent, 'Domicilio')!== false) {
+                } elseif (strpos($rContent, 'Domicilio') !== false) {
                     if ($estado == 3) {
-                         array_push($return, $preReturn);
-                        $preReturn=[];
+                        array_push($return, $preReturn);
+                        $preReturn = [];
                     }
                     break;
                 }
-            if ($estado==3){
-                array_push($preReturn, $r['description']);
-            }
+                if ($estado == 3) {
+                    array_push($preReturn, $r['description']);
+                }
             } elseif ($estado == 1) {
                 array_push($return, $r['description']);
                 $estado = 0;
@@ -172,10 +171,11 @@ class ApiController extends Controller
 
         return $return;
     }
+
     public function getData($imgPath)
     {
 //        $textArray = $this->OCR($imgPath);
-        $textArray=$imgPath;
+        $textArray = $imgPath;
         $state = 0;
         $AC = "";
         $data = [];
