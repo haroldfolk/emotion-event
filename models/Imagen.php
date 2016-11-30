@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "imagen".
  *
  * @property integer $idImagen
+ * @property string $nombre
  * @property string $url
  * @property integer $id_Tramite
  *
@@ -20,7 +21,7 @@ class Imagen extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'imagen';
+        return 'Imagen';
     }
 
     /**
@@ -31,7 +32,7 @@ class Imagen extends \yii\db\ActiveRecord
         return [
             [['url', 'id_Tramite'], 'required'],
             [['id_Tramite'], 'integer'],
-            [['url'], 'string', 'max' => 255],
+            [['nombre', 'url'], 'string', 'max' => 255],
             [['id_Tramite'], 'exist', 'skipOnError' => true, 'targetClass' => Tramite::className(), 'targetAttribute' => ['id_Tramite' => 'idTramite']],
         ];
     }
@@ -43,6 +44,7 @@ class Imagen extends \yii\db\ActiveRecord
     {
         return [
             'idImagen' => 'Id Imagen',
+            'nombre' => 'Nombre',
             'url' => 'Url',
             'id_Tramite' => 'Id  Tramite',
         ];

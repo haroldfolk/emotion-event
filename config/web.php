@@ -14,6 +14,7 @@ $config = [
             'bucket' => 'fotowebhd',
         ],
         'request' => [
+            'cookieValidationKey' => 'vZ-Ha3EPoYHcS0tqRO68pSLXH9jUVFh_',
             'parsers' => [
                 'application/json' => 'yii\web\JsonParser',
             ]
