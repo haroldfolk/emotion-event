@@ -12,7 +12,7 @@ use yii\data\ActiveDataProvider;
 use yii\httpclient\Client;
 use yii\rest\Controller;
 
-class ApiController extends Controller
+class ApiproyfinalController extends Controller
 {
 //    public $modelClass = 'app\models\Imagen';
     public function actionIndex()
