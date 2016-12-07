@@ -52,6 +52,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'api'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'apiproyfinal'],
             ],
         ],
 
