@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Cliente;
+use app\models\Evento;
 use app\models\Imagen;
 use app\models\Tramite;
 use Google\Cloud\Vision\VisionClient;
@@ -17,7 +18,7 @@ class ApiController extends Controller
     public function actionIndex()
     {
         return new ActiveDataProvider([
-            'query' => Imagen::find(),
+            'query' => Evento::find(),
         ]);
     }
 
