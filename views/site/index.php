@@ -60,7 +60,7 @@ $this->title = 'My Yii Application';
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>SCAN-HD</h1>
+        <h1>SCAN-HD+PROYFINAL</h1>
 
         <p class="lead">Bienvenido a revision de tramites</p>
         <img src="https://lh3.ggpht.com/9-h08rKp_vomuR_V-fTUFsN1w40gDEtb5srOx9m_bTgIBNeqIk7NKhko4JPxMiFjUPI=w300" alt="">
