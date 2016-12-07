@@ -53,7 +53,7 @@
 <!--</div>-->
 <?php
 
-/* @var $this yii\web\View */
+///* @var $this yii\web\View */
 
 $this->title = 'My Yii Application';
 ?>
@@ -64,7 +64,7 @@ $this->title = 'My Yii Application';
 
         <p class="lead">Bienvenido a revision de tramites</p>
         <img src="https://lh3.ggpht.com/9-h08rKp_vomuR_V-fTUFsN1w40gDEtb5srOx9m_bTgIBNeqIk7NKhko4JPxMiFjUPI=w300" alt="">
-        <p><a class="btn btn-lg btn-success" href="http://178.62.219.9/tramite">Ir a Revision</a></p>
+        <p><a class="btn btn-lg btn-success" href="http://188.166.53.153/tramite">Ir a Revision</a></p>
     </div>
 
 
