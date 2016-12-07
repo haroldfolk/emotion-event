@@ -14,18 +14,31 @@ use yii\rest\Controller;
 
 class ApiproyfinalController extends Controller
 {
+
 //    public $modelClass = 'app\models\Imagen';
+//    public function actionIndex()
+//    {
+//        return new ActiveDataProvider([
+//            'query' => Evento::find(),
+//        ]);
+//    }
     public function actionIndex()
     {
-        return new ActiveDataProvider([
-            'query' => Evento::find(),
-        ]);
+        return "Debes ingresar la action \n EJ.: apiproyfinal/geteventos";
     }
 
+    public function actionGeteventosconid()
+    {
+        $req = Yii::$app->request;
+        $param = $req->get('id');
+        return new ActiveDataProvider([
+            'query' => Evento::find()->where(['idEvento' => $param]),
+        ]);
+    }
     public function actionImageninsert()
     {
         $req = Yii::$app->request;
-        $id_tramite = $req->get('idtramite');
+
         $url = $req->get('url');
         $image = new Imagen();
         $image->url = $url;
