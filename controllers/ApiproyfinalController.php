@@ -18,7 +18,7 @@ class ApiController extends Controller
     public function actionIndex()
     {
         return new ActiveDataProvider([
-            'query' => Evento::find(),
+            'query' => Imagen::find(),
         ]);
     }
 
