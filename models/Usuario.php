@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\data\ActiveDataProvider;
 
 /**
  * This is the model class for table "usuario".
@@ -28,6 +29,14 @@ class Usuario extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'usuario';
+    }
+
+    public static function findByUsername($username)
+    {
+        $activeDataProvider = new ActiveDataProvider([
+            'query' => Usuario::find()->where(['username' => $username]),
+        ]);
+        return $activeDataProvider[0];
     }
 
     /**
@@ -58,9 +67,14 @@ class Usuario extends \yii\db\ActiveRecord
         ];
     }
 
+    public function validatePassword($password)
+    {
+        return $this->password === $password;
+    }
     /**
      * @return \yii\db\ActiveQuery
      */
+
     public function getMultimedia()
     {
         return $this->hasMany(Multimedia::className(), ['id_Usuario' => 'idUsuario']);
