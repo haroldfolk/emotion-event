@@ -284,29 +284,6 @@
         </div>
 
         <!--        //////////////////////////////////////////////////////////////////-->
-        <div class="col-md-6">
-            <h2>
-                <p class="bg-success" align="center">
-
-                    NOTICIAS
-                </p>
-            </h2>
-
-
-            <div class="media">
-                <a href="#" class="pull-left"><img alt="Bootstrap Media Preview" src="http://lorempixel.com/200/200/"
-                                                   class="media-object"></a>
-                <div class="media-body">
-                    <h4 class="media-heading">
-                        Evento Presentacion de Software!
-                    </h4> La presentacion se realizara el 12 de diciembre de 2016 a las 15:15 con el Ing.Martinez
-
-                </div>
-            </div>
-            <p>
-                <a class="btn-block" href="#">Subscribirme »</a>
-            </p>
-        </div>
 
 
         <div class="col-md-3">
