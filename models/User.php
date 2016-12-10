@@ -9,6 +9,8 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
     public $username;
     public $password;
     public $correo;
+    public $edad;
+    public $telefono;
 
     private static $users = [
         '100' => [
@@ -55,7 +57,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
     public static function findByUsername($username)
     {
         $users = Usuario::find()
-            ->where("username=:username", ["username" => $username])
+            ->where(["username" => $username])
             ->all();
         foreach ($users as $user) {
             if (strcasecmp($user->username, $username) === 0) {
