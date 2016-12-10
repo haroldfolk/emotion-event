@@ -156,20 +156,20 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">
-                        Panel title
-                    </h3>
-                </div>
-                <div class="panel-body">
-                    Panel content
-                </div>
-                <div class="panel-footer">
-                    Panel footer
-                </div>
-            </div>
+        <div class="col-md-3">
+            <!--            <div class="panel panel-default">-->
+            <!--                <div class="panel-heading">-->
+            <!--                    <h3 class="panel-title">-->
+            <!--                        Panel title-->
+            <!--                    </h3>-->
+            <!--                </div>-->
+            <!--                <div class="panel-body">-->
+            <!--                    Panel content-->
+            <!--                </div>-->
+            <!--                <div class="panel-footer">-->
+            <!--                    Panel footer-->
+            <!--                </div>-->
+            <!--            </div>-->
             <h2>
                 Eventos a los que asistire!
             </h2>
@@ -188,7 +188,7 @@
                 <a class="btn" href="#">########## »</a>
             </p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <a id="modal-702504" href="#modal-container-702504" role="button" class="btn" data-toggle="modal">Launch
                 demo modal</a>
 
@@ -255,7 +255,7 @@
                 <a class="btn" href="#">View details »</a>
             </p>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <div class="list-group">
                 <a href="#" class="list-group-item active">Home</a>
                 <div class="list-group-item">
