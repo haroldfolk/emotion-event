@@ -226,7 +226,7 @@
             </h2>
 
             <div class="list-group">
-                <?php foreach ($eventos as $evento) { ?>
+                <?php foreach ($eventosALL as $evento) { ?>
                     <!--                    <a href="#" class="list-group-item">Home</a>-->
                     <div class="list-group-item">
                         <div class="media">
