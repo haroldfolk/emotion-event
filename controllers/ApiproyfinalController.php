@@ -69,9 +69,11 @@ class ApiproyfinalController extends Controller
     {
 //        $req = Yii::$app->request;
 //        $param = $req->get('id_Organizador');
-        return new ActiveDataProvider([
+
+        $activeDataProvider = new ActiveDataProvider([
             'query' => Evento::find(),
         ]);
+        return ['message' => 'OK', 'contenido' => $activeDataProvider];
     }
 
     public function actionGetusuarios()
@@ -93,12 +95,12 @@ class ApiproyfinalController extends Controller
         ]);
     }
 
+
     public function actionGetcategorias()
     {
         return new ActiveDataProvider([
             'query' => Categoria::find(),
         ]);
     }
-
 
 }
