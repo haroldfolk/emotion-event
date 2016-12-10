@@ -73,7 +73,7 @@ class ApiproyfinalController extends Controller
         $activeDataProvider = new ActiveDataProvider([
             'query' => Evento::find(),
         ]);
-        return ['message' => 'OK', 'contenido' => $activeDataProvider];
+        return ['estado' => '1', 'contenido' => $activeDataProvider->getModels()];
     }
 
     public function actionGetusuarios()
