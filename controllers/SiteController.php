@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\Categoria;
 use app\models\Evento;
 use app\models\Multimedia;
+use app\models\Usuarioevento;
 use fpdf\FPDF;
 use Yii;
 use yii\data\ActiveDataProvider;
