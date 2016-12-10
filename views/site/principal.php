@@ -188,7 +188,10 @@
                                     </h4>
                                 </div>
                                 <div class="modal-body">
-
+                                    <h1><?= $evento->nombre ?></h1>
+                                    <h3><?= $evento->nombre ?></h3>
+                                    <h4><?= $evento->fechaInicio ?></h4>
+                                    <h4><?= $evento->fechaFin ?></h4>
                                 </div>
                                 <div class="modal-footer">
 
