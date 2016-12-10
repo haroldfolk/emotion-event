@@ -1,0 +1,100 @@
+﻿-- phpMyAdmin SQL Dump
+-- version 4.0.10deb1
+-- http://www.phpmyadmin.net
+--
+-- Servidor: localhost
+-- Tiempo de generación: 28-11-2016 a las 23:33:02
+-- Versión del servidor: 5.5.53-0ubuntu0.14.04.1
+-- Versión de PHP: 5.5.9-1ubuntu4.20
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Base de datos: `db_scanocr`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Cliente`
+--
+
+CREATE TABLE IF NOT EXISTS `Cliente` (
+`ci` int(11) NOT NULL,
+`nombres` varchar(255) NOT NULL,
+`fecha_nacimiento` varchar(255) NOT NULL,
+PRIMARY KEY (`ci`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `Cliente`
+--
+
+INSERT INTO `Cliente` (`ci`, `nombres`, `fecha_nacimiento`) VALUES
+(123, 'samuel', 'fecha1\r\n'),
+(321, 'limberg', 'fecha2');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Documentos`
+--
+
+CREATE TABLE IF NOT EXISTS `Documentos` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`url` varchar(255) NOT NULL,
+`id_tramite` int(11) NOT NULL,
+`nombre` varchar(255) NOT NULL,
+`estado` int(11) NOT NULL,
+PRIMARY KEY (`id`),
+KEY `IXFK_Documentos_Tramite` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `Tramite`
+--
+
+CREATE TABLE IF NOT EXISTS `Tramite` (
+`id` int(11) NOT NULL AUTO_INCREMENT,
+`ci` int(11) NOT NULL,
+`nombre` varchar(255) NOT NULL,
+PRIMARY KEY (`id`),
+KEY `IXci` (`ci`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `Tramite`
+--
+
+INSERT INTO `Tramite` (`id`, `ci`, `nombre`) VALUES
+(1, 321, 'tramite1'),
+(2, 321, 'tramite2');
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `Documentos`
+--
+ALTER TABLE `Documentos`
+ADD CONSTRAINT `FK_Documentos_Tramite` FOREIGN KEY (`id`) REFERENCES `Tramite` (`id`);
+
+--
+-- Filtros para la tabla `Tramite`
+--
+ALTER TABLE `Tramite`
+ADD CONSTRAINT `ci` FOREIGN KEY (`ci`) REFERENCES `Cliente` (`ci`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
