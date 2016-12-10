@@ -66,7 +66,8 @@ class SiteController extends Controller
 
     public function actionMiindex()
     {
-        return $this->renderPartial('miindex');
+        $this->layout = false;
+        return $this->render('miindex');
     }
 
     public function actionPdf()
