@@ -112,40 +112,37 @@
                 <div class="carousel-inner">
                     <div class="item active">
                         <img alt="Carousel Bootstrap First"
-                             src="http://lorempixel.com/output/sports-q-c-1600-500-1.jpg">
+                             src="https://s3-us-west-2.amazonaws.com/fotowebhd/3perfilChilindrina.png3">
                         <div class="carousel-caption">
                             <h4>
-                                First Thumbnail label
+                                MI EVENTO CHILINDRINA
                             </h4>
                             <p>
-                                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
-                                gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                Mi portada la chilindrina
                             </p>
                         </div>
                     </div>
                     <div class="item">
                         <img alt="Carousel Bootstrap Second"
-                             src="http://lorempixel.com/output/sports-q-c-1600-500-2.jpg">
+                             src="https://s3-us-west-2.amazonaws.com/fotowebhd/familia-1.jpg">
                         <div class="carousel-caption">
                             <h4>
-                                Second Thumbnail label
+                                MI EVENTO Familia FELIZ
                             </h4>
                             <p>
-                                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
-                                gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                Mi portada la Familia
                             </p>
                         </div>
                     </div>
                     <div class="item">
                         <img alt="Carousel Bootstrap Third"
-                             src="http://lorempixel.com/output/sports-q-c-1600-500-3.jpg">
+                             src="https://s3-us-west-2.amazonaws.com/fotowebhd/2perfilChavo.jpg2">
                         <div class="carousel-caption">
                             <h4>
-                                Third Thumbnail label
+                                MI EVENTO CHAVO
                             </h4>
                             <p>
-                                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta
-                                gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+                                Mi portada del chavo
                             </p>
                         </div>
                     </div>
