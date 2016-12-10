@@ -35,9 +35,15 @@ class ApiproyfinalController extends Controller
     {
         $req = Yii::$app->request;
         $param = $req->get('id');
-        return new ActiveDataProvider([
+        $activeDataProvider = new ActiveDataProvider([
             'query' => Evento::find()->where(['idEvento' => $param]),
         ]);
+        if ($activeDataProvider->getCount() == 0) {
+            return ['estado' => '2', 'contenido' => "Error"];
+
+        } else {
+            return ['estado' => '1', 'contenido' => $activeDataProvider->getModels()[0]];
+        }
     }
 
     public function actionGeteventosconidcategoria()

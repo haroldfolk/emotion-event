@@ -7,8 +7,8 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
     public $idUsuario;
     public $nombre;
     public $username;
-    public $passwd;
-    public $email;
+    public $password;
+    public $correo;
 
     private static $users = [
         '100' => [
@@ -34,7 +34,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
     public static function findIdentity($id)
     {
         $user = Usuario::find()
-            ->where("idUsuario=:idUsuario", ["idUsuario" => $id])
+            ->where(["idUsuario" => $id])
             ->one();
         return isset($user) ? new static($user) : null;
     }
@@ -98,6 +98,6 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      */
     public function validatePassword($password)
     {
-        return $this->passwd === $password;
+        return $this->password === $password;
     }
 }
