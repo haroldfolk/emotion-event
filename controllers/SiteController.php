@@ -66,8 +66,11 @@ class SiteController extends Controller
 
     public function actionMiindex()
     {
-        $this->layout = false;
-        return $this->render('miindex');
+        $model = new LoginForm();
+
+        return $this->render('miindex', [
+            'model' => $model,
+        ]);
     }
 
     public function actionPdf()

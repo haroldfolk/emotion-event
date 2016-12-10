@@ -7,17 +7,7 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
-        'assetManager' => [
-            'bundles' => [
-                'dosamigos\google\maps\MapAsset' => [
-                    'options' => [
-                        'key' => 'this_is_my_key',
-                        'language' => 'id',
-                        'version' => '3.1.18'
-                    ]
-                ]
-            ]
-        ],
+
         'storage' => [
             'class' => '\jovanialferez\yii2s3\AmazonS3',
             'key' => 'AKIAJSKG6ZA2TV76IOPA',
