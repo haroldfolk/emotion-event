@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
         [
             'language' => 'en-Us', // map language, default is the same as in the app
             'service' => 'google', // map service provider, "google" or "yandex", default "google"
-            'apiKey' => '', // required google maps
+            'apiKey' => 'AIzaSyC32nFjHqKDyKf7haV9OFNeHqUXPj0i7po', // required google maps
 //            'coordinatesDelimiter' => '@', // attribute coordinate string delimiter, default "@" (lat@lng)
             'mapWidth' => '800px', // width map container, default "500px"
             'mapHeight' => '500px', // height map container, default "500px"
