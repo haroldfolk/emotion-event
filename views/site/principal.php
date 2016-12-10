@@ -171,10 +171,10 @@
             <!--                </div>-->
             <!--            </div>-->
 
-            <p class="bg-info">
-            <h2>
-                Eventos a los que asistire!
-            </h2></p>
+            <h2><p class="bg-info">
+
+                    Eventos a los que asistire!
+                </p></h2>
             <div class="list-group">
                 <?php foreach ($eventos as $evento) { ?>
                     <!--                    <a href="#" class="list-group-item">Home</a>-->
@@ -191,11 +191,12 @@
             </p>
         </div>
         <div class="col-md-6">
-
+            <h2>
             <p class="bg-success" align="center">
 
                 NOTICIAS
             </p>
+            </h2>
             <a id="modal-702504" href="#modal-container-702504" role="button" class="btn" data-toggle="modal">Launch
                 demo modal</a>
 
@@ -264,10 +265,10 @@
         </div>
         <div class="col-md-3">
             <div class="list-group">
-                <p class="bg-primary">
-                <h2 align="right">
-                    Categorias!
-                </h2></p>
+                <h2><p class="bg-primary" align="right">
+
+                        Categorias!
+                    </p></h2>
                 <div class="list-group">
                     <?php foreach ($eventos as $evento) { ?>
                         <div class="list-group-item">
