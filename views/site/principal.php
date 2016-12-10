@@ -226,36 +226,18 @@
                                                    class="media-object"></a>
                 <div class="media-body">
                     <h4 class="media-heading">
-                        Nested media heading
-                    </h4> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin
-                    commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
-                    <div class="media">
-                        <a href="#" class="pull-left"><img alt="Bootstrap Media Another Preview"
-                                                           src="http://lorempixel.com/64/64/" class="media-object"></a>
-                        <div class="media-body">
-                            <h4 class="media-heading">
-                                Nested media heading
-                            </h4> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-                            sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
-                        </div>
-                    </div>
+                        Evento Presentacion de Software!
+                    </h4> La presentacion se realizara el 12 de diciembre de 2016 a las 15:15 con el Ing.Martinez
+
                 </div>
             </div>
-            <h2>
-                Heading
-            </h2>
             <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-                euismod. Donec sed odio dui.
-            </p>
-            <p>
-                <a class="btn" href="#">View details »</a>
+                <a class="btn-block" href="#">Subscribirme »</a>
             </p>
         </div>
         <div class="col-md-3">
             <div class="list-group">
-                <h2><p class="bg-primary" align="right">
+                <h2><p class="bg-primary">
 
                         Categorias!
                     </p></h2>
@@ -268,14 +250,7 @@
 
                 </div>
             </div>
-            <h2>
-                Heading
-            </h2>
-            <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-                euismod. Donec sed odio dui.
-            </p>
+
             <p>
                 <a class="btn" href="#">#################</a>
             </p>
