@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -170,9 +170,11 @@
             <!--                    Panel footer-->
             <!--                </div>-->
             <!--            </div>-->
+
+            <p class="bg-info">
             <h2>
                 Eventos a los que asistire!
-            </h2>
+            </h2></p>
             <div class="list-group">
                 <?php foreach ($eventos as $evento) { ?>
                     <!--                    <a href="#" class="list-group-item">Home</a>-->
@@ -189,9 +191,11 @@
             </p>
         </div>
         <div class="col-md-6">
-            <h2>
+
+            <p class="bg-success">
+            <h2 align="center">
                 NOTICIAS
-            </h2>
+            </h2></p>
             <a id="modal-702504" href="#modal-container-702504" role="button" class="btn" data-toggle="modal">Launch
                 demo modal</a>
 
@@ -260,9 +264,10 @@
         </div>
         <div class="col-md-3">
             <div class="list-group">
-                <h2>
-                    Eventos a los que asistire!
-                </h2>
+                <p class="bg-primary">
+                <h2 align="right">
+                    Categorias!
+                </h2></p>
                 <div class="list-group">
                     <?php foreach ($eventos as $evento) { ?>
                         <div class="list-group-item">
