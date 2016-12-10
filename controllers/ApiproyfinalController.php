@@ -102,7 +102,7 @@ class ApiproyfinalController extends Controller
             return ['estado' => '2', 'contenido' => "Error"];
 
         } else {
-            return ['estado' => '1', 'contenido' => $activeDataProvider->getModels()];
+            return ['estado' => '1', 'contenido' => $activeDataProvider->getModels()[0]];
         }
     }
 

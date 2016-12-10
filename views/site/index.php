@@ -62,9 +62,10 @@ $this->title = 'My Yii Application';
     <div class="jumbotron">
         <h1>What's going on SC?</h1>
 
-        <p class="lead">Bienvenido a revision de tramites</p>
-        <img src="https://s3-us-west-2.amazonaws.com/fotowebhd/miportadaproyfinal.png" alt="">
-        <p><a class="btn btn-lg btn-success" href="http://188.166.53.153/evento">Eventos</a></p>
+        <p class="lead">Bienvenido a What's going on SC?</p>
+
+        <p><a href="../evento"><img src="https://s3-us-west-2.amazonaws.com/fotowebhd/miportadaproyfinal.png"
+                                    alt=""></a></p>
     </div>
 
 
