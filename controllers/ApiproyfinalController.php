@@ -81,7 +81,7 @@ class ApiproyfinalController extends Controller
         $param = $req->get('username');
         $param2 = $req->get('password');
         return new ActiveDataProvider([
-            'query' => Evento::find()->where(['username' => $param, 'password' => $param2]),
+            'query' => Usuario::find()->where(['username' => $param, 'password' => $param2]),
         ]);
     }
 
