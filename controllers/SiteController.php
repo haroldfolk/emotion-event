@@ -111,7 +111,7 @@ class SiteController extends Controller
         $categorias = Categoria::find()->all();
         $medias = Multimedia::find()->all();
         return $this->render('principal', [
-            'eventos' => $eventos, 'categorias' => $categorias, 'medias' => $medias,
+            'eventosALL' => $eventosALL, 'eventos' => $eventos, 'categorias' => $categorias, 'medias' => $medias,
         ]);
     }
     /**
