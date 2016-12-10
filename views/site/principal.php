@@ -172,7 +172,7 @@
             </div>
             <div class="list-group">
                 <?php foreach ($eventos as $evento) { ?>
-                    <a href="#" class="list-group-item">Home</a>
+                    <!--                    <a href="#" class="list-group-item">Home</a>-->
                 <div class="list-group-item">
                     <?= $evento->nombre ?>
                 </div>
