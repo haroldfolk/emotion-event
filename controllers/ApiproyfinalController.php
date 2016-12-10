@@ -65,6 +65,14 @@ class ApiproyfinalController extends Controller
         ]);
     }
 
+    public function actionGeteventos()
+    {
+//        $req = Yii::$app->request;
+//        $param = $req->get('id_Organizador');
+        return new ActiveDataProvider([
+            'query' => Evento::find(),
+        ]);
+    }
 
     public function actionGetusuarios()
     {
