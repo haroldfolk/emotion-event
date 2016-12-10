@@ -60,11 +60,11 @@ $this->title = 'My Yii Application';
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>SCAN-HD+PROYFINAL APIPROY</h1>
+        <h1>What's going on SC?</h1>
 
         <p class="lead">Bienvenido a revision de tramites</p>
-        <img src="https://lh3.ggpht.com/9-h08rKp_vomuR_V-fTUFsN1w40gDEtb5srOx9m_bTgIBNeqIk7NKhko4JPxMiFjUPI=w300" alt="">
-        <p><a class="btn btn-lg btn-success" href="http://188.166.53.153/tramite">Ir a Revision</a></p>
+        <img src="https://s3-us-west-2.amazonaws.com/fotowebhd/miportadaproyfinal.png" alt="">
+        <p><a class="btn btn-lg btn-success" href="http://188.166.53.153/evento">Eventos</a></p>
     </div>
 
 

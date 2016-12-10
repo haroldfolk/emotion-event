@@ -90,9 +90,10 @@ class ApiproyfinalController extends Controller
         $req = Yii::$app->request;
         $param = $req->get('username');
         $param2 = $req->get('password');
-        return new ActiveDataProvider([
+        $activeDataProvider = new ActiveDataProvider([
             'query' => Usuario::find()->where(['username' => $param, 'password' => $param2]),
         ]);
+        return ['estado' => '1', 'contenido' => $activeDataProvider->getModels()];
     }
 
 
