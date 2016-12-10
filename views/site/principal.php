@@ -162,7 +162,7 @@
         </div>
 
 
-        <div class="col-md-6">
+        <div class="col-md-9">
             <h2>
                 <p class="bg-success" align="center">
                     NOTICIAS
