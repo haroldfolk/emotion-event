@@ -31,6 +31,10 @@ class Usuario extends \yii\db\ActiveRecord
         return 'usuario';
     }
 
+    public static function findIdentity($id)
+    {
+        return static::findOne($id);
+    }
     public static function findByUsername($username)
     {
         $activeDataProvider = new ActiveDataProvider([

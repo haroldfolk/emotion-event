@@ -2,10 +2,8 @@
 
 namespace app\models;
 
-use phpseclib\System\SSH\Agent\Identity;
 use Yii;
 use yii\base\Model;
-use yii\web\IdentityInterface;
 
 /**
  * LoginForm is the model behind the login form.
@@ -62,8 +60,7 @@ class LoginForm extends Model
     public function login()
     {
         if ($this->validate()) {
-
-            return Yii::$app->user->login([$this->getUser()['username'], $this->getUser()['password']], $this->rememberMe ? 3600 * 24 * 30 : 0);
+            return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
         }
         return false;
     }
