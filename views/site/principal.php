@@ -169,7 +169,7 @@
                 <?php foreach ($eventos as $evento) { ?>
                     <!--                    <a href="#" class="list-group-item">Home</a>-->
                 <div class="list-group-item">
-                    <?= $evento->nombre ?>
+                    <a class="btn" href="#"><?= $evento->nombre ?></a>
                 </div>
                 <?php } ?>
 
@@ -260,9 +260,9 @@
                         Categorias!
                     </p></h2>
                 <div class="list-group">
-                    <?php foreach ($eventos as $evento) { ?>
+                    <?php foreach ($categorias as $categoria) { ?>
                         <div class="list-group-item">
-                            <?= $evento->nombre ?>
+                            <a class="btn" href="#"><?= $categoria->nombre ?></a>
                         </div>
                     <?php } ?>
 
