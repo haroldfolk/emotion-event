@@ -192,10 +192,10 @@
         </div>
         <div class="col-md-6">
 
-            <p class="bg-success">
-            <h2 align="center">
+            <p class="bg-success" align="center">
+
                 NOTICIAS
-            </h2></p>
+            </p>
             <a id="modal-702504" href="#modal-container-702504" role="button" class="btn" data-toggle="modal">Launch
                 demo modal</a>
 
