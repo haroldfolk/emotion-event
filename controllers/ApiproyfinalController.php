@@ -73,7 +73,11 @@ class ApiproyfinalController extends Controller
         $activeDataProvider = new ActiveDataProvider([
             'query' => Evento::find(),
         ]);
-        return ['estado' => '1', 'contenido' => $activeDataProvider->getModels()];
+        if ($activeDataProvider->getCount() == 0) {
+            return ['estado' => '1', 'contenido' => $activeDataProvider->getModels()];
+        } else {
+            return ['estado' => '2', 'contenido' => "Error"];
+        }
     }
 
     public function actionGetusuarios()
@@ -93,7 +97,11 @@ class ApiproyfinalController extends Controller
         $activeDataProvider = new ActiveDataProvider([
             'query' => Usuario::find()->where(['username' => $param, 'password' => $param2]),
         ]);
+        if ($activeDataProvider->getCount() == 0) {
         return ['estado' => '1', 'contenido' => $activeDataProvider->getModels()];
+        } else {
+            return ['estado' => '2', 'contenido' => "Error"];
+        }
     }
 
 
