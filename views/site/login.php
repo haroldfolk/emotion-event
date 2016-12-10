@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
     ]); ?>
 
     <?= $form->field($model, 'username')->widget(
-        MapInput::className(),
+        \msvdev\widgets\mappicker\MapInput::className(),
         [
             'language' => 'en-Us', // map language, default is the same as in the app
             'service' => 'google', // map service provider, "google" or "yandex", default "google"
