@@ -113,7 +113,7 @@
                     <div class="item active">
                         <img alt="Carousel Bootstrap First"
                              src="https://s3-us-west-2.amazonaws.com/fotowebhd/3perfilChilindrina.png3"
-                             style="width:640px;height:360px">
+                             style="width:500px;height:250px">
                         <div class="carousel-caption">
                             <h4>
                                 MI EVENTO CHILINDRINA
@@ -126,7 +126,7 @@
                     <div class="item">
                         <img alt="Carousel Bootstrap Second"
                              src="https://s3-us-west-2.amazonaws.com/fotowebhd/familia-1.jpg"
-                             style="width:640px;height:360px">
+                             style="width:500px;height:250px">
                         <div class="carousel-caption">
                             <h4>
                                 MI EVENTO Familia FELIZ
@@ -139,7 +139,7 @@
                     <div class="item">
                         <img alt="Carousel Bootstrap Third"
                              src="https://s3-us-west-2.amazonaws.com/fotowebhd/2perfilChavo.jpg2"
-                             style="width:640px;height:360px">
+                             style="width:500px;height:250px">
                         <div class="carousel-caption">
                             <h4>
                                 MI EVENTO CHAVO
