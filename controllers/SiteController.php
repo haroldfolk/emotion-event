@@ -63,6 +63,12 @@ class SiteController extends Controller
     {
         return $this->render('index');
     }
+
+    public function actionMiindex()
+    {
+        return $this->renderPartial('miindex');
+    }
+
     public function actionPdf()
     {
         $pdf = new FPDF();
