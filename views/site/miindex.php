@@ -10,7 +10,7 @@
     <title>Google Maps Localizador</title>
 
     <script src="https://maps.googleapis.com/maps/api/js"></script>
-    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <!--    <link rel="stylesheet" type="text/css" href="estilos.css">-->
 
 </head>
 <body>
