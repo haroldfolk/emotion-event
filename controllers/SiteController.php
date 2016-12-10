@@ -101,7 +101,7 @@ class SiteController extends Controller
     }
     public function actionPrincipal()
     {
-        $this->layout = false;
+//        $this->layout = false;
         $eventos = new ActiveDataProvider([
             'query' => Evento::find(),
         ]);
