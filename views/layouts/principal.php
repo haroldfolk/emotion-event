@@ -24,18 +24,18 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
+
 
 
     <?= $content ?>
 
-</div>
+
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; SCAN-HD Ing. de Software 1 <?= date('Y') ?></p>
+        <p class="pull-left">&copy; What's going on SC? Ing. de Software 1 <?= date('Y') ?></p>
 
-        <p class="pull-right">HAROLD SALCES</p>
+        <p class="pull-right">UAGRM-FICCT</p>
     </div>
 </footer>
 
