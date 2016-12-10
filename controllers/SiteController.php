@@ -102,7 +102,8 @@ class SiteController extends Controller
     }
     public function actionPrincipal()
     {
-
+        print_r(Yii::$app->homeUrl);
+        exit();
         if (Yii::$app->user->isGuest) {
             return $this->redirect(['index']);
         }
