@@ -4,11 +4,11 @@ namespace app\models;
 
 class User extends \yii\base\Object implements \yii\web\IdentityInterface
 {
-    public $id;
+    public $idUsuario;
+    public $nombre;
     public $username;
-    public $password;
-    public $authKey;
-    public $accessToken;
+    public $passwd;
+    public $email;
 
     private static $users = [
         '100' => [
@@ -33,7 +33,10 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      */
     public static function findIdentity($id)
     {
-        return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
+        $user = Usuario::find()
+            ->where("idUsuario=:idUsuario", ["idUsuario" => $id])
+            ->one();
+        return isset($user) ? new static($user) : null;
     }
 
     /**
@@ -41,13 +44,6 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        foreach (self::$users as $user) {
-            if ($user['accessToken'] === $token) {
-                return new static($user);
-            }
-        }
-
-        return null;
     }
 
     /**
@@ -58,8 +54,11 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      */
     public static function findByUsername($username)
     {
-        foreach (self::$users as $user) {
-            if (strcasecmp($user['username'], $username) === 0) {
+        $users = Usuario::find()
+            ->where("username=:username", ["username" => $username])
+            ->all();
+        foreach ($users as $user) {
+            if (strcasecmp($user->username, $username) === 0) {
                 return new static($user);
             }
         }
@@ -72,7 +71,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      */
     public function getId()
     {
-        return $this->id;
+        return $this->idUsuario;
     }
 
     /**
@@ -80,7 +79,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      */
     public function getAuthKey()
     {
-        return $this->authKey;
+//        return $this->authKey;
     }
 
     /**
@@ -88,17 +87,17 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
      */
     public function validateAuthKey($authKey)
     {
-        return $this->authKey === $authKey;
+//        return $this->authKey === $authKey;
     }
 
     /**
      * Validates password
      *
      * @param string $password password to validate
-     * @return bool if password provided is valid for current user
+     * @return boolean if password provided is valid for current user
      */
     public function validatePassword($password)
     {
-        return $this->password === $password;
+        return $this->passwd === $password;
     }
 }
