@@ -102,12 +102,13 @@ class SiteController extends Controller
     }
     public function actionPrincipal()
     {
+
         if (Yii::$app->user->isGuest) {
             return $this->redirect(['index']);
         }
         $eventosDelUsuario = UsuarioEvento::find()->addSelect(["id_Evento"])->where(["id_Usuario" => Yii::$app->user->getId()]);
         $eventos = Evento::findAll($eventosDelUsuario);
-
+        $eventosALL = Evento::find()->all();
         $categorias = Categoria::find()->all();
         $medias = Multimedia::find()->all();
         return $this->render('principal', [

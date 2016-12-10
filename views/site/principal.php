@@ -226,7 +226,7 @@
 
 
             <div class="media">
-                <a href="#" class="pull-left"><img alt="Bootstrap Media Preview" src="http://lorempixel.com/64/64/"
+                <a href="#" class="pull-left"><img alt="Bootstrap Media Preview" src="http://lorempixel.com/200/200/"
                                                    class="media-object"></a>
                 <div class="media-body">
                     <h4 class="media-heading">
