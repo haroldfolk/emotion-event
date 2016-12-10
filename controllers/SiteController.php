@@ -65,6 +65,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect(['principal']);
+        }
         return $this->render('index');
     }
 
@@ -108,7 +111,7 @@ class SiteController extends Controller
         $medias = new ActiveDataProvider([
             'query' => Multimedia::find(),
         ]);
-        return $this->render('index', [
+        return $this->render('principal', [
             'eventos' => $eventos, 'categorias' => $categorias, 'medias' => $medias,
         ]);
     }
