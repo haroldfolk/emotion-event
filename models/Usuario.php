@@ -8,7 +8,7 @@ use Yii;
  * This is the model class for table "usuario".
  *
  * @property integer $idUsuario
- * @property integer $nombre
+ * @property string $nombre
  * @property integer $edad
  * @property string $telefono
  * @property string $correo
@@ -37,8 +37,8 @@ class Usuario extends \yii\db\ActiveRecord
     {
         return [
             [['nombre', 'telefono', 'username', 'password'], 'required'],
-            [['nombre', 'edad'], 'integer'],
-            [['telefono', 'correo', 'username', 'password'], 'string', 'max' => 255],
+            [['edad'], 'integer'],
+            [['nombre', 'telefono', 'correo', 'username', 'password'], 'string', 'max' => 255],
         ];
     }
 

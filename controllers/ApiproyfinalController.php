@@ -75,6 +75,16 @@ class ApiproyfinalController extends Controller
         ]);
     }
 
+    public function actionGetlogin()
+    {
+        $req = Yii::$app->request;
+        $param = $req->get('username');
+        $param2 = $req->get('password');
+        return new ActiveDataProvider([
+            'query' => Evento::find()->where(['username' => $param, 'password' => $param2]),
+        ]);
+    }
+
     public function actionGetcategorias()
     {
         return new ActiveDataProvider([
