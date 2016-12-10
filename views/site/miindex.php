@@ -7,5 +7,5 @@ echo Map::widget([
     'center' => [20, 40.555],
     'width' => '700px',
     'height' => '400px',
-    'mapType' => Map::MAP_TYPE_HYBRID,
+    'mapType' => Map::MAP_TYPE_ROADMAP,
 ]);
