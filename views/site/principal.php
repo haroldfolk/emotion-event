@@ -156,7 +156,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">
@@ -171,22 +171,13 @@
                 </div>
             </div>
             <div class="list-group">
-                <a href="#" class="list-group-item active">Home</a>
+                <?php foreach ($eventos as $evento) { ?>
+                    <a href="#" class="list-group-item">Home</a>
                 <div class="list-group-item">
-                    List header
+                    <?= $evento->nombre ?>
                 </div>
-                <div class="list-group-item">
-                    <h4 class="list-group-item-heading">
-                        List group item heading
-                    </h4>
-                    <p class="list-group-item-text">
-                        ...
-                    </p>
-                </div>
-                <div class="list-group-item">
-                    <span class="badge">14</span>Help
-                </div>
-                <a class="list-group-item active"><span class="badge">14</span>Help</a>
+                <?php } ?>
+
             </div>
             <h2>
                 Heading
@@ -200,7 +191,7 @@
                 <a class="btn" href="#">View details »</a>
             </p>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
             <a id="modal-702504" href="#modal-container-702504" role="button" class="btn" data-toggle="modal">Launch
                 demo modal</a>
 
@@ -267,7 +258,7 @@
                 <a class="btn" href="#">View details »</a>
             </p>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="list-group">
                 <a href="#" class="list-group-item active">Home</a>
                 <div class="list-group-item">
