@@ -2,8 +2,12 @@
 
 namespace app\controllers;
 
+use app\models\Categoria;
+use app\models\Evento;
+use app\models\Multimedia;
 use fpdf\FPDF;
 use Yii;
+use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -99,7 +103,7 @@ class SiteController extends Controller
             'query' => Evento::find(),
         ]);
         $categorias = new ActiveDataProvider([
-            'query' => Categorias::find(),
+            'query' => Categoria::find(),
         ]);
         $medias = new ActiveDataProvider([
             'query' => Multimedia::find(),
