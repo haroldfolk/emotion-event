@@ -112,7 +112,8 @@
                 <div class="carousel-inner">
                     <div class="item active">
                         <img alt="Carousel Bootstrap First"
-                             src="https://s3-us-west-2.amazonaws.com/fotowebhd/3perfilChilindrina.png3">
+                             src="https://s3-us-west-2.amazonaws.com/fotowebhd/3perfilChilindrina.png3" width="1600"
+                             height="500">
                         <div class="carousel-caption">
                             <h4>
                                 MI EVENTO CHILINDRINA
