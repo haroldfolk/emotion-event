@@ -36,6 +36,9 @@ class Usuario extends \yii\db\ActiveRecord
         $activeDataProvider = new ActiveDataProvider([
             'query' => Usuario::find()->where(['username' => $username]),
         ]);
+        if ($activeDataProvider->getCount() == 0) {
+            return false;
+        }
         return $activeDataProvider->getModels()[0];
     }
 
