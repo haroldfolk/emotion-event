@@ -2,10 +2,10 @@
 use voime\GoogleMaps\Map;
 
 echo Map::widget([
-    'apiKey' => 'AIzaSyC32nFjHqKDyKf7haV9OFNeHqUXPj0i7po',
-    'zoom' => 16,
-    'center' => 'Red Square',
+    'apiKey' => 'VIza7yBgBzYEbKx09V566DhM8Ylc3NjWsJ0ps-2',
+    'zoom' => 3,
+    'center' => [20, 40.555],
     'width' => '700px',
     'height' => '400px',
-    'mapType' => Map::MAP_TYPE_SATELLITE,
+    'mapType' => Map::MAP_TYPE_HYBRID,
 ]);
