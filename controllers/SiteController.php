@@ -108,8 +108,8 @@ class SiteController extends Controller
         $eventosDelUsuario = UsuarioEvento::find()->addSelect(["id_Evento"])->where(["id_Usuario" => Yii::$app->user->getId()]);
         $eventos = Evento::findAll($eventosDelUsuario);
 
-        $categorias = Categoria::findAll();
-        $medias = Multimedia::findAll();
+        $categorias = Categoria::find()->all();
+        $medias = Multimedia::find()->all();
         return $this->render('principal', [
             'eventos' => $eventos, 'categorias' => $categorias, 'medias' => $medias,
         ]);
