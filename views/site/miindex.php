@@ -2,7 +2,7 @@
 use voime\GoogleMaps\Map;
 
 echo Map::widget([
-    'apiKey' => 'VIza7yBgBzYEbKx09V566DhM8Ylc3NjWsJ0ps-2',
+    'apiKey' => 'AIzaSyCA5DAyiiDSD8IJuQLnIpRDmkgGM-wZLfc',
     'zoom' => 3,
     'center' => [20, 40.555],
     'width' => '700px',
