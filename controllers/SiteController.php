@@ -102,16 +102,14 @@ class SiteController extends Controller
     }
     public function actionPrincipal()
     {
-
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect(['index']);
+        }
         $eventosDelUsuario = UsuarioEvento::find()->addSelect(["id_Evento"])->where(["id_Usuario" => Yii::$app->user->getId()]);
         $eventos = Evento::findAll($eventosDelUsuario);
 
-        $categorias = new ActiveDataProvider([
-            'query' => Categoria::find(),
-        ]);
-        $medias = new ActiveDataProvider([
-            'query' => Multimedia::find(),
-        ]);
+        $categorias = Categoria::find();
+        $medias = Multimedia::find();
         return $this->render('principal', [
             'eventos' => $eventos, 'categorias' => $categorias, 'medias' => $medias,
         ]);

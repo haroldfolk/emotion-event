@@ -170,6 +170,9 @@
                     Panel footer
                 </div>
             </div>
+            <h2>
+                Eventos a los que asistire!
+            </h2>
             <div class="list-group">
                 <?php foreach ($eventos as $evento) { ?>
                     <!--                    <a href="#" class="list-group-item">Home</a>-->
@@ -179,16 +182,10 @@
                 <?php } ?>
 
             </div>
-            <h2>
-                Heading
-            </h2>
+
+
             <p>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
-                euismod. Donec sed odio dui.
-            </p>
-            <p>
-                <a class="btn" href="#">View details »</a>
+                <a class="btn" href="#">########## »</a>
             </p>
         </div>
         <div class="col-md-4">
