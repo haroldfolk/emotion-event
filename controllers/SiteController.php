@@ -103,7 +103,7 @@ class SiteController extends Controller
     public function actionPrincipal()
     {
 
-        $eventosDelUsuario = UsuarioEvento::find("id_Evento")->where(["id_Usuario" => Yii::$app->user->getId()]);
+        $eventosDelUsuario = UsuarioEvento::find()->addSelect("id_Evento")->where(["id_Usuario" => Yii::$app->user->getId()]);
         $eventos = new ActiveDataProvider([
             'query' => Evento::findAll($eventosDelUsuario),
         ]);
