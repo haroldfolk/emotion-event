@@ -98,7 +98,7 @@ class ApiproyfinalController extends Controller
         $activeDataProvider = new ActiveDataProvider([
             'query' => Usuario::find()->where(['username' => $param, 'password' => $param2]),
         ]);
-        if ($activeDataProvider == null) {
+        if ($activeDataProvider->getCount() == 0) {
             return ['estado' => '2', 'contenido' => "Error"];
 
         } else {
