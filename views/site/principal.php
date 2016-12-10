@@ -20,14 +20,11 @@
     <div class="row">
         <div class="col-md-12">
             <nav class="navbar navbar-default" role="navigation">
-                <div class="navbar-header">
 
-
-                </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-                    <form class="navbar-form navbar-left" role="search">
+                    <form class="navbar-form navbar-form" role="search">
                         <div class="form-group">
                             <input type="text" class="form-control">
                         </div>
