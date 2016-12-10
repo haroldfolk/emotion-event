@@ -64,14 +64,14 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
-    public function actionMiindex()
-    {
-        $model = new LoginForm();
-
-        return $this->render('miindex', [
-            'model' => $model,
-        ]);
-    }
+//    public function actionMiindex()
+//    {
+//        $model = new LoginForm();
+//
+//        return $this->render('miindex', [
+//            'model' => $model,
+//        ]);
+//    }
 
     public function actionPdf()
     {
@@ -93,6 +93,21 @@ class SiteController extends Controller
         exit;
     }
 
+    public function actionPrincipal()
+    {
+        $eventos = new ActiveDataProvider([
+            'query' => Evento::find(),
+        ]);
+        $categorias = new ActiveDataProvider([
+            'query' => Categorias::find(),
+        ]);
+        $medias = new ActiveDataProvider([
+            'query' => Multimedia::find(),
+        ]);
+        return $this->render('index', [
+            'eventos' => $eventos, 'categorias' => $categorias, 'medias' => $medias,
+        ]);
+    }
     /**
      * Login action.
      *
@@ -101,7 +116,7 @@ class SiteController extends Controller
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+            return $this->redirect(['principal']);
         }
 
         $model = new LoginForm();
