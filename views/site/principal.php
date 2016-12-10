@@ -161,16 +161,49 @@
     <div class="row">
         <div class="col-md-3">
 
-            <h2><p class="bg-info">
+            <h3><p class="bg-info">
 
-                    Eventos a los que asistire!
-                </p></h2>
+                    Eventos suscritos
+                </p></h3>
             <div class="list-group">
                 <?php foreach ($eventos as $evento) { ?>
                     <!--                    <a href="#" class="list-group-item">Home</a>-->
                 <div class="list-group-item">
-                    <a class="btn" href="#"><?= $evento->nombre ?></a>
+                    <a id="modal-702504" href="#<?= $evento->idEvento ?>" role="button" class="btn"
+                       data-toggle="modal"><?= $evento->nombre ?></a>
                 </div>
+
+
+                    <div class="modal fade" id="<?= $evento->idEvento ?>" role="dialog" aria-labelledby="myModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        ×
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">
+                                        Informacion del Evento <?= $evento->idEvento ?>
+                                    </h4>
+                                </div>
+                                <div class="modal-body">
+
+                                </div>
+                                <div class="modal-footer">
+
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                                        Close
+                                    </button>
+                                    <button type="button" class="btn btn-primary">
+                                        Save changes
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
                 <?php } ?>
 
             </div>
@@ -187,39 +220,7 @@
                 NOTICIAS
             </p>
             </h2>
-            <a id="modal-702504" href="#modal-container-702504" role="button" class="btn" data-toggle="modal">Launch
-                demo modal</a>
 
-            <div class="modal fade" id="modal-container-702504" role="dialog" aria-labelledby="myModalLabel"
-                 aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                ×
-                            </button>
-                            <h4 class="modal-title" id="myModalLabel">
-                                Modal title
-                            </h4>
-                        </div>
-                        <div class="modal-body">
-                            ...
-                        </div>
-                        <div class="modal-footer">
-
-                            <button type="button" class="btn btn-default" data-dismiss="modal">
-                                Close
-                            </button>
-                            <button type="button" class="btn btn-primary">
-                                Save changes
-                            </button>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
 
             <div class="media">
                 <a href="#" class="pull-left"><img alt="Bootstrap Media Preview" src="http://lorempixel.com/64/64/"
@@ -237,10 +238,10 @@
         </div>
         <div class="col-md-3">
             <div class="list-group">
-                <h2><p class="bg-primary">
+                <h3><p class="bg-primary">
 
                         Categorias!
-                    </p></h2>
+                    </p></h3>
                 <div class="list-group">
                     <?php foreach ($categorias as $categoria) { ?>
                         <div class="list-group-item">
