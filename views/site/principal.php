@@ -20,16 +20,24 @@
     <div class="row">
         <div class="col-md-12">
             <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
 
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
+                            class="icon-bar"></span><span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Buscar Eventos</a>
+                </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-                    <form class="navbar-form navbar-form" role="search">
+                    <form class="navbar-form navbar-left" role="search">
                         <div class="form-group">
                             <input type="text" class="form-control">
                         </div>
                         <button type="submit" class="btn btn-default">
-                            Buscar Evento
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                         </button>
                     </form>
 
