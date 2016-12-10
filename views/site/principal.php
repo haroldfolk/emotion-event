@@ -189,6 +189,9 @@
             </p>
         </div>
         <div class="col-md-6">
+            <h2>
+                NOTICIAS
+            </h2>
             <a id="modal-702504" href="#modal-container-702504" role="button" class="btn" data-toggle="modal">Launch
                 demo modal</a>
 
@@ -257,22 +260,17 @@
         </div>
         <div class="col-md-3">
             <div class="list-group">
-                <a href="#" class="list-group-item active">Home</a>
-                <div class="list-group-item">
-                    List header
+                <h2>
+                    Eventos a los que asistire!
+                </h2>
+                <div class="list-group">
+                    <?php foreach ($eventos as $evento) { ?>
+                        <div class="list-group-item">
+                            <?= $evento->nombre ?>
+                        </div>
+                    <?php } ?>
+
                 </div>
-                <div class="list-group-item">
-                    <h4 class="list-group-item-heading">
-                        List group item heading
-                    </h4>
-                    <p class="list-group-item-text">
-                        ...
-                    </p>
-                </div>
-                <div class="list-group-item">
-                    <span class="badge">14</span>Help
-                </div>
-                <a class="list-group-item active"><span class="badge">14</span>Help</a>
             </div>
             <h2>
                 Heading
@@ -283,7 +281,7 @@
                 euismod. Donec sed odio dui.
             </p>
             <p>
-                <a class="btn" href="#">View details »</a>
+                <a class="btn" href="#">#################</a>
             </p>
         </div>
     </div>
