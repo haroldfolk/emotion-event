@@ -43,10 +43,10 @@ class UploadForm extends Model
                 $file->saveAs($path);
                 $url = $storage->uploadFile($path, "ProyFinalH" . date("Ymd") . time() . "");
 //                $json = $this->identificarMicrosoft($url);
-                print_r("antes de multimedia" . $url);
-                exit();
-                $modelFoto = new Multimedia();
 
+                $modelFoto = new Multimedia();
+                print_r("despues de new multimedia" . $url);
+                exit();
                 $modelFoto->nombre = "Foto";
                 $modelFoto->path = $url;
                 $modelFoto->id_Usuario = 0;
