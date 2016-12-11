@@ -117,13 +117,14 @@ class UploadForm extends Model
                         $model->valor = $valorEmo;
 
                         $model->id_Evento = $idEv;
+                        if ($model->validate()) {
+                            $model->save();
+
+                        }
                     }
 
 
-                    if ($model->validate()) {
-                        $model->save();
 
-                    }
 
                 }
                 return true;
