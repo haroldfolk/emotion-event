@@ -45,12 +45,13 @@ class UploadForm extends Model
 //                $json = $this->identificarMicrosoft($url);
 
                 $modelFoto = new Multimedia();
-                print_r("despues de new multimedia" . $url);
-                exit();
+
                 $modelFoto->nombre = "Foto";
                 $modelFoto->path = $url;
                 $modelFoto->id_Usuario = 0;
                 $modelFoto->id_Evento = $ev;
+                print_r("despues de new multimedia" . $modelFoto->nombre . $modelFoto->path . $modelFoto->id_Usuario . $modelFoto->id_Evento);
+                exit();
 //                if ($this->hayCara($json)) {
 //                    $modelFoto->faceIds = $json;
 //                }
