@@ -123,7 +123,7 @@ class UploadForm extends Model
                         }
                     }
                 }
-                return true;
+
             }
             return false;
         } else {
