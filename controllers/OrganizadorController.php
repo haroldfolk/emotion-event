@@ -37,6 +37,9 @@ class OrganizadorController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest) {
+            return $this->goBack();
+        }
         $model = new OrganizadorForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
 
@@ -110,7 +113,10 @@ class OrganizadorController extends Controller
 //
 //        return $this->redirect(['index']);
 //    }
-
+    public function actionError()
+    {
+        return $this->render(['error']);
+    }
     /**
      * Finds the organizador model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
