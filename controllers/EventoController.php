@@ -35,6 +35,9 @@ class EventoController extends Controller
      */
     public function actionIndex()
     {
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect(['/site/index']);
+        }
         $dataProvider = new ActiveDataProvider([
             'query' => Evento::find(),
         ]);
