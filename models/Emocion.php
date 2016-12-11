@@ -8,6 +8,7 @@ use Yii;
  * This is the model class for table "emocion".
  *
  * @property integer $idEmocion
+ * @property string $name
  * @property double $anger
  * @property double $contempt
  * @property double $disgust
@@ -39,6 +40,7 @@ class Emocion extends \yii\db\ActiveRecord
             [['anger', 'contempt', 'disgust', 'fear', 'happiness', 'neutral', 'sadness', 'surprise', 'id_Multimedia'], 'required'],
             [['anger', 'contempt', 'disgust', 'fear', 'happiness', 'neutral', 'sadness', 'surprise'], 'number'],
             [['id_Multimedia'], 'integer'],
+            [['name'], 'string', 'max' => 255],
             [['id_Multimedia'], 'exist', 'skipOnError' => true, 'targetClass' => Evento::className(), 'targetAttribute' => ['id_Multimedia' => 'idEvento']],
         ];
     }
@@ -50,6 +52,7 @@ class Emocion extends \yii\db\ActiveRecord
     {
         return [
             'idEmocion' => 'Id Emocion',
+            'name' => 'Name',
             'anger' => 'Anger',
             'contempt' => 'Contempt',
             'disgust' => 'Disgust',
