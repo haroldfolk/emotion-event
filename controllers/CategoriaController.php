@@ -53,7 +53,7 @@ class CategoriaController extends Controller
     public function actionView($id)
     {
 
-        $eventos = Evento::findAll(['idCategoria' => $id]);
+        $eventos = Evento::findAll(['id_Categoria' => $id]);
         return $this->render('view', [
             'eventos' => $eventos,
         ]);
