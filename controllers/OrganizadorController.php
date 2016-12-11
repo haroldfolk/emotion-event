@@ -4,7 +4,7 @@ namespace app\controllers;
 
 use app\models\Evento;
 use Yii;
-use app\models\organizador;
+use app\models\Organizador;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

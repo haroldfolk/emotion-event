@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Evento;
 use Yii;
 use app\models\Categoria;
 use yii\data\ActiveDataProvider;

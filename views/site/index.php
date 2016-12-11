@@ -64,8 +64,8 @@ $this->title = 'My Yii Application';
 
         <p class="lead">Bienvenido a What's going on SC?</p>
 
-        <p><a href="login"><img src="https://s3-us-west-2.amazonaws.com/fotowebhd/miportadaproyfinal.png"
-                                alt=""></a></p>
+        <p><a href="/site/login"><img src="https://s3-us-west-2.amazonaws.com/fotowebhd/miportadaproyfinal.png"
+                                      alt=""></a></p>
     </div>
 
 
