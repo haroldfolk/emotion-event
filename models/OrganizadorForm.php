@@ -41,6 +41,7 @@ class OrganizadorForm extends Model
      */
     public function login()
     {
+        $this->id = $this->getUser();
         if ($this->_user != 0) {
             return true;
         }
@@ -54,10 +55,9 @@ class OrganizadorForm extends Model
      */
     public function getUser()
     {
-        if ($this->_user === false) {
+        if ($this->_user == 0) {
             $this->_user = Organizador::findOne(['idOrganizador' => $this->id])->idOrganizador;
         }
-
         return $this->_user;
     }
 }

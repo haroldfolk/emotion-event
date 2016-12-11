@@ -42,8 +42,7 @@ class OrganizadorController extends Controller
 
             return $this->redirect(['view', 'id' => $model->id]);
         }
-        return $this->render('index' .
-            '', [
+        return $this->render('index', [
             'model' => $model,
         ]);
     }
