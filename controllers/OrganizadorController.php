@@ -56,7 +56,7 @@ class OrganizadorController extends Controller
             return $this->render('error');
         }
 
-        return $this->redirect(['view', 'idEvento' => $idEvento, 'idOrg' => $idOrg]);
+        return $this->redirect(['/evento/upload', 'idEvento' => $idEvento, 'idOrg' => $idOrg]);
     }
     /**
      * Displays a single organizador model.
