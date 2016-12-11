@@ -82,7 +82,7 @@ class UploadForm extends Model
         return null;
     }
 
-    public function ejecutarEmocionApi($urlToMicrosoft)
+    public function ejecutarEmocionApi($urlToMicrosoft = null)
     {
         $client = new Client();
         $response = $client->createRequest()
