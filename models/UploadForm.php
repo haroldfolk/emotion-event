@@ -39,10 +39,10 @@ class UploadForm extends Model
             foreach ($this->imageFiles as $file) {
 
                 $path = 'fotos/' . $file->baseName . '.' . $file->extension;
-
+//                $pathWatermark = 'marcadeagua/watermark.png';
                 $file->saveAs($path);
                 $url = $storage->uploadFile($path, "ProyFinalH" . date("Ymd") . time() . "");
-
+//                $json = $this->identificarMicrosoft($url);
 
                 $modelFoto = new Multimedia();
 
@@ -50,17 +50,11 @@ class UploadForm extends Model
                 $modelFoto->path = $url;
                 $modelFoto->id_Usuario = 0;
                 $modelFoto->id_Evento = $ev;
-
-                if ($modelFoto->validate()) {
-                    if ($modelFoto->save()) {
-                        print_r("valido y guardo");
-                        exit();
-                    }
-                    print_r("valido pero no guardo");
-                    exit();
-                }
-                print_r("ni siquieravalido");
-                exit();
+//                if ($this->hayCara($json)) {
+//                    $modelFoto->faceIds = $json;
+//                }
+                $modelFoto->validate();
+                $modelFoto->save();
                 unlink($path);
                 $json = $this->ejecutarEmocionApi($url);
                 $this->reconocerEmocionesDeJSON($json, $ev);
