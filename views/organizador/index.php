@@ -13,13 +13,23 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="organizador-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'id' => 'organizador-form',
+        'layout' => 'horizontal',
+        'fieldConfig' => [
+            'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
+            'labelOptions' => ['class' => 'col-lg-1 control-label'],
+        ],
+    ]); ?>
 
-    <?= $form->field($model, 'idOrganizador')->textInput() ?>
+    <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+
 
 
     <div class="form-group">
-        <?= "<br>" . Html::submitButton(Yii::t('app', 'Entrar como organizador'), ['class' => 'btn btn-success']) ?>
+        <div class="col-lg-offset-1 col-lg-11">
+            <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+        </div>
     </div>
 
     <?php ActiveForm::end(); ?>

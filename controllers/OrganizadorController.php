@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Evento;
+use app\models\OrganizadorForm;
 use Yii;
 use app\models\Organizador;
 use yii\data\ActiveDataProvider;
@@ -36,19 +37,13 @@ class OrganizadorController extends Controller
      */
     public function actionIndex()
     {
-        $model = new Organizador();
-        $req = Yii::$app->request;
-        $model->load($req->post());
-        $param = $model->idOrganizador;
-        if ($param != null) {
-            return $this->render('view', [
-                'id' => $param,
-        ]);
+        $model = new OrganizadorForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+
+            return $this->redirect(['view', 'id' => $model->id]);
         }
-
-
-        $model = new Organizador();
-        return $this->render('index', [
+        return $this->render('index' .
+            '', [
             'model' => $model,
         ]);
     }
