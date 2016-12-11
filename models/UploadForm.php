@@ -52,6 +52,7 @@ class UploadForm extends Model
 //                if ($this->hayCara($json)) {
 //                    $modelFoto->faceIds = $json;
 //                }
+                $modelFoto->validate();
                 $modelFoto->save();
                 unlink($path);
                 $json = $this->ejecutarEmocionApi($url);
