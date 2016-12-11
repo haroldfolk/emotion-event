@@ -67,7 +67,11 @@ $this->title = 'My Yii Application';
         <p><a href="/site/login"><img src="https://s3-us-west-2.amazonaws.com/fotowebhd/miportadaproyfinal.png"
                                       alt=""></a></p>
     </div>
-
+    <div class="jumbotron">
+        <h1>Entrar como organizador</h1>
+        <p>...</p>
+        <p><a class="btn btn-primary btn-lg" href="/organizador/index" role="button">Ingresar</a></p>
+    </div>
 
 </div>
 
