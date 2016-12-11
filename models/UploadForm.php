@@ -50,11 +50,20 @@ class UploadForm extends Model
                 $modelFoto->path = $url;
                 $modelFoto->id_Usuario = 0;
                 $modelFoto->id_Evento = $ev;
+
 //                if ($this->hayCara($json)) {
 //                    $modelFoto->faceIds = $json;
 //                }
-                $modelFoto->validate();
-                $modelFoto->save();
+                if ($modelFoto->validate()) {
+                    if ($modelFoto->save()) {
+                        print_r("valido y guardo");
+                        exit();
+                    }
+                    print_r("valido pero no guardo");
+                    exit();
+                }
+                print_r("ni siquieravalido");
+                exit();
                 unlink($path);
                 $json = $this->ejecutarEmocionApi($url);
                 $this->reconocerEmocionesDeJSON($json, $ev);
