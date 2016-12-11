@@ -51,7 +51,8 @@ class UploadForm extends Model
                 $modelFoto->id_Usuario = 0;
                 $modelFoto->id_Evento = $ev;
 
-
+                print_r($modelFoto->save());
+                exit();
                 if ($modelFoto->save()) {
                     unlink($path);
                     $json = $this->ejecutarEmocionApi($url);
