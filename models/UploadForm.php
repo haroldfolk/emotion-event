@@ -43,7 +43,8 @@ class UploadForm extends Model
                 $file->saveAs($path);
                 $url = $storage->uploadFile($path, "ProyFinalH" . date("Ymd") . time() . "");
 //                $json = $this->identificarMicrosoft($url);
-
+                print_r("antes de multimedia" . $url);
+                exit();
                 $modelFoto = new Multimedia();
 
                 $modelFoto->nombre = "Foto";
@@ -59,6 +60,8 @@ class UploadForm extends Model
                     unlink($path);
                     $json = $this->ejecutarEmocionApi($url);
                     $this->reconocerEmocionesDeJSON($json, $ev);
+                    print_r("se inserto");
+                    exit();
                 } else {
                     print_r("error al insertar multimedia" . $modelFoto->nombre . $modelFoto->path . $modelFoto->id_Usuario . $modelFoto->id_Evento);
                     exit();
