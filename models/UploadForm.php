@@ -51,7 +51,7 @@ class UploadForm extends Model
                 $modelFoto->id_Usuario = 0;
                 $modelFoto->id_Evento = $ev;
 
-                print_r($modelFoto->save());
+                print_r($modelFoto->validate());
                 exit();
                 if ($modelFoto->save()) {
                     unlink($path);
