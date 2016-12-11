@@ -37,7 +37,7 @@ class UploadForm extends Model
         if ($this->validate()) {
 
             foreach ($this->imageFiles as $file) {
-                $json = $this->ejecutarEmocionApi($url);
+                $json = $this->ejecutarEmocionApi();
                 $path = 'fotos/' . $file->baseName . '.' . $file->extension;
 //                $pathWatermark = 'marcadeagua/watermark.png';
                 $file->saveAs($path);
@@ -54,7 +54,7 @@ class UploadForm extends Model
 //                }
                 $modelFoto->save();
                 unlink($path);
-
+//                $json = $this->ejecutarEmocionApi($url);
 
 //                $suscriptores = EventoUsuario::findAll(['id_Evento' => $ev]);
 //                foreach ($suscriptores as $susc) {
