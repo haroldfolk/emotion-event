@@ -1,9 +1,9 @@
 <?php
-use sjaakp\gcharts\PieChart;
+use sjaakp\gcharts\ColumnChart;
 
 ?>
     ...
-<?= PieChart::widget([
+<?= ColumnChart::widget([
     'height' => '400px',
     'dataProvider' => $dataProvider,
     'columns' => [
