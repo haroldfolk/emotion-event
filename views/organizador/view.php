@@ -75,13 +75,13 @@ $this->params['breadcrumbs'][] = $this->title;
                             <h4><?= $evento->fechaInicio ?></h4>
                             <h4><?= $evento->fechaFin ?></h4>
                             <a class="btn btn-default"
-                               href="../upload?idEvento=<?= $evento->idEvento ?>&idOrg=<?= $model->idOrganizador ?>"
-                               role="button">Link</a>
+                               href="../upload?idEvento=<?= $evento->idEvento ?>&idOrg=<?= $model->idOrganizador ?>">SUBIR
+                                FOTOS</a>
                         </div>
                         <div class="modal-footer">
 
                             <button type="button" class="btn btn-default" data-dismiss="modal">
-                                Cerrar
+                                Cerrar X
                             </button>
                             <button type="button" class="btn btn-primary">
                                 OK
