@@ -36,7 +36,7 @@ class EventoController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => evento::find(),
+            'query' => Evento::find(),
         ]);
 
         return $this->render('index', [
@@ -63,7 +63,7 @@ class EventoController extends Controller
      */
     public function actionCreate()
     {
-        $model = new evento();
+        $model = new Evento();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->idEvento]);

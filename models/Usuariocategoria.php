@@ -21,7 +21,7 @@ class Usuariocategoria extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'usuariocategoria';
+        return 'Usuariocategoria';
     }
 
     /**

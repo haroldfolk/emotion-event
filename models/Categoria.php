@@ -21,7 +21,7 @@ class Categoria extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'categoria';
+        return 'Categoria';
     }
 
     /**

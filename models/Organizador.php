@@ -23,7 +23,7 @@ class Organizador extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'organizador';
+        return 'Organizador';
     }
 
     /**
