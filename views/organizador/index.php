@@ -13,14 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="organizador-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php $form = ActiveForm::begin([
-        'id' => 'login-form',
-        'layout' => 'horizontal',
-        'fieldConfig' => [
-            'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",
-            'labelOptions' => ['class' => 'col-lg-1 control-label'],
-        ],
-    ]); ?>
+    <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
 
