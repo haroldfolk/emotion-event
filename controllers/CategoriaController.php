@@ -2,18 +2,17 @@
 
 namespace app\controllers;
 
-use app\models\Usuarioevento;
 use Yii;
-use app\models\Evento;
+use app\models\Categoria;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * EventoController implements the CRUD actions for evento model.
+ * CategoriaController implements the CRUD actions for Categoria model.
  */
-class EventoController extends Controller
+class CategoriaController extends Controller
 {
     /**
      * @inheritdoc
@@ -31,25 +30,22 @@ class EventoController extends Controller
     }
 
     /**
-     * Lists all evento models.
+     * Lists all Categoria models.
      * @return mixed
      */
     public function actionIndex()
     {
-        if (Yii::$app->user->isGuest) {
-            return $this->redirect(['/site/index']);
-        }
-
-        $eventosDelUsuario = UsuarioEvento::find()->addSelect(["id_Evento"])->where(["id_Usuario" => Yii::$app->user->getId()]);
-        $eventos = Evento::findAll($eventosDelUsuario);
+        $dataProvider = new ActiveDataProvider([
+            'query' => Categoria::find(),
+        ]);
 
         return $this->render('index', [
-            'eventos' => $eventos,
+            'dataProvider' => $dataProvider,
         ]);
     }
 
     /**
-     * Displays a single evento model.
+     * Displays a single Categoria model.
      * @param integer $id
      * @return mixed
      */
@@ -61,16 +57,16 @@ class EventoController extends Controller
     }
 
     /**
-     * Creates a new evento model.
+     * Creates a new Categoria model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Evento();
+        $model = new Categoria();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->idEvento]);
+            return $this->redirect(['view', 'id' => $model->idCategoria]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -79,7 +75,7 @@ class EventoController extends Controller
     }
 
     /**
-     * Updates an existing evento model.
+     * Updates an existing Categoria model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -89,7 +85,7 @@ class EventoController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->idEvento]);
+            return $this->redirect(['view', 'id' => $model->idCategoria]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -98,7 +94,7 @@ class EventoController extends Controller
     }
 
     /**
-     * Deletes an existing evento model.
+     * Deletes an existing Categoria model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -111,15 +107,15 @@ class EventoController extends Controller
     }
 
     /**
-     * Finds the evento model based on its primary key value.
+     * Finds the Categoria model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return evento the loaded model
+     * @return Categoria the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Evento::findOne($id)) !== null) {
+        if (($model = Categoria::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
