@@ -38,10 +38,12 @@ class OrganizadorController extends Controller
     {
         $req = Yii::$app->request;
         $param = $req->post('model');
+        if ($param != null) {
         if ($param->idOrganizador != null) {
             return $this->render('view', [
                 'model' => $this->findModel($param),
         ]);
+        }
         }
 
         $model = new Organizador();
