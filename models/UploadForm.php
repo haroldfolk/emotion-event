@@ -110,8 +110,24 @@ class UploadForm extends Model
                 if (!isset($js["scores"])) {
                     $emociones = $js["scores"];
                     $model = new Emocion();
-                    $model->load($emociones);
+                    $model->anger = $emociones["anger"];
+                    $model->disgust = $emociones["disgust"];
+                    $model->fear = $emociones["fear"];
+                    $model->contempt = $emociones["contempt"];
+                    $model->happiness = $emociones["happiness"];
+                    $model->neutral = $emociones["neutral"];
+                    $model->sadness = $emociones["sadness"];
+                    $model->surprise = $emociones["surprise"];
+
                     $model->id_Multimedia = $idMultimedia;
+                    if ($model->validate()) {
+                        print_r("se valido correctam...");
+                        exit();
+
+                    } else {
+                        print_r($model);
+                        exit();
+                    }
                     $model->save();
                 }
                 return true;
