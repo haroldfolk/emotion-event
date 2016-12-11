@@ -45,6 +45,7 @@ class UploadForm extends Model
 //                $json = $this->identificarMicrosoft($url);
 
                 $modelFoto = new Multimedia();
+                $modelFoto->load();
                 $modelFoto->nombre = "Foto";
                 $modelFoto->path = $url;
                 $modelFoto->id_Usuario = 0;
