@@ -8,18 +8,11 @@ use Yii;
  * This is the model class for table "emocion".
  *
  * @property integer $idEmocion
- * @property string $name
- * @property double $anger
- * @property double $contempt
- * @property double $disgust
- * @property double $fear
- * @property double $happiness
- * @property double $neutral
- * @property double $sadness
- * @property double $surprise
- * @property integer $id_Multimedia
+ * @property string $nombre
+ * @property double $valor
+ * @property integer $id_Evento
  *
- * @property Evento $idMultimedia
+ * @property Evento $idEvento
  */
 class Emocion extends \yii\db\ActiveRecord
 {
@@ -37,11 +30,11 @@ class Emocion extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['anger', 'contempt', 'disgust', 'fear', 'happiness', 'neutral', 'sadness', 'surprise', 'id_Multimedia'], 'required'],
-            [['anger', 'contempt', 'disgust', 'fear', 'happiness', 'neutral', 'sadness', 'surprise'], 'number'],
-            [['id_Multimedia'], 'integer'],
-            [['name'], 'string', 'max' => 255],
-            [['id_Multimedia'], 'exist', 'skipOnError' => true, 'targetClass' => Evento::className(), 'targetAttribute' => ['id_Multimedia' => 'idEvento']],
+            [['valor', 'id_Evento'], 'required'],
+            [['valor'], 'number'],
+            [['id_Evento'], 'integer'],
+            [['nombre'], 'string', 'max' => 255],
+            [['id_Evento'], 'exist', 'skipOnError' => true, 'targetClass' => Evento::className(), 'targetAttribute' => ['id_Evento' => 'idEvento']],
         ];
     }
 
@@ -52,24 +45,17 @@ class Emocion extends \yii\db\ActiveRecord
     {
         return [
             'idEmocion' => 'Id Emocion',
-            'name' => 'Name',
-            'anger' => 'Anger',
-            'contempt' => 'Contempt',
-            'disgust' => 'Disgust',
-            'fear' => 'Fear',
-            'happiness' => 'Happiness',
-            'neutral' => 'Neutral',
-            'sadness' => 'Sadness',
-            'surprise' => 'Surprise',
-            'id_Multimedia' => 'Id  Multimedia',
+            'nombre' => 'Nombre',
+            'valor' => 'Valor',
+            'id_Evento' => 'Id  Evento',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getIdMultimedia()
+    public function getIdEvento()
     {
-        return $this->hasOne(Evento::className(), ['idEvento' => 'id_Multimedia']);
+        return $this->hasOne(Evento::className(), ['idEvento' => 'id_Evento']);
     }
 }

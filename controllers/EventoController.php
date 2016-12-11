@@ -147,7 +147,7 @@ class EventoController extends Controller
     public function actionPie($id)
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Emocion::find()->where(['id_Multimedia' => $id]),
+            'query' => Emocion::find()->where(['id_Evento' => $id]),
             'pagination' => false
         ]);
 
