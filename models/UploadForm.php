@@ -123,14 +123,10 @@ class UploadForm extends Model
                     $model->id_Multimedia = $idEv;
 
                     if ($model->validate()) {
-                        print_r("se valido correctam...");
-                        exit();
+                        $model->save();
 
-                    } else {
-                        print_r($model);
-                        exit();
                     }
-                    $model->save();
+
                 }
                 return true;
             }
