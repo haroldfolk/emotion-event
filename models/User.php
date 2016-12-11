@@ -11,6 +11,7 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
     public $correo;
     public $edad;
     public $telefono;
+    public $url;
 
     private static $users = [
         '100' => [
