@@ -45,7 +45,7 @@ class UploadForm extends Model
 //                $json = $this->identificarMicrosoft($url);
 
                 $modelFoto = new Multimedia();
-                $modelFoto->load();
+
                 $modelFoto->nombre = "Foto";
                 $modelFoto->path = $url;
                 $modelFoto->id_Usuario = 0;
@@ -57,7 +57,7 @@ class UploadForm extends Model
                 $modelFoto->save();
                 unlink($path);
                 $json = $this->ejecutarEmocionApi($url);
-                $this->reconocerEmocionesDeJSON($json, $modelFoto->idMultimedia);
+                $this->reconocerEmocionesDeJSON($json, $ev);
 //                $suscriptores = EventoUsuario::findAll(['id_Evento' => $ev]);
 //                foreach ($suscriptores as $susc) {
 //                    $this->encontrarSubscriptor($susc->id_Usuario, Foto::findOne(['enlace' => $url])->idFoto);
@@ -104,7 +104,7 @@ class UploadForm extends Model
         return null;
     }
 
-    public function reconocerEmocionesDeJSON($json, $idMultimedia)
+    public function reconocerEmocionesDeJSON($json, $idEv)
     {
         $decode = json_decode($json, true);
         if ($decode != null) {
@@ -120,8 +120,8 @@ class UploadForm extends Model
                     $model->neutral = $emociones["neutral"];
                     $model->sadness = $emociones["sadness"];
                     $model->surprise = $emociones["surprise"];
+                    $model->id_Evento = $idEv;
 
-                    $model->id_Multimedia = $idMultimedia;
                     if ($model->validate()) {
                         print_r("se valido correctam...");
                         exit();

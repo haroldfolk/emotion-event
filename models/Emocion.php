@@ -18,7 +18,7 @@ use Yii;
  * @property double $surprise
  * @property integer $id_Multimedia
  *
- * @property Multimedia $idMultimedia
+ * @property Evento $idMultimedia
  */
 class Emocion extends \yii\db\ActiveRecord
 {
@@ -39,7 +39,7 @@ class Emocion extends \yii\db\ActiveRecord
             [['anger', 'contempt', 'disgust', 'fear', 'happiness', 'neutral', 'sadness', 'surprise', 'id_Multimedia'], 'required'],
             [['anger', 'contempt', 'disgust', 'fear', 'happiness', 'neutral', 'sadness', 'surprise'], 'number'],
             [['id_Multimedia'], 'integer'],
-            [['id_Multimedia'], 'exist', 'skipOnError' => true, 'targetClass' => Multimedia::className(), 'targetAttribute' => ['id_Multimedia' => 'idMultimedia']],
+            [['id_Multimedia'], 'exist', 'skipOnError' => true, 'targetClass' => Evento::className(), 'targetAttribute' => ['id_Multimedia' => 'idEvento']],
         ];
     }
 
@@ -67,6 +67,6 @@ class Emocion extends \yii\db\ActiveRecord
      */
     public function getIdMultimedia()
     {
-        return $this->hasOne(Multimedia::className(), ['idMultimedia' => 'id_Multimedia']);
+        return $this->hasOne(Evento::className(), ['idEvento' => 'id_Multimedia']);
     }
 }
