@@ -38,7 +38,7 @@ class OrganizadorController extends Controller
     public function actionIndex()
     {
         if (!Yii::$app->user->isGuest) {
-            return $this->goBack();
+            return $this->redirect(['error']);
         }
         $model = new OrganizadorForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
