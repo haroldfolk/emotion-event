@@ -50,6 +50,14 @@ class OrganizadorController extends Controller
         ]);
     }
 
+    public function actionUpload($idEvento, $idOrg)
+    {
+        if (!Yii::$app->user->isGuest) {
+            return $this->render('error');
+        }
+
+        return $this->redirect(['view', 'idEvento' => $idEvento, 'idOrg' => $idOrg]);
+    }
     /**
      * Displays a single organizador model.
      * @param integer $id

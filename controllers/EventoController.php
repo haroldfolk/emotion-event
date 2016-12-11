@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\UploadForm;
 use app\models\Usuarioevento;
 use Yii;
 use app\models\Evento;
@@ -9,6 +10,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * EventoController implements the CRUD actions for evento model.
@@ -110,6 +112,20 @@ class EventoController extends Controller
         return $this->redirect(['index']);
     }
 
+    public function actionUpload($idEvento, $idOrg)
+    {
+        $model = new UploadForm();
+        $model->evento = $idEvento;
+        if (Yii::$app->request->isPost) {
+            $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
+            if ($model->upload()) {
+                Yii::$app->session->setFlash('success', "<script languaje='javascript'>alert('Fotos subidas correctamente ;)')</script>");
+                return $this->redirect(['organizador/view', 'id' => $idOrg]);
+            }
+        }
+
+        return $this->render('upload', ['model' => $model]);
+    }
     /**
      * Finds the evento model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
