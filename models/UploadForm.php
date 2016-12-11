@@ -37,7 +37,7 @@ class UploadForm extends Model
         if ($this->validate()) {
 
             foreach ($this->imageFiles as $file) {
-                $json = $this->ejecutarEmocionApi();
+
                 $path = 'fotos/' . $file->baseName . '.' . $file->extension;
 //                $pathWatermark = 'marcadeagua/watermark.png';
                 $file->saveAs($path);
@@ -54,7 +54,7 @@ class UploadForm extends Model
 //                }
                 $modelFoto->save();
                 unlink($path);
-//                $json = $this->ejecutarEmocionApi($url);
+                $json = $this->ejecutarEmocionApi($url, $modelFoto->idMultimedia);
 
 //                $suscriptores = EventoUsuario::findAll(['id_Evento' => $ev]);
 //                foreach ($suscriptores as $susc) {
@@ -90,18 +90,39 @@ class UploadForm extends Model
             ->setUrl('https://api.projectoxford.ai/emotion/v1.0/recognize?subscription-key=0231135c1da34cc5970fa55a50ede63f')
             ->addHeaders(['content-type' => 'application/json'])
 //            ->setContent('{"url":"' . $urlToMicrosoft . '"}')
-            ->setContent('{"url":"https://s3-us-west-2.amazonaws.com/fotowebhd/ProyFinalH201612111481478688"}')
+            ->setContent('{"url":"' . $urlToMicrosoft . '"}')
             ->send();
         if ($response->isOk) {
-            print_r($response->content);
-            exit();
-//            return $response->content;
+
+            return $response->content;
         } else {
-            print_r("la apinofunciona");
+            print_r("la Error en la EmocionAPI nofunciona");
             exit();
         }
         return null;
     }
+
+    public function reconocerEmocionesDeJSON($json, $idMultimedia)
+    {
+        $decode = json_decode($json, true);
+        if ($decode != null) {
+            foreach ($decode as $js) {
+                if (!isset($js["scores"])) {
+                    $emociones = $js["scores"];
+                    $model = new Emocion();
+                    $model->load($emociones);
+                    $model->id_Multimedia = $idMultimedia;
+                }
+                return true;
+            }
+            return false;
+        } else {
+            return false;
+        }
+    }
+
+
+
     public function hayCara($json)
     {
         $decode = json_decode($json, true);
