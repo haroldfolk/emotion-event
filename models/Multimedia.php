@@ -23,7 +23,7 @@ class Multimedia extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'Multimedia';
+        return 'multimedia';
     }
 
     /**

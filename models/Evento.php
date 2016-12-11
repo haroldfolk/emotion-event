@@ -29,7 +29,7 @@ class Evento extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'Evento';
+        return 'evento';
     }
 
     /**

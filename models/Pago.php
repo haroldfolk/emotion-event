@@ -22,7 +22,7 @@ class Pago extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'Pago';
+        return 'pago';
     }
 
     /**
