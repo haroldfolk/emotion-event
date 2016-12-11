@@ -43,6 +43,7 @@ class UploadForm extends Model
                 $file->saveAs($path);
                 $url = $storage->uploadFile($path, "ProyFinalH" . date("Ymd") . time() . "");
 //                $json = $this->identificarMicrosoft($url);
+
                 $modelFoto = new Multimedia();
                 $modelFoto->nombre = "Foto";
                 $modelFoto->path = $url;
@@ -53,7 +54,7 @@ class UploadForm extends Model
 //                }
                 $modelFoto->save();
                 unlink($path);
-
+                $json = $this->ejecutarEmocionApi($url);
 
 //                $suscriptores = EventoUsuario::findAll(['id_Evento' => $ev]);
 //                foreach ($suscriptores as $susc) {
@@ -81,6 +82,23 @@ class UploadForm extends Model
         return null;
     }
 
+    public function ejecutarEmocionApi($urlToMicrosoft)
+    {
+        $client = new Client();
+        $response = $client->createRequest()
+            ->setMethod('post')
+            ->setUrl('https://api.projectoxford.ai/emotion/v1.0/recognize')
+            ->addHeaders(['Content-Type' => 'application/json',
+                'Ocp-Apim-Subscription-Key' => '{subscription key}'])
+            ->setContent('{url:"' . $urlToMicrosoft . '"}')
+            ->send();
+        if ($response->isOk) {
+            print_r($response->content);
+            exit();
+            return $response->content;
+        }
+        return null;
+    }
     public function hayCara($json)
     {
         $decode = json_decode($json, true);
