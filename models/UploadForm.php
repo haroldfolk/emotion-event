@@ -111,16 +111,14 @@ class UploadForm extends Model
             foreach ($decode as $js) {
                 if (isset($js["scores"])) {
                     $emociones = $js["scores"];
-                    $model = new Emocion();
-                    $model->anger = $emociones["anger"];
-                    $model->disgust = $emociones["disgust"];
-                    $model->fear = $emociones["fear"];
-                    $model->contempt = $emociones["contempt"];
-                    $model->happiness = $emociones["happiness"];
-                    $model->neutral = $emociones["neutral"];
-                    $model->sadness = $emociones["sadness"];
-                    $model->surprise = $emociones["surprise"];
-                    $model->id_Multimedia = $idEv;
+                    foreach ($emociones as $nombreEmo => $valorEmo) {
+                        $model = new Emocion();
+                        $model->nombre = $nombreEmo;
+                        $model->valor = $valorEmo;
+
+                        $model->id_Evento = $idEv;
+                    }
+
 
                     if ($model->validate()) {
                         $model->save();
