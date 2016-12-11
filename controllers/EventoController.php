@@ -148,10 +148,19 @@ class EventoController extends Controller
 
     public function actionPie($id)
     {
+        $sql = 'SELECT nombre,AVG( valor ) as promedio 
+FROM  emocion 
+WHERE  id_Evento =:id_Evento
+GROUP BY nombre';
+
         $dataProvider = new ActiveDataProvider([
-            'query' => Emocion::find()->where(['id_Evento' => $id])->addGroupBy('nombre'),
+            'query' => Emocion::findBySql($sql, [':id_Evento' => $id])->all(),
             'pagination' => false
         ]);
+//        $dataProvider = new ActiveDataProvider([
+//            'query' => Emocion::findBySql()->where(['id_Evento' => $id])->addGroupBy('nombre'),
+//            'pagination' => false
+//        ]);
 
         return $this->render('pie', [
             'dataProvider' => $dataProvider
