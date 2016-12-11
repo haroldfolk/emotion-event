@@ -3,7 +3,7 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\evento;
+use app\models\Evento;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -115,7 +115,7 @@ class EventoController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = evento::findOne($id)) !== null) {
+        if (($model = Evento::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

@@ -3,7 +3,7 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\organizador;
+use app\models\Organizador;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -36,7 +36,7 @@ class OrganizadorController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => organizador::find(),
+            'query' => Organizador::find(),
         ]);
 
         return $this->render('index', [
@@ -63,7 +63,7 @@ class OrganizadorController extends Controller
      */
     public function actionCreate()
     {
-        $model = new organizador();
+        $model = new Organizador();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->idOrganizador]);
@@ -115,7 +115,7 @@ class OrganizadorController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = organizador::findOne($id)) !== null) {
+        if (($model = Organizador::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
