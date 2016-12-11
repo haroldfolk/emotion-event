@@ -174,14 +174,13 @@
                     <!--                    <a href="#" class="list-group-item">Home</a>-->
                     <div class="list-group-item">
                         <div class="media">
-                            <a href="#" class="pull-left"><img alt="Bootstrap Media Preview"
-                                                               src="http://lorempixel.com/200/200/"
+                            <a href="#" class="pull-left"><img alt="EN ALMACENAMIENTO EXTERNO S3"
+                                                               src="<?= $evento->url ?>"
                                                                class="media-object"></a>
                             <div class="media-body">
                                 <h4 class="media-heading">
                                     <?= $evento->nombre ?>
-                                </h4> La presentacion se realizara el 12 de diciembre de 2016 a las 15:15 con el
-                                Ing.Martinez
+                                </h4> "<?= $evento->detalle ?>"
 
                             </div>
                         </div>
