@@ -114,7 +114,7 @@ class UploadForm extends Model
                     foreach ($emociones as $nombreEmo => $valorEmo) {
                         $model = new Emocion();
                         $model->nombre = $nombreEmo;
-                        $model->valor = $valorEmo;
+                        $model->valor = $valorEmo * 100;
 
                         $model->id_Evento = $idEv;
                         if ($model->validate()) {
