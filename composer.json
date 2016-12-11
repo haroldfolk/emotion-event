@@ -23,7 +23,8 @@
         "google/cloud": "^0.13.0",
         "google/apiclient": "^2.0",
         "jovanialferez/yii2-s3": "^1.0",
-        "msvdev/yii2-widget-mappicker": "*"
+        "msvdev/yii2-widget-mappicker": "*",
+        "sjaakp/yii2-gcharts": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

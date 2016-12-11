@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Emocion;
 use app\models\UploadForm;
 use app\models\Usuarioevento;
 use Yii;
@@ -141,4 +142,44 @@ class EventoController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+
+    public function actionPie($id)
+    {
+        $dataProvider = new ActiveDataProvider([
+            'query' => Emocion::find()->where(['id_Multimedia' => $id]),
+            'pagination' => false
+        ]);
+
+        return $this->render('pie', [
+            'dataProvider' => $dataProvider
+        ]);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

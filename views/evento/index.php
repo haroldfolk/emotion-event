@@ -35,6 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <a id="modal-702504" href="#<?= $evento->idEvento ?>" role="button" class="btn"
                    data-toggle="modal">Suscribirme</a>
+                <?= Html::a('Ver estadisticas', ['pie', 'id' => $evento->idEvento], ['class' => 'btn btn-warning']) ?>
             </div>
             <div class="modal fade" id="<?= $evento->idEvento ?>" role="dialog" aria-labelledby="myModalLabel"
                  aria-hidden="true">
