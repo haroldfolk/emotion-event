@@ -37,7 +37,7 @@ class OrganizadorController extends Controller
      */
     public function actionIndex()
     {
-        if (Yii::$app->user->isGuest) {
+        if (!Yii::$app->user->isGuest) {
             return $this->goBack();
         }
         $model = new OrganizadorForm();
