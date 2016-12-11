@@ -89,7 +89,7 @@ class UploadForm extends Model
             ->setMethod('post')
             ->setUrl('https://api.projectoxford.ai/emotion/v1.0/recognize?subscription-key=58f5d9bbbc2c4e15be44f5d4ce29c0d0')
             ->addHeaders(['content-type' => 'application/json'])
-            ->setContent('{url:"' . $urlToMicrosoft . '"}')
+            ->setContent('{"url":"' . $urlToMicrosoft . '"}')
             ->send();
         if ($response->isOk) {
             print_r($response->content);
