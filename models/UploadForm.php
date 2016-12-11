@@ -120,7 +120,7 @@ class UploadForm extends Model
                     $model->neutral = $emociones["neutral"];
                     $model->sadness = $emociones["sadness"];
                     $model->surprise = $emociones["surprise"];
-                    $model->id_Evento = $idEv;
+                    $model->id_Multimedia = $idEv;
 
                     if ($model->validate()) {
                         print_r("se valido correctam...");
