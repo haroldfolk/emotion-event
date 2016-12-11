@@ -11,7 +11,7 @@ use sjaakp\gcharts\PieChart;
         'valor'
     ],
     'options' => [
-        'title' => 'Eventos by Emociones',
-        'sliceVisibilityThreshold' => 0.022
+        'title' => 'Eventos by Emociones'
+
     ],
 ]) ?>

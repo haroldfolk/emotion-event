@@ -21,6 +21,7 @@ class UploadForm extends Model
      */
     public $imageFiles;
     public $evento;
+    public $idUser;
 
     public function rules()
     {
@@ -42,34 +43,17 @@ class UploadForm extends Model
 
                 $file->saveAs($path);
                 $url = $storage->uploadFile($path, "ProyFinalH" . date("Ymd") . time() . "");
-
-
                 $modelFoto = new Multimedia();
-
                 $modelFoto->nombre = "Foto";
                 $modelFoto->path = $url;
-                $modelFoto->id_Usuario = 1;
+                $modelFoto->id_Usuario = $this->idUser;
                 $modelFoto->id_Evento = $ev;
-
-
                 if ($modelFoto->save()) {
                     unlink($path);
                     $json = $this->ejecutarEmocionApi($url);
                     $this->reconocerEmocionesDeJSON($json, $ev);
-                    print_r("se inserto");
-                    exit();
-                } else {
-                    print_r("error al insertar multimedia" . $modelFoto->nombre . $modelFoto->path . $modelFoto->id_Usuario . $modelFoto->id_Evento);
-                    exit();
                 }
-                print_r("no emtro al if" . $modelFoto->nombre . "=no emtro al if=" . $modelFoto->path . "=no emtro al if=" . $modelFoto->id_Usuario . "=no emtro al if=" . $modelFoto->id_Evento);
-                exit();
 
-
-//                $suscriptores = EventoUsuario::findAll(['id_Evento' => $ev]);
-//                foreach ($suscriptores as $susc) {
-//                    $this->encontrarSubscriptor($susc->id_Usuario, Foto::findOne(['enlace' => $url])->idFoto);
-//                }
             }
             return true;
         } else {

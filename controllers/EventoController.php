@@ -113,10 +113,12 @@ class EventoController extends Controller
         return $this->redirect(['index']);
     }
 
-    public function actionUpload($idEvento, $idOrg)
+    public function actionUpload($idEvento, $idOrg, $idUser = null)
     {
+        if ($idUser = null) $idUser = 101010;
         $model = new UploadForm();
         $model->evento = $idEvento;
+        $model->idUser = $idUser;
         if (Yii::$app->request->isPost) {
             $model->imageFiles = UploadedFile::getInstances($model, 'imageFiles');
             if ($model->upload()) {
