@@ -7,6 +7,7 @@ use sjaakp\gcharts\PieChart;
     'height' => '400px',
     'dataProvider' => $dataProvider,
     'columns' => [
+        'idEmocion:string',
         'anger',
         'contempt',
         'disgust'
