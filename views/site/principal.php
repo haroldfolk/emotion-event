@@ -29,20 +29,6 @@
                     </button>
                     <a class="navbar-brand" href="#">Buscar Eventos</a>
                 </div>
-
-                <!--                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
-                <!---->
-                <!--                    <form class="navbar-form navbar-left" role="search" action="index.php">-->
-                <!--                        <div class="form-group">-->
-                <!--                            <input type="text" class="form-control">-->
-                <!--                        </div>-->
-                <!--                        <button type="submit" class="btn btn-default">-->
-                <!--                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>-->
-                <!--                        </button>-->
-                <!--                    </form>-->
-                <!---->
-                <!--                </div>-->
-
             </nav>
             <div class="carousel slide" id="carousel-140385">
                 <ol class="carousel-indicators">
@@ -56,40 +42,40 @@
                 <div class="carousel-inner">
                     <div class="item active">
                         <img alt="Carousel Bootstrap First"
-                             src="https://s3-us-west-2.amazonaws.com/fotowebhd/3perfilChilindrina.png3"
+                             src="http://fmbellaitalia.com/web/wp-content/uploads/2015/11/publicite_aqui_2.png"
                              style="width:500px;height:250px">
                         <div class="carousel-caption">
                             <h4>
-                                MI EVENTO CHILINDRINA
+                                Nombre de Evento
                             </h4>
                             <p>
-                                Mi portada la chilindrina
+                                Portada de Evento
                             </p>
                         </div>
                     </div>
                     <div class="item">
                         <img alt="Carousel Bootstrap Second"
-                             src="https://s3-us-west-2.amazonaws.com/fotowebhd/familia-1.jpg"
+                             src="http://fmbellaitalia.com/web/wp-content/uploads/2015/11/publicite_aqui_2.png"
                              style="width:500px;height:250px">
                         <div class="carousel-caption">
                             <h4>
-                                MI EVENTO Familia FELIZ
+                                Nombre de Evento
                             </h4>
                             <p>
-                                Mi portada la Familia
+                                Portada de Evento
                             </p>
                         </div>
                     </div>
                     <div class="item">
                         <img alt="Carousel Bootstrap Third"
-                             src="https://s3-us-west-2.amazonaws.com/fotowebhd/2perfilChavo.jpg2"
+                             src="http://fmbellaitalia.com/web/wp-content/uploads/2015/11/publicite_aqui_2.png"
                              style="width:500px;height:250px">
                         <div class="carousel-caption">
                             <h4>
-                                MI EVENTO CHAVO
+                                Nombre de Evento
                             </h4>
                             <p>
-                                Mi portada del chavo
+                                Portada de Evento
                             </p>
                         </div>
                     </div>
