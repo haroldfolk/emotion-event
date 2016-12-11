@@ -3,7 +3,6 @@
 namespace app\models;
 
 use Yii;
-use yii\data\ActiveDataProvider;
 
 /**
  * This is the model class for table "usuario".
@@ -13,6 +12,7 @@ use yii\data\ActiveDataProvider;
  * @property integer $edad
  * @property string $telefono
  * @property string $correo
+ * @property string $url
  * @property string $username
  * @property string $password
  *
@@ -31,14 +31,6 @@ class Usuario extends \yii\db\ActiveRecord
         return 'usuario';
     }
 
-    public static function findByUsername($username)
-    {
-        $activeDataProvider = new ActiveDataProvider([
-            'query' => Usuario::find()->where(['username' => $username]),
-        ]);
-        return $activeDataProvider[0];
-    }
-
     /**
      * @inheritdoc
      */
@@ -47,7 +39,7 @@ class Usuario extends \yii\db\ActiveRecord
         return [
             [['nombre', 'telefono', 'username', 'password'], 'required'],
             [['edad'], 'integer'],
-            [['nombre', 'telefono', 'correo', 'username', 'password'], 'string', 'max' => 255],
+            [['nombre', 'telefono', 'correo', 'url', 'username', 'password'], 'string', 'max' => 255],
         ];
     }
 
@@ -62,19 +54,15 @@ class Usuario extends \yii\db\ActiveRecord
             'edad' => 'Edad',
             'telefono' => 'Telefono',
             'correo' => 'Correo',
+            'url' => 'Url',
             'username' => 'Username',
             'password' => 'Password',
         ];
     }
 
-    public function validatePassword($password)
-    {
-        return $this->password === $password;
-    }
     /**
      * @return \yii\db\ActiveQuery
      */
-
     public function getMultimedia()
     {
         return $this->hasMany(Multimedia::className(), ['id_Usuario' => 'idUsuario']);
