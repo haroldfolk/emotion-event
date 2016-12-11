@@ -13,7 +13,7 @@ use yii\base\Model;
 use yii\helpers\Json;
 use yii\httpclient\Client;
 use yii\web\UploadedFile;
-
+use app\models\Multimedia;
 class UploadForm extends Model
 {
     /**
@@ -54,10 +54,16 @@ class UploadForm extends Model
 //                    $modelFoto->faceIds = $json;
 //                }
 
-                $modelFoto->save();
-                unlink($path);
-                $json = $this->ejecutarEmocionApi($url);
-                $this->reconocerEmocionesDeJSON($json, $ev);
+
+                if ($modelFoto->save()) {
+                    unlink($path);
+                    $json = $this->ejecutarEmocionApi($url);
+                    $this->reconocerEmocionesDeJSON($json, $ev);
+                } else {
+                    print_r("error al insertar multimedia" . $modelFoto->nombre . $modelFoto->path . $modelFoto->id_Usuario . $modelFoto->id_Evento);
+                    exit();
+                }
+
 //                $suscriptores = EventoUsuario::findAll(['id_Evento' => $ev]);
 //                foreach ($suscriptores as $susc) {
 //                    $this->encontrarSubscriptor($susc->id_Usuario, Foto::findOne(['enlace' => $url])->idFoto);
