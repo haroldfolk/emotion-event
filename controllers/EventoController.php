@@ -38,8 +38,9 @@ class EventoController extends Controller
         if (Yii::$app->user->isGuest) {
             return $this->redirect(['/site/index']);
         }
+        $eventosDelUsuario = UsuarioEvento::find()->addSelect(["id_Evento"])->where(["id_Usuario" => Yii::$app->user->getId()]);
         $dataProvider = new ActiveDataProvider([
-            'query' => Evento::find(),
+            'query' => Evento::findAll([$eventosDelUsuario]),
         ]);
 
         return $this->render('index', [
