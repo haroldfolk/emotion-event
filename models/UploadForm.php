@@ -96,6 +96,9 @@ class UploadForm extends Model
             print_r($response->content);
             exit();
             return $response->content;
+        } else {
+            print_r("la apinofunciona");
+            exit();
         }
         return null;
     }
