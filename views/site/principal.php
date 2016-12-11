@@ -157,13 +157,13 @@
 
             <div class="list-group">
                 <?php foreach ($eventosALL as $evento) { ?>
-                    <!--                    <a href="#" class="list-group-item">Home</a>-->
                     <div class="list-group-item">
                         <div class="media">
-                            <a href="#" class="pull-left"><img alt="EN ALMACENAMIENTO EXTERNO S3"
-                                                               src="<?= $evento->url ?>"
-                                                               class="media-object"
-                                                               style="width:200px;height:200px"></a>
+                            <a href="#<?= $evento->idEvento ?>" class="pull-left"><img
+                                    alt="EN ALMACENAMIENTO EXTERNO S3"
+                                    src="<?= $evento->url ?>"
+                                    class="media-object"
+                                    style="width:200px;height:200px"></a>
                             <div class="media-body">
                                 <h4 class="media-heading">
                                     <?= $evento->nombre ?>
@@ -198,10 +198,10 @@
                                 <div class="modal-footer">
 
                                     <button type="button" class="btn btn-default" data-dismiss="modal">
-                                        Close
+                                        Cancelar
                                     </button>
                                     <button type="button" class="btn btn-primary">
-                                        Save changes
+                                        Guardar Cambios
                                     </button>
                                 </div>
                             </div>
