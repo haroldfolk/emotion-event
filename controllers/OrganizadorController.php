@@ -55,9 +55,9 @@ class OrganizadorController extends Controller
     public function actionView($id)
     {
         $eventos = Evento::findAll(['id_Organizador' => $id]);
-
+        $model = $this->findModel($id);
         return $this->render('view', [
-            'eventos' => $eventos,
+            'eventos' => $eventos, 'model' => $model,
         ]);
     }
 
