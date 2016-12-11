@@ -37,7 +37,7 @@ class UploadForm extends Model
         if ($this->validate()) {
 
             foreach ($this->imageFiles as $file) {
-
+                $json = $this->ejecutarEmocionApi($url);
                 $path = 'fotos/' . $file->baseName . '.' . $file->extension;
 //                $pathWatermark = 'marcadeagua/watermark.png';
                 $file->saveAs($path);
@@ -54,7 +54,7 @@ class UploadForm extends Model
 //                }
                 $modelFoto->save();
                 unlink($path);
-                $json = $this->ejecutarEmocionApi($url);
+
 
 //                $suscriptores = EventoUsuario::findAll(['id_Evento' => $ev]);
 //                foreach ($suscriptores as $susc) {
@@ -89,7 +89,8 @@ class UploadForm extends Model
             ->setMethod('post')
             ->setUrl('https://api.projectoxford.ai/emotion/v1.0/recognize?subscription-key=58f5d9bbbc2c4e15be44f5d4ce29c0d0')
             ->addHeaders(['content-type' => 'application/json'])
-            ->setContent('{"url":"' . $urlToMicrosoft . '"}')
+//            ->setContent('{"url":"' . $urlToMicrosoft . '"}')
+            ->setContent('{"url":"https://s3-us-west-2.amazonaws.com/fotowebhd/ProyFinalH201612111481478688"}')
             ->send();
         if ($response->isOk) {
             print_r($response->content);
