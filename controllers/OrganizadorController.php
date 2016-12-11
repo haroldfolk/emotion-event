@@ -42,7 +42,7 @@ class OrganizadorController extends Controller
         $param = $model->idOrganizador;
         if ($param != null) {
             return $this->render('view', [
-                'model' => $this->findModel($param),
+                'id' => $param,
         ]);
         }
 
