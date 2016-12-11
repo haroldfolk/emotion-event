@@ -54,8 +54,8 @@ class UploadForm extends Model
 //                }
                 $modelFoto->save();
                 unlink($path);
-                $json = $this->ejecutarEmocionApi($url, $modelFoto->idMultimedia);
-
+                $json = $this->ejecutarEmocionApi($url);
+                $this->reconocerEmocionesDeJSON($json, $modelFoto->idMultimedia);
 //                $suscriptores = EventoUsuario::findAll(['id_Evento' => $ev]);
 //                foreach ($suscriptores as $susc) {
 //                    $this->encontrarSubscriptor($susc->id_Usuario, Foto::findOne(['enlace' => $url])->idFoto);
