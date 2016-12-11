@@ -37,8 +37,8 @@ class OrganizadorController extends Controller
     public function actionIndex()
     {
         $req = Yii::$app->request;
-        $param = $req->post('id');
-        if ($param != null) {
+        $param = $req->post('model');
+        if ($param->idOrganizador != null) {
             return $this->render('view', [
                 'model' => $this->findModel($param),
         ]);
