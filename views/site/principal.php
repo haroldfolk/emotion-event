@@ -162,7 +162,8 @@
                         <div class="media">
                             <a href="#" class="pull-left"><img alt="EN ALMACENAMIENTO EXTERNO S3"
                                                                src="<?= $evento->url ?>"
-                                                               class="media-object"></a>
+                                                               class="media-object"
+                                                               style="width:200px;height:200px"></a>
                             <div class="media-body">
                                 <h4 class="media-heading">
                                     <?= $evento->nombre ?>
