@@ -2,8 +2,9 @@
 
 namespace app\controllers;
 
+use app\models\Evento;
 use Yii;
-use app\models\Organizador;
+use app\models\organizador;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -35,12 +36,17 @@ class OrganizadorController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Organizador::find(),
+        $req = Yii::$app->request;
+        $param = $req->post('id');
+        if ($param != null) {
+            return $this->render('view', [
+                'model' => $this->findModel($param),
         ]);
+        }
 
+        $model = new Organizador();
         return $this->render('index', [
-            'dataProvider' => $dataProvider,
+            'model' => $model,
         ]);
     }
 
@@ -51,8 +57,10 @@ class OrganizadorController extends Controller
      */
     public function actionView($id)
     {
+        $eventos = Evento::findAll(['id_Organizador' => $id]);
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'eventos' => $eventos,
         ]);
     }
 
@@ -99,12 +107,12 @@ class OrganizadorController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }
+//    public function actionDelete($id)
+//    {
+//        $this->findModel($id)->delete();
+//
+//        return $this->redirect(['index']);
+//    }
 
     /**
      * Finds the organizador model based on its primary key value.

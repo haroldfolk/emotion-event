@@ -12,23 +12,18 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="organizador-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
+    <?php $form = ActiveForm::begin(); ?>
 
+    <?= $form->field($model, 'idEvento')->textInput() ?>
+
+
+    <div class="form-group">
+        <?= "<br>" . Html::submitButton(Yii::t('app', 'Entrar como organizador'), ['class' => 'btn btn-success']) ?>
+    </div>
+
+    <?php ActiveForm::end(); ?>
     <p>
-        <?= Html::a('Create Organizador', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Registrarse como Organizador', ['create'], ['class' => 'btn btn-warning']) ?>
     </p>
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
 
-            'idOrganizador',
-            'titular',
-            'direccion',
-            'telefono',
-            'password',
-            // 'informacionAdicional',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
 </div>
