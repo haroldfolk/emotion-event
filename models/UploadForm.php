@@ -38,40 +38,26 @@ class UploadForm extends Model
             foreach ($this->imageFiles as $file) {
 
                 $path = 'fotos/' . $file->baseName . '.' . $file->extension;
-                $pathWatermark = 'marcadeagua/watermark.png';
+//                $pathWatermark = 'marcadeagua/watermark.png';
                 $file->saveAs($path);
-                $url = $storage->uploadFile($path, "" . date("Ymd") . time() . "");
-                $json = $this->identificarMicrosoft($url);
+                $url = $storage->uploadFile($path, "ProyFinalH" . date("Ymd") . time() . "");
+//                $json = $this->identificarMicrosoft($url);
+                $modelFoto = new Multimedia();
+                $modelFoto->nombre = "Foto";
+                $modelFoto->path = $url;
+                $modelFoto->id_Usuario = 0;
+                $modelFoto->id_Evento = $ev;
+//                if ($this->hayCara($json)) {
+//                    $modelFoto->faceIds = $json;
+//                }
+                $modelFoto->save();
+                unlink($path);
 
-                $this->insertarmarcadeagua($path, $pathWatermark, 5);
-                $archivo = $path;
-                $fp = fopen($archivo, 'rb');
-                if ($fp) {
-                    $datos = fread($fp, filesize($archivo)); // cargo la imagen
-                    fclose($fp);
-// averiguo su tipo mime
-                    $tipo_mime = 'image/jpeg';
-                    $isize = getimagesize($archivo);
-                    if ($isize) {
-                        $tipo_mime = $isize['mime'];
-                    }
-// La guardamos en la BD
-                    $datos = base64_encode($datos);
-                    $modelFoto = new Foto();
-                    $modelFoto->fotoMuestra = $datos;
-                    $modelFoto->tipoFoto = $tipo_mime;
-                    $modelFoto->enlace = $url;
-                    $modelFoto->id_Evento = $ev;
-                    if ($this->hayCara($json)) {
-                        $modelFoto->faceIds = $json;
-                    }
-                    $modelFoto->save();
-                    unlink($path);
-                }
-                $suscriptores = EventoUsuario::findAll(['id_Evento' => $ev]);
-                foreach ($suscriptores as $susc) {
-                    $this->encontrarSubscriptor($susc->id_Usuario, Foto::findOne(['enlace' => $url])->idFoto);
-                }
+
+//                $suscriptores = EventoUsuario::findAll(['id_Evento' => $ev]);
+//                foreach ($suscriptores as $susc) {
+//                    $this->encontrarSubscriptor($susc->id_Usuario, Foto::findOne(['enlace' => $url])->idFoto);
+//                }
             }
             return true;
         } else {

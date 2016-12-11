@@ -10,6 +10,7 @@ use Yii;
  * @property integer $idEvento
  * @property string $nombre
  * @property string $detalle
+ * @property string $url
  * @property string $fechaInicio
  * @property string $fechaFin
  * @property integer $id_Organizador
@@ -40,7 +41,7 @@ class Evento extends \yii\db\ActiveRecord
         return [
             [['fechaInicio', 'fechaFin', 'id_Organizador', 'ubicacionLongitud', 'ubicacionLatitud', 'id_Categoria'], 'required'],
             [['id_Organizador', 'id_Categoria'], 'integer'],
-            [['nombre', 'detalle', 'fechaInicio', 'fechaFin', 'ubicacionLongitud', 'ubicacionLatitud'], 'string', 'max' => 255],
+            [['nombre', 'detalle', 'url', 'fechaInicio', 'fechaFin', 'ubicacionLongitud', 'ubicacionLatitud'], 'string', 'max' => 255],
             [['id_Categoria'], 'exist', 'skipOnError' => true, 'targetClass' => Categoria::className(), 'targetAttribute' => ['id_Categoria' => 'idCategoria']],
             [['id_Organizador'], 'exist', 'skipOnError' => true, 'targetClass' => Organizador::className(), 'targetAttribute' => ['id_Organizador' => 'idOrganizador']],
         ];
@@ -55,6 +56,7 @@ class Evento extends \yii\db\ActiveRecord
             'idEvento' => 'Id Evento',
             'nombre' => 'Nombre',
             'detalle' => 'Detalle',
+            'url' => 'Url',
             'fechaInicio' => 'Fecha Inicio',
             'fechaFin' => 'Fecha Fin',
             'id_Organizador' => 'Id  Organizador',
