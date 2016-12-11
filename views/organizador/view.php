@@ -75,7 +75,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <h4><?= $evento->fechaInicio ?></h4>
                             <h4><?= $evento->fechaFin ?></h4>
                             <a class="btn btn-default"
-                               href="/upload?idEvento=<?= $evento->idEvento ?>&idOrg=<?= $model->idOrganizador ?>">SUBIR
+                               href="/organizador/upload?idEvento=<?= $evento->idEvento ?>&idOrg=<?= $model->idOrganizador ?>">SUBIR
                                 FOTOS</a>
                         </div>
                         <div class="modal-footer">
