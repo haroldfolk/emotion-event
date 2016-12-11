@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\organizador */
 
-$this->title = $model->idOrganizador;
+$this->title = $model->titular;
 $this->params['breadcrumbs'][] = ['label' => 'Organizadors', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -30,6 +30,11 @@ $this->params['breadcrumbs'][] = $this->title;
 //            'informacionAdicional',
         ],
     ]) ?>
+    <div class="jumbotron">
+        <h1>Eventos de organizador</h1>
+
+    </div>
+
     <div class="list-group">
         <?php foreach ($eventos as $evento) { ?>
             <!--                    <a href="#" class="list-group-item">Home</a>-->
