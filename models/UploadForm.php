@@ -25,7 +25,8 @@ class UploadForm extends Model
     public function rules()
     {
         return [
-            [['imageFiles'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg', 'maxFiles' => 5],
+//            [['imageFiles'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg', 'maxFiles' => 5],
+            [['imageFiles'], 'file', 'skipOnEmpty' => false, 'maxFiles' => 5],
         ];
     }
 
