@@ -39,10 +39,10 @@ class UploadForm extends Model
             foreach ($this->imageFiles as $file) {
 
                 $path = 'fotos/' . $file->baseName . '.' . $file->extension;
-//                $pathWatermark = 'marcadeagua/watermark.png';
+
                 $file->saveAs($path);
                 $url = $storage->uploadFile($path, "ProyFinalH" . date("Ymd") . time() . "");
-//                $json = $this->identificarMicrosoft($url);
+
 
                 $modelFoto = new Multimedia();
 
@@ -50,11 +50,6 @@ class UploadForm extends Model
                 $modelFoto->path = $url;
                 $modelFoto->id_Usuario = 0;
                 $modelFoto->id_Evento = $ev;
-                print_r("despues de new multimedia" . $modelFoto->nombre . $modelFoto->path . $modelFoto->id_Usuario . $modelFoto->id_Evento);
-                exit();
-//                if ($this->hayCara($json)) {
-//                    $modelFoto->faceIds = $json;
-//                }
 
 
                 if ($modelFoto->save()) {
@@ -67,6 +62,9 @@ class UploadForm extends Model
                     print_r("error al insertar multimedia" . $modelFoto->nombre . $modelFoto->path . $modelFoto->id_Usuario . $modelFoto->id_Evento);
                     exit();
                 }
+                print_r("no emtro al if" . $modelFoto->nombre . "=no emtro al if=" . $modelFoto->path . "=no emtro al if=" . $modelFoto->id_Usuario . "=no emtro al if=" . $modelFoto->id_Evento);
+                exit();
+
 
 //                $suscriptores = EventoUsuario::findAll(['id_Evento' => $ev]);
 //                foreach ($suscriptores as $susc) {
