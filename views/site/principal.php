@@ -159,7 +159,7 @@
                 <?php foreach ($eventosALL as $evento) { ?>
                     <div class="list-group-item">
                         <div class="media">
-                            <a href="#<?= $evento->idEvento ?>" class="pull-left"><img
+                            <a id="modal-702504" href="#<?= $evento->idEvento ?>" class="pull-left"><img
                                     alt="EN ALMACENAMIENTO EXTERNO S3"
                                     src="<?= $evento->url ?>"
                                     class="media-object"
