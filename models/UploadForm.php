@@ -112,6 +112,7 @@ class UploadForm extends Model
                     $model = new Emocion();
                     $model->load($emociones);
                     $model->id_Multimedia = $idMultimedia;
+                    $model->save();
                 }
                 return true;
             }
