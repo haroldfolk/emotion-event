@@ -76,6 +76,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <a class="btn btn-default"
                                href="/organizador/upload?idEvento=<?= $evento->idEvento ?>&idOrg=<?= $model->idOrganizador ?>">SUBIR
                                 FOTOS</a>
+                            <?= Html::a('Ver estadisticas', ['/evento/pie', 'id' => $evento->idEvento], ['class' => 'btn btn-warning']) ?>
                         </div>
                         <div class="modal-footer">
 
