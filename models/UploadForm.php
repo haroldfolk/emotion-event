@@ -107,7 +107,7 @@ class UploadForm extends Model
         $decode = json_decode($json, true);
         if ($decode != null) {
             foreach ($decode as $js) {
-                if (!isset($js["scores"])) {
+                if (isset($js["scores"])) {
                     $emociones = $js["scores"];
                     $model = new Emocion();
                     $model->anger = $emociones["anger"];
