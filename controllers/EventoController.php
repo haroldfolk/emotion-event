@@ -115,7 +115,7 @@ class EventoController extends Controller
 
     public function actionUpload($idEvento, $idOrg, $idUser = null)
     {
-        if ($idUser = null) $idUser = 101010;
+        if ($idUser == null) $idUser = 101010;
         $model = new UploadForm();
         $model->evento = $idEvento;
         $model->idUser = $idUser;
