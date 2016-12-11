@@ -1,9 +1,9 @@
 <?php
-use sjaakp\gcharts\ColumnChart;
+use sjaakp\gcharts\PieChart;
 
 ?>
     ...
-<?= ColumnChart::widget([
+<?= PieChart::widget([
     'height' => '400px',
     'dataProvider' => $dataProvider,
     'columns' => [
@@ -11,6 +11,7 @@ use sjaakp\gcharts\ColumnChart;
         'valor'
     ],
     'options' => [
-        'title' => 'Eventos by Emociones'
+        'title' => 'Eventos by Emociones',
+        'sliceVisibilityThreshold' => 0.022
     ],
 ]) ?>
