@@ -8,7 +8,7 @@ use sjaakp\gcharts\PieChart;
     'dataProvider' => $dataProvider,
     'columns' => [
         'nombre:string',
-        'promedio'
+        'valor'
     ],
     'options' => [
         'title' => 'Eventos by Emociones'
