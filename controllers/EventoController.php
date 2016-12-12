@@ -8,6 +8,7 @@ use app\models\Usuarioevento;
 use Yii;
 use app\models\Evento;
 use yii\data\ActiveDataProvider;
+use yii\db\ActiveQuery;
 use yii\db\Query;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -151,26 +152,17 @@ class EventoController extends Controller
     {
         $sql = 'SELECT nombre,AVG( valor ) as valor
 FROM  emocion
-WHERE  id_Evento =:id_E
+WHERE  id_Evento =' . $id . '
 GROUP BY nombre';
-        $q = Emocion::findBySql($sql, [':id_E' => $id])->all();
-//        $dataProvider = new ActiveDataProvider([
-//            'query' => Emocion::find()->select(['nombre','valor'])->where(['id_Evento' => $id])->addGroupBy('nombre'),
-//            'pagination' => false
-//        ]);
+        $q = Emocion::findBySql($sql)->asArray()->all();
 
-//        print_r($q);
-//
-////        exit();
-//        $dataProvider = new ActiveDataProvider([
-//            'query' => Emocion::findBySql()->where(['id_Evento' => $id])->addGroupBy('nombre'),
-//            'pagination' => false
-//        ]);
-        $dataFalso = new ActiveDataProvider([
-            'query' => Emocion::find(),
+
+        $dataFalso = new ArrayDataProvider([
+            'allModels' => $q,
             'pagination' => false
         ]);
-        $dataFalso->setModels($q);
+        print_r($dataFalso);
+        exit();
         return $this->render('pie', [
             'dataProvider' => $dataFalso
         ]);
