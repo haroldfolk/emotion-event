@@ -21,6 +21,9 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'fechaFin')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'id_Organizador')->textInput() ?>
+    <iframe
+        src="https://www.google.com/maps/place"
+        width="400" height="300" frameborder="1" style="border:0" allowfullscreen></iframe>
 
     <?= $form->field($model, 'ubicacionLongitud')->textInput(['maxlength' => true]) ?>
 
