@@ -8,6 +8,7 @@ use app\models\Usuarioevento;
 use Yii;
 use app\models\Evento;
 use yii\data\ActiveDataProvider;
+use yii\data\ArrayDataProvider;
 use yii\db\ActiveQuery;
 use yii\db\Query;
 use yii\web\Controller;
