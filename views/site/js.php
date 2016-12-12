@@ -1,6 +1,8 @@
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false">
 
 
+    //<![CDATA[
+
     var map;
     var geocoder;
     var mapOptions = {
@@ -23,7 +25,6 @@
         });
 
         var marker;
-
         function placeMarker(location) {
             if (marker) { //on vérifie si le marqueur existe
                 marker.setPosition(location); //on change sa position
@@ -56,7 +57,11 @@
         }
     }
     google.maps.event.addDomListener(window, 'load', initialize);
+    //]]>
 
 
-</script><input type="text" id="lat" size="10"><input type="text" id="lng" size="10">
+</script>
+
+<input type="text" id="address" size="30"><br>
+<input type="text" id="lat" size="10"><input type="text" id="lng" size="10">
 <div id="map_canvas"></div>

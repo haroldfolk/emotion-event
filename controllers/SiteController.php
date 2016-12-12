@@ -74,7 +74,7 @@ class SiteController extends Controller
 
     public function actionJs()
     {
-
+//$this->layout=false;
         return $this->render('js');
     }
 //    public function actionMiindex()
