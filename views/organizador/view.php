@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
     <div class="jumbotron">
-        <?= Html::a('Crear Proyecto', ['/evento/create', 'id' => $eventos[0]->id_Organizador], ['class' => 'btn btn-warning']) ?>
+        <?= Html::a('Crear Evento', ['/evento/create', 'id' => $eventos[0]->id_Organizador], ['class' => 'btn btn-warning']) ?>
         <h1>Eventos de organizador</h1>
 
     </div>
@@ -52,8 +52,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
                 </div>
 
-                <a id="modal-702504" href="#<?= $evento->idEvento ?>" role="button" class="btn"
-                   data-toggle="modal">Suscribirme</a>
+                <a id="modal-702504" href="#<?= $evento->idEvento ?>" role="button" class="btn btn-info btn-lg"
+                   data-toggle="modal">Detalles</a>
             </div>
             <div class="modal fade" id="<?= $evento->idEvento ?>" role="dialog" aria-labelledby="myModalLabel"
                  aria-hidden="true">
