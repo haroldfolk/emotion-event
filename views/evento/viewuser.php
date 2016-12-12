@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
     <iframe
-        src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d15191.212525139186!2d<?= $model->ubicacionLongitud ?>!3d<?= $model->ubicacionLatitud ?>!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2s!4v1481522446783"
+        src="https://www.google.com/maps/place/<?= $model->ubicacionLatitud ?>!3d<?= $model->ubicacionLongitud ?>"
         width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
     <div class="container" style="margin-top:10px;">
         <div class="row form-group ">
