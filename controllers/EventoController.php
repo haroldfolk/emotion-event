@@ -68,6 +68,13 @@ class EventoController extends Controller
         ]);
     }
 
+    public function actionViewcatego($id)
+    {
+        $eventos = Evento::findAll(['id_Categoria' => $id]);
+        return $this->render('index', [
+            'eventos' => $eventos,
+        ]);
+    }
     public function actionViewuser($id)
     {
         $fotos = Multimedia::findAll(['id_Evento' => $id]);

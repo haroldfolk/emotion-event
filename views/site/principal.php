@@ -127,7 +127,7 @@
                                     <h4><?= $evento->fechaFin ?></h4>
                                 </div>
                                 <div class="modal-footer">
-                                    <?= Html::a('Ver Evento', ['view', 'id' => $evento->idEvento], ['class' => 'btn btn-success']) ?>
+                                    <?= Html::a('Ver Evento', ['/evento/view', 'id' => $evento->idEvento], ['class' => 'btn btn-success']) ?>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">
                                         Close
                                     </button>
@@ -174,7 +174,7 @@
                         </div>
 
                         <a id="modal-702504" href="#<?= $evento->idEvento ?>" role="button" class="btn"
-                           data-toggle="modal">Suscribirme</a>
+                           data-toggle="modal">Ver Detalles</a>
                     </div>
                     <div class="modal fade" id="<?= $evento->idEvento ?>" role="dialog" aria-labelledby="myModalLabel"
                          aria-hidden="true">
@@ -227,7 +227,8 @@
                 <div class="list-group">
                     <?php foreach ($categorias as $categoria) { ?>
                         <div class="list-group-item">
-                            <a class="btn" href="#"><?= $categoria->nombre ?></a>
+                            <a class="btn"
+                               href="/eventos/viewcatego?id=<?= $categoria->idCategoria ?>"><?= $categoria->nombre ?></a>
                         </div>
                     <?php } ?>
 
