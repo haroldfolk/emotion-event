@@ -128,6 +128,7 @@ class ApiproyfinalController extends Controller
         $idUsuario = $req->get('idUsuario');
         $url = $req->get('url');
         $image = new Multimedia();
+        $image->nombre = "Foto";
         $image->path = $url;
         $image->id_Evento = $idEvento;
         $image->id_Usuario = $idUsuario;
