@@ -7,7 +7,8 @@
  */
 
 use yii\widgets\ActiveForm;
-use kartik\widgets\Spinner;
+
+//use kartik\widgets\Spinner;
 ?>
     <h1>Subir Imagenes</h1>
 <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
@@ -16,9 +17,5 @@ use kartik\widgets\Spinner;
 <?= $form->field($model, 'imageFiles[]')->fileInput(['multiple' => true, 'accept' => 'image/*']) ?>
 
     <button class="btn-primary">Subir</button>
-<?php echo '<div class="well">';
-echo Spinner::widget(['preset' => 'large', 'align' => 'left']);
-echo '<div class="clearfix"></div>';
-echo '</div>';
 ?>
 <?php ActiveForm::end() ?>

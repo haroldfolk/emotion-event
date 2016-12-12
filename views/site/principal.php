@@ -28,7 +28,7 @@
                         <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
                             class="icon-bar"></span><span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Buscar Eventos</a>
+                    <a class="navbar-brand" href="/evento">Buscar Eventos</a>
                 </div>
             </nav>
             <div class="carousel slide" id="carousel-140385">
