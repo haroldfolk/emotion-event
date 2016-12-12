@@ -100,7 +100,7 @@
                 <?php
 
                 foreach ($eventos as $evento) { ?>
-                    <!--                    <a href="#" class="list-group-item">Home</a>-->
+
                     <div class="list-group-item">
                         <a id="modal-702504" href="#<?= $evento->idEvento ?>" role="button" class="btn"
                            data-toggle="modal"><?= $evento->nombre ?></a>

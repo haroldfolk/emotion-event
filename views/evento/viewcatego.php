@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     <div class="list-group">
         <?php foreach ($eventos as $evento) { ?>
-            <!--                    <a href="#" class="list-group-item">Home</a>-->
+
             <div class="list-group-item">
                 <div class="media">
                     <a href="#" class="pull-left"><img alt="Bootstrap Media Preview"
