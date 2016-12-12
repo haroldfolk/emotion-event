@@ -172,7 +172,7 @@ class EventoController extends Controller
         $content = $this->renderPartial('piepdf', [
             'dataProvider' => $dataProvider,
         ]);
-
+// nota:
         // setup kartik\mpdf\Pdf component
         $pdf = new Pdf([
             // set to use core fonts only
