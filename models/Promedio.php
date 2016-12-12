@@ -7,6 +7,7 @@ use Yii;
 /**
  * This is the model class for table "promedio".
  *
+ * @property integer $idPromedio
  * @property string $nombre
  * @property double $valor
  * @property integer $cant
@@ -31,7 +32,7 @@ class Promedio extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre', 'valor', 'cant', 'numTuplas', 'id_Evento'], 'required'],
+            [['nombre', 'id_Evento'], 'required'],
             [['valor'], 'number'],
             [['cant', 'numTuplas', 'id_Evento'], 'integer'],
             [['nombre'], 'string', 'max' => 255],
@@ -45,6 +46,7 @@ class Promedio extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
+            'idPromedio' => 'Id Promedio',
             'nombre' => 'Nombre',
             'valor' => 'Valor',
             'cant' => 'Cant',
