@@ -111,9 +111,12 @@ class UploadForm extends Model
                         if ($model->validate()) {
                             $model->save();
                             $prom = Promedio::findOne(['id_Evento' => $model->id_Evento, 'nombre' => $model->nombre]);
-                            $prom->cant = $prom->cant + $model->valor;
-                            $prom->numTuplas = $prom->numTuplas + 1;
-                            $prom->valor = $prom->cant / $prom->numTuplas;
+                            $nuevaC = $prom->cant + $model->valor;
+                            $prom->cant = $nuevaC;
+                            $nuevaT = $prom->numTuplas + 1;
+                            $prom->numTuplas = $nuevaT;
+                            $nuevaV = $prom->cant / $prom->numTuplas;
+                            $prom->valor = $nuevaV;
                             $prom->save();
                         }
                     }
