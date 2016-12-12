@@ -1,3 +1,4 @@
+<?php use yii\helpers\Html; ?>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -96,7 +97,7 @@
 
                 </p></h3>
             <div class="list-group">
-                <?php use yii\helpers\Html;
+                <?php
 
                 foreach ($eventos as $evento) { ?>
                     <!--                    <a href="#" class="list-group-item">Home</a>-->
