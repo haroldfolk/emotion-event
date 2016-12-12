@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="list-group-item">
                 <div class="media">
                     <a href="#" class="pull-left"><img alt="Bootstrap Media Preview"
-                                                       src="http://lorempixel.com/200/200/"
+                                                       src="http://lorempixel.com/200/200/sports/<?= $evento->idEvento ?>/"
                                                        class="media-object"></a>
                     <div class="media-body">
                         <h4 class="media-heading">
