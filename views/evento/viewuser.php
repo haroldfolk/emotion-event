@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
     <iframe
-        src="https://www.google.com/maps/search/<?= $model->ubicacionLatitud ?>,<?= $model->ubicacionLongitud ?>"
+        src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d3799.1796096012686!2d-63.184096035674806!3d-17.783253937842463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1splaza+24+De+Septiembre%2C+Santa+Cruz+de+la+Sierra%2C+Bolivia!5e0!3m2!1ses!2s!4v1481527508990"
         width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
     <div class="container" style="margin-top:10px;">
         <div class="row form-group ">
