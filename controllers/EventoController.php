@@ -369,6 +369,54 @@ class EventoController extends Controller
         $pdf->Output();
     }
 
+    public function actionReportb()
+    {
+
+        $pdf = new FPDF();
+        /////////////////////////////////
+
+
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->Cell(10, 0);
+
+        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/caratula.jpg");
+
+
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->Cell(10, 0, "Grafico 1");
+
+        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf1.jpg");
+
+/////////////////////////////////
+
+
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->Cell(10, 0, "Grafico 2");
+
+        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf2.jpg");
+
+/////////////////////////////////
+
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->Cell(10, 0, "Grafica 3");
+//
+        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf3.jpg");
+/////////////////////////////////
+
+
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->Cell(10, 0, "Grafico 4");
+
+        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf4.jpg");
+
+
+        $pdf->Output();
+    }
 
 
 
