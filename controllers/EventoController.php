@@ -153,12 +153,13 @@ class EventoController extends Controller
 FROM  emocion 
 WHERE  id_Evento =:id_E
 GROUP BY nombre';
-        $q = Emocion::findBySql($sql, [':id_E' => $id]);
+        $q = Emocion::findBySql($sql, [':id_E' => $id])->all();
         $dataProvider = new ActiveDataProvider([
             'query' => $q,
             'pagination' => false
         ]);
-        print_r($dataProvider->getModels());
+        print_r($q);
+
         exit();
 //        $dataProvider = new ActiveDataProvider([
 //            'query' => Emocion::findBySql()->where(['id_Evento' => $id])->addGroupBy('nombre'),
