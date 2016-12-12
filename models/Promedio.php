@@ -10,7 +10,7 @@ use Yii;
  * @property integer $idPromedio
  * @property string $nombre
  * @property double $valor
- * @property integer $cant
+ * @property double $cant
  * @property integer $numTuplas
  * @property integer $id_Evento
  *
@@ -33,8 +33,8 @@ class Promedio extends \yii\db\ActiveRecord
     {
         return [
             [['nombre', 'id_Evento'], 'required'],
-            [['valor'], 'number'],
-            [['cant', 'numTuplas', 'id_Evento'], 'integer'],
+            [['valor', 'cant'], 'number'],
+            [['numTuplas', 'id_Evento'], 'integer'],
             [['nombre'], 'string', 'max' => 255],
             [['id_Evento'], 'exist', 'skipOnError' => true, 'targetClass' => Evento::className(), 'targetAttribute' => ['id_Evento' => 'idEvento']],
         ];
