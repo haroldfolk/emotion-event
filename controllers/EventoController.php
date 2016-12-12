@@ -151,9 +151,9 @@ class EventoController extends Controller
     {
         $sql = 'SELECT nombre,AVG( valor ) as promedio 
 FROM  emocion 
-WHERE  id_Evento =:id_Evento
+WHERE  id_Evento =:id_E
 GROUP BY nombre';
-        $q = Emocion::findBySql($sql, [':id_Evento' => $id]);
+        $q = Emocion::findBySql($sql, [':id_E' => $id]);
         $dataProvider = new ActiveDataProvider([
             'query' => $q,
             'pagination' => false
