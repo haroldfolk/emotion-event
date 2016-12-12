@@ -71,7 +71,7 @@ class EventoController extends Controller
     public function actionViewcatego($id)
     {
         $eventos = Evento::findAll(['id_Categoria' => $id]);
-        return $this->render('viewcatego', [
+        return $this->render('index', [
             'eventos' => $eventos,
         ]);
     }
