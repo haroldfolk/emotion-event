@@ -199,7 +199,7 @@
                                 <div class="modal-footer">
                                     <?= Html::a('Ver Evento', ['/evento/viewuser', 'id' => $evento->idEvento], ['class' => 'btn btn-success']) ?>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">
-                                        Close
+                                        Cancelar
                                     </button>
 
                                 </div>
