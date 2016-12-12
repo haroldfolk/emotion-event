@@ -184,6 +184,11 @@ class EventoController extends Controller
                 'SetFooter' => ['|Page {PAGENO}|'],
             ]
         ]);
+        Yii::$app->response->format = \yii\web\Response::FORMAT_RAW;
+        Yii::$app->response->headers->add('Content-Type', 'application/pdf');
+
+
+
         return $pdf->render();
     }
 

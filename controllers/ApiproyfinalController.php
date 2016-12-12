@@ -6,6 +6,7 @@ use app\models\Categoria;
 use app\models\Cliente;
 use app\models\Evento;
 use app\models\Imagen;
+use app\models\Multimedia;
 use app\models\Organizador;
 use app\models\Tramite;
 use app\models\Usuario;
@@ -119,5 +120,26 @@ class ApiproyfinalController extends Controller
             'query' => Categoria::find(),
         ]);
     }
+
+    public function actionImageninsert()
+    {
+        $req = Yii::$app->request;
+        $idEvento = $req->get('idEvento');
+        $idUsuario = $req->get('idUsuario');
+        $url = $req->get('url');
+        $image = new Multimedia();
+        $image->path = $url;
+        $image->id_Evento = $idEvento;
+        $image->id_Usuario = $idUsuario;
+//        return $url.'+'.$id_tramite;
+        if ($image->validate()) {
+            if ($image->save()) {
+                return ['estado' => '2', 'contenido' => "Error"];
+            } else {
+                return ['estado' => '1', 'contenido' => "Imagenes Subidas Correctamente"];
+            }
+        }
+    }
+
 
 }
