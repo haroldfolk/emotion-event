@@ -158,6 +158,8 @@ GROUP BY nombre';
             'query' => $q,
             'pagination' => false
         ]);
+        print_r($dataProvider->getKeys());
+        exit();
 //        $dataProvider = new ActiveDataProvider([
 //            'query' => Emocion::findBySql()->where(['id_Evento' => $id])->addGroupBy('nombre'),
 //            'pagination' => false
