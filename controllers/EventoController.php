@@ -182,6 +182,10 @@ class EventoController extends Controller
         if (Yii::$app->user->isGuest) {
             return $this->render('error');
         }
+        $sus = Usuarioevento::findOne(['id_Usuario' => $idUs, 'id_Evento' => $idEv]);
+        if ($sus != null) {
+            return $this->render('errorc', ['c' => "Udyaesta suscrito"]);
+        }
         $userEven = new Usuarioevento();
         $userEven->id_Evento = $idEv;
         $userEven->id_Usuario = $idUs;
