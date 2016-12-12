@@ -4,7 +4,7 @@ use sjaakp\gcharts\BarChart;
 use sjaakp\gcharts\ScatterChart;
 use sjaakp\gcharts\LineChart;
 ?>
-    ...
+<a class="btn btn-primary btn-lg" href="/evento/report?id=<?= $idEvento ?>" role="button">Volver a portada principal</a>
 <?= PieChart::widget([
     'height' => '400px',
     'dataProvider' => $dataProvider,
