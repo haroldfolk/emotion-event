@@ -107,7 +107,6 @@ class UploadForm extends Model
                         $model = new Emocion();
                         $model->nombre = $nombreEmo;
                         $model->valor = $valorEmo * 100;
-
                         $model->id_Evento = $idEv;
                         if ($model->validate()) {
                             $model->save();
