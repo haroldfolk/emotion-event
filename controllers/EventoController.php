@@ -96,6 +96,64 @@ class EventoController extends Controller
         $model = new Evento();
         $model->id_Organizador = $idOrg;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+//////////////////////////////////////////////////////////////////////////////////////////
+            $prom = new Promedio();
+            $prom->id_Evento = $model->idEvento;
+            $prom->nombre = "enfado";
+            $prom->valor = 0;
+            $prom->cant = 0;
+            $prom->numTuplas = 0;
+            $prom->save();
+            $prom2 = new Promedio();
+            $prom2->id_Evento = $model->idEvento;
+            $prom2->nombre = "desprecio";
+            $prom2->valor = 0;
+            $prom2->cant = 0;
+            $prom2->numTuplas = 0;
+            $prom2->save();
+            $prom3 = new Promedio();
+            $prom3->id_Evento = $model->idEvento;
+            $prom3->nombre = "disgusto";
+            $prom3->valor = 0;
+            $prom3->cant = 0;
+            $prom3->numTuplas = 0;
+            $prom3->save();
+            $prom4 = new Promedio();
+            $prom4->id_Evento = $model->idEvento;
+            $prom4->nombre = "miedo";
+            $prom4->valor = 0;
+            $prom4->cant = 0;
+            $prom4->numTuplas = 0;
+            $prom4->save();
+            $prom5 = new Promedio();
+            $prom5->id_Evento = $model->idEvento;
+            $prom5->nombre = "felicidad";
+            $prom5->valor = 0;
+            $prom5->cant = 0;
+            $prom5->numTuplas = 0;
+            $prom5->save();
+            $prom6 = new Promedio();
+            $prom6->id_Evento = $model->idEvento;
+            $prom6->nombre = "neutral";
+            $prom6->valor = 0;
+            $prom6->cant = 0;
+            $prom6->numTuplas = 0;
+            $prom6->save();
+            $prom7 = new Promedio();
+            $prom7->id_Evento = $model->idEvento;
+            $prom7->nombre = "tristeza";
+            $prom7->valor = 0;
+            $prom7->cant = 0;
+            $prom7->numTuplas = 0;
+            $prom7->save();
+            $prom8 = new Promedio();
+            $prom8->id_Evento = $model->idEvento;
+            $prom8->nombre = "sorpresa";
+            $prom8->valor = 0;
+            $prom8->cant = 0;
+            $prom8->numTuplas = 0;
+            $prom8->save();
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             return $this->redirect(['view', 'id' => $model->idEvento]);
         } else {
             return $this->render('create', [
@@ -380,14 +438,14 @@ class EventoController extends Controller
         $pdf->SetFont('Arial', 'B', 16);
         $pdf->Cell(0, 0);
 
-        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/caratula.jpg", 0, 0, 150, 50, '', '');
+        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/caratula.jpg", 0, 0, 200, 100, '', '');
 
 
         $pdf->AddPage();
         $pdf->SetFont('Arial', 'B', 16);
         $pdf->Cell(0, 0, "Grafico 1");
 
-        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf1.jpg", 0, 0, 150, 50, '', '');
+        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf1.jpg", 0, 0, 200, 100, '', '');
 
 /////////////////////////////////
 
@@ -396,7 +454,7 @@ class EventoController extends Controller
         $pdf->SetFont('Arial', 'B', 16);
         $pdf->Cell(0, 0, "Grafico 2");
 
-        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf2.jpg", 0, 0, 150, 50, '', '');
+        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf2.jpg", 0, 0, 200, 100, '', '');
 
 /////////////////////////////////
 
@@ -404,7 +462,7 @@ class EventoController extends Controller
         $pdf->SetFont('Arial', 'B', 16);
         $pdf->Cell(0, 0, "Grafica 3");
 //
-        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf3.jpg", 0, 0, 150, 50, '', '');
+        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf3.jpg", 0, 0, 200, 100, '', '');
 /////////////////////////////////
 
 
@@ -412,7 +470,7 @@ class EventoController extends Controller
         $pdf->SetFont('Arial', 'B', 16);
         $pdf->Cell(0, 0, "Grafico 4");
 
-        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf4.jpg", 0, 0, 150, 50, '', '');
+        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf4.jpg", 0, 0, 200, 100, '', '');
 
 
         $pdf->Output();

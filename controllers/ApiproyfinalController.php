@@ -175,7 +175,14 @@ class ApiproyfinalController extends Controller
                     $emociones = $js["scores"];
                     foreach ($emociones as $nombreEmo => $valorEmo) {
                         $model = new Emocion();
-                        $model->nombre = $nombreEmo;
+                        if ($nombreEmo == "anger") $model->nombre = "enfado";
+                        if ($nombreEmo == "contempt") $model->nombre = "desprecio";
+                        if ($nombreEmo == "disgust") $model->nombre = "disgusto";
+                        if ($nombreEmo == "fear") $model->nombre = "miedo";
+                        if ($nombreEmo == "happiness") $model->nombre = "felicidad";
+                        if ($nombreEmo == "neutral") $model->nombre = "neutral";
+                        if ($nombreEmo == "sadness") $model->nombre = "tristeza";
+                        if ($nombreEmo == "surprise") $model->nombre = "sorpresa";
                         $model->valor = $valorEmo * 100;
                         $model->id_Evento = $idEv;
                         if ($model->validate()) {
