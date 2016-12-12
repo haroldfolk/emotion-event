@@ -135,9 +135,9 @@ class ApiproyfinalController extends Controller
 //        return $url.'+'.$id_tramite;
         if ($image->validate()) {
             if ($image->save()) {
-                return ['estado' => '2', 'contenido' => "Error"];
+                return ['estado' => '1', 'contenido' => "Error"];
             } else {
-                return ['estado' => '1', 'contenido' => "Imagenes Subidas Correctamente"];
+                return ['estado' => '2', 'contenido' => "Imagenes Subidas Correctamente"];
             }
         }
     }
