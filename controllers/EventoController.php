@@ -155,7 +155,7 @@ class EventoController extends Controller
 //GROUP BY nombre';
 //        $q = Emocion::findBySql($sql, [':id_E' => $id])->all();
         $dataProvider = new ActiveDataProvider([
-            'query' => Emocion::find()->select('nombre')->where(['id_Evento' => $id])->addSelect('AVG( valor ) as promedio')->addGroupBy('nombre'),
+            'query' => Emocion::find()->select('nombre')->where(['id_Evento' => $id])->addSelect('AVG( valor )')->addGroupBy('nombre'),
             'pagination' => false
         ]);
 //        print_r($q);
