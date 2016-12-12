@@ -92,7 +92,7 @@
     <div class="row">
         <div class="col-md-3">
 
-            <h3><p class="bg-info">
+            <h3><p>
                     <?= Html::a('Eventos suscritos', ['/evento'], ['class' => 'btn btn-success']) ?>
 
                 </p></h3>

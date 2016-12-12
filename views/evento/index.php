@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
 
                 <a id="modal-702504"
-                   href="/evento/subscribir?idEv=<?= $evento->idEvento ?>&$idUs=<?= Yii::$app->user->getId() ?>"
+                   href="/evento/subscribir?idEv=<?= $evento->idEvento ?>&idUs=<?= Yii::$app->user->getId() ?>"
                    role="button" class="btn"
                    data-toggle="modal">Suscribirme</a>
 
