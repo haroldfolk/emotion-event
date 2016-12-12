@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="evento-index">
 
-    <h1>$c</h1>
+    <h1><?= $c ?></h1>
 
     <p>
         <?= Html::a('Ver Eventos', ['index'], ['class' => 'btn btn-success']) ?>
