@@ -7,6 +7,7 @@ use app\models\Multimedia;
 use app\models\Promedio;
 use app\models\UploadForm;
 use app\models\Usuarioevento;
+use fpdf\FPDF;
 use Yii;
 use app\models\Evento;
 use yii\data\ActiveDataProvider;
@@ -48,9 +49,9 @@ class EventoController extends Controller
             return $this->redirect(['/site/index']);
         }
 
-        $eventosDelUsuario = UsuarioEvento::find()->addSelect(["id_Evento"])->where(["id_Usuario" => Yii::$app->user->getId()]);
-        $eventos = Evento::findAll($eventosDelUsuario);
-
+//        $eventosDelUsuario = UsuarioEvento::find()->addSelect(["id_Evento"])->where(["id_Usuario" => Yii::$app->user->getId()]);
+//        $eventos = Evento::findAll($eventosDelUsuario);
+        $eventos = Evento::find()->all();
         return $this->render('index', [
             'eventos' => $eventos,
         ]);
@@ -173,12 +174,25 @@ class EventoController extends Controller
     }
 
 
-    public function actionPie($id)
+    public function actionPie($id, $tipo = null)
     {
         $dataProvider = new ActiveDataProvider([
             'query' => Promedio::find()->where(['id_Evento' => $id]),
             'pagination' => false
         ]);
+        if ($tipo == 1) {
+            return $this->render('grapbar', [
+                'dataProvider' => $dataProvider, 'idEvento' => $id,
+            ]);
+        } elseif ($tipo == 2) {
+            return $this->render('grapscatter', [
+                'dataProvider' => $dataProvider, 'idEvento' => $id,
+            ]);
+        } elseif ($tipo == 3) {
+            return $this->render('grapline', [
+                'dataProvider' => $dataProvider, 'idEvento' => $id,
+            ]);
+        }
         return $this->render('pie', [
             'dataProvider' => $dataProvider, 'idEvento' => $id,
         ]);
@@ -201,7 +215,157 @@ class EventoController extends Controller
     }
     public function actionReport($id)
     {
-        return $this->goBack();
+
+        $pdf = new FPDF();
+        /////////////////////////////////
+
+        $tamaño = getimagesize("https://s3-us-west-2.amazonaws.com/fotowebhd/caratula.jpg");
+
+        $ancho = $tamaño[0];
+        $alto = $tamaño[1];
+        if ($ancho > $alto) {
+            $relacion = (bcdiv($alto, $ancho, 7));
+
+            if ($ancho > 750) {
+                $ancho = 700;
+                $alto = $ancho * $relacion;
+            }
+        } else {
+            $relacion = (bcdiv($ancho, $alto, 7));
+
+            if ($alto > 1090) {
+                $alto = 1000;
+                $ancho = $alto * $relacion;
+            }
+        }
+
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->Cell(10, 0);
+//            Ancho: 793px
+//Alto: 1122px
+//            Oficio/Legal	216 x 356 mm	8,5 x 14,0 pulg	1:1,6471
+        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/caratula.jpg", 10, 15, $ancho * 0.264583333, $alto * 0.264583333, 'JPG');
+
+        $tamaño = getimagesize("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf1.jpg");
+
+        $ancho = $tamaño[0];
+        $alto = $tamaño[1];
+        if ($ancho > $alto) {
+            $relacion = (bcdiv($alto, $ancho, 7));
+
+            if ($ancho > 750) {
+                $ancho = 700;
+                $alto = $ancho * $relacion;
+            }
+        } else {
+            $relacion = (bcdiv($ancho, $alto, 7));
+
+            if ($alto > 1090) {
+                $alto = 1000;
+                $ancho = $alto * $relacion;
+            }
+        }
+
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->Cell(10, 0, "Grafico 1");
+//            Ancho: 793px
+//Alto: 1122px
+//            Oficio/Legal	216 x 356 mm	8,5 x 14,0 pulg	1:1,6471
+        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf1.jpg", 10, 15, $ancho * 0.264583333, $alto * 0.264583333, 'JPG');
+
+/////////////////////////////////
+
+        $tamaño = getimagesize("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf2.jpg");
+
+        $ancho = $tamaño[0];
+        $alto = $tamaño[1];
+        if ($ancho > $alto) {
+            $relacion = (bcdiv($alto, $ancho, 7));
+
+            if ($ancho > 750) {
+                $ancho = 700;
+                $alto = $ancho * $relacion;
+            }
+        } else {
+            $relacion = (bcdiv($ancho, $alto, 7));
+
+            if ($alto > 1090) {
+                $alto = 1000;
+                $ancho = $alto * $relacion;
+            }
+        }
+
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->Cell(10, 0, "Grafico 2");
+//            Ancho: 793px
+//Alto: 1122px
+//            Oficio/Legal	216 x 356 mm	8,5 x 14,0 pulg	1:1,6471
+        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf2.jpg", 10, 15, $ancho * 0.264583333, $alto * 0.264583333, 'JPG');
+
+/////////////////////////////////
+
+        $tamaño = getimagesize("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf3.jpg");
+
+        $ancho = $tamaño[0];
+        $alto = $tamaño[1];
+        if ($ancho > $alto) {
+            $relacion = (bcdiv($alto, $ancho, 7));
+
+            if ($ancho > 750) {
+                $ancho = 700;
+                $alto = $ancho * $relacion;
+            }
+        } else {
+            $relacion = (bcdiv($ancho, $alto, 7));
+
+            if ($alto > 1090) {
+                $alto = 1000;
+                $ancho = $alto * $relacion;
+            }
+        }
+
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->Cell(10, 0, "Grafica 3");
+//            Ancho: 793px
+//Alto: 1122px
+//            Oficio/Legal	216 x 356 mm	8,5 x 14,0 pulg	1:1,6471
+        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf3.jpg", 10, 15, $ancho * 0.264583333, $alto * 0.264583333, 'JPG');
+/////////////////////////////////
+
+        $tamaño = getimagesize("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf4.jpg");
+
+        $ancho = $tamaño[0];
+        $alto = $tamaño[1];
+        if ($ancho > $alto) {
+            $relacion = (bcdiv($alto, $ancho, 7));
+
+            if ($ancho > 750) {
+                $ancho = 700;
+                $alto = $ancho * $relacion;
+            }
+        } else {
+            $relacion = (bcdiv($ancho, $alto, 7));
+
+            if ($alto > 1090) {
+                $alto = 1000;
+                $ancho = $alto * $relacion;
+            }
+        }
+
+        $pdf->AddPage();
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->Cell(10, 0, "Grafico 4");
+//            Ancho: 793px
+//Alto: 1122px
+//            Oficio/Legal	216 x 356 mm	8,5 x 14,0 pulg	1:1,6471
+        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf4.jpg", 10, 15, $ancho * 0.264583333, $alto * 0.264583333, 'JPG');
+
+
+        $pdf->Output();
     }
 
 
