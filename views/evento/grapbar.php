@@ -1,4 +1,4 @@
-pie.php<?php
+<?php
 use sjaakp\gcharts\PieChart;
 use sjaakp\gcharts\BarChart;
 use sjaakp\gcharts\ScatterChart;
