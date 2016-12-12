@@ -149,15 +149,16 @@ class EventoController extends Controller
 
     public function actionPie($id)
     {
-//        $sql = 'SELECT nombre,AVG( valor ) as promedio
-//FROM  emocion
-//WHERE  id_Evento =:id_E
-//GROUP BY nombre';
-//        $q = Emocion::findBySql($sql, [':id_E' => $id])->all();
-        $dataProvider = new ActiveDataProvider([
-            'query' => Emocion::find()->select('nombre')->where(['id_Evento' => $id])->addSelect('AVG( valor )')->addGroupBy('nombre'),
-            'pagination' => false
-        ]);
+        $sql = 'SELECT nombre,AVG( valor ) as promedio
+FROM  emocion
+WHERE  id_Evento =:id_E
+GROUP BY nombre';
+        $q = Emocion::findBySql($sql, [':id_E' => $id])->all();
+//        $dataProvider = new ActiveDataProvider([
+//            'query' => Emocion::find()->select(['nombre','valor'])->where(['id_Evento' => $id])->addGroupBy('nombre'),
+//            'pagination' => false
+//        ]);
+
 //        print_r($q);
 //
 ////        exit();
@@ -167,7 +168,7 @@ class EventoController extends Controller
 //        ]);
 
         return $this->render('pie', [
-            'dataProvider' => $dataProvider
+            'dataProvider' => $q
         ]);
     }
 
