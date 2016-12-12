@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
     <div class="jumbotron">
-        <?= Html::a('Crear Evento', ['/evento/create', 'id' => $eventos[0]->id_Organizador], ['class' => 'btn btn-warning']) ?>
+        <?= Html::a('Crear Evento', ['/evento/create', 'idOrg' => $eventos[0]->id_Organizador], ['class' => 'btn btn-warning']) ?>
         <h1>Eventos de organizador</h1>
 
     </div>
@@ -43,7 +43,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="media">
                     <a href="#" class="pull-left"><img alt="EN ALMACENAMIENTO EXTERNO S3"
                                                        src="<?= $evento->url ?>"
-                                                       class="media-object"></a>
+                                                       class="media-object"
+                                                       style="width:200px;height:200px"></a>
                     <div class="media-body">
                         <h4 class="media-heading">
                             <?= $evento->nombre ?>

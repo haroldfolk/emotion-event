@@ -93,7 +93,7 @@ class EventoController extends Controller
             return $this->redirect(['/evento/error']);
         }
         $model = new Evento();
-
+        $model->id_Organizador = $idOrg;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->idEvento]);
         } else {
