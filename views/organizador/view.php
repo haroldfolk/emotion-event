@@ -31,13 +31,14 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
     <div class="jumbotron">
+        <?= Html::a('Crear Proyecto', ['/evento/create', 'id' => $eventos[0]->id_Organizador], ['class' => 'btn btn-warning']) ?>
         <h1>Eventos de organizador</h1>
 
     </div>
 
     <div class="list-group">
         <?php foreach ($eventos as $evento) { ?>
-            <!--                    <a href="#" class="list-group-item">Home</a>-->
+
             <div class="list-group-item">
                 <div class="media">
                     <a href="#" class="pull-left"><img alt="EN ALMACENAMIENTO EXTERNO S3"

@@ -15,6 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
+        <?= Html::a('Volver a mis eventos', ['/organizador/view', 'id' => $model->id_Organizador], ['class' => 'btn btn-primary btn-lg']) ?>
         <?= Html::a('Update', ['update', 'id' => $model->idEvento], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->idEvento], [
             'class' => 'btn btn-danger',

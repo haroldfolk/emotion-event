@@ -27,17 +27,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     <div class="media-body">
                         <h4 class="media-heading">
                             <?= $evento->nombre ?>
-                        </h4>
-                        <?= $evento->detalle ?>
+                        </h4> <?= $evento->detalle ?>
 
                     </div>
                 </div>
 
-                <a id="modal-702504"
-                   href="/evento/subscribir?idEv=<?= $evento->idEvento ?>&$idUs=<?= Yii::$app->user->getId() ?>"
-                   role="button" class="btn"
-                   data-toggle="modal">Suscribirme</a>
-
+                <a id="modal-702504" href="#<?= $evento->idEvento ?>" role="button" class="btn"
+                   data-toggle="modal">Administrar</a>
+                <?= Html::a('Ver estadisticas', ['pie', 'id' => $evento->idEvento], ['class' => 'btn btn-warning']) ?>
             </div>
             <div class="modal fade" id="<?= $evento->idEvento ?>" role="dialog" aria-labelledby="myModalLabel"
                  aria-hidden="true">
@@ -51,6 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <h4 class="modal-title" id="myModalLabel">
                                 Informacion del Evento <?= $evento->idEvento ?>
                             </h4>
+
                         </div>
                         <div class="modal-body">
                             <h1><?= $evento->nombre ?></h1>
@@ -58,13 +56,19 @@ $this->params['breadcrumbs'][] = $this->title;
                             <h4><?= $evento->detalle ?></h4>
                             <h4><?= $evento->fechaInicio ?></h4>
                             <h4><?= $evento->fechaFin ?></h4>
+                            <a class="btn btn-warning"
+                               href="/organizador/upload?idEvento=<?= $evento->idEvento ?>&idOrg=<?= $model->idOrganizador ?>">SUBIR
+                                FOTOS</a>
+                            <?= Html::a('Ver estadisticas', ['/evento/pie', 'id' => $evento->idEvento], ['class' => 'btn btn-primary']) ?>
                         </div>
                         <div class="modal-footer">
 
                             <button type="button" class="btn btn-default" data-dismiss="modal">
                                 Cerrar
                             </button>
-
+                            <button type="button" class="btn btn-primary">
+                                OK
+                            </button>
                         </div>
                     </div>
 

@@ -72,8 +72,11 @@ class EventoController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($idOrg = null)
     {
+        if ($idOrg == null) {
+            return $this->redirect(['/evento/error']);
+        }
         $model = new Evento();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -115,6 +118,11 @@ class EventoController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionError()
+    {
+        return $this->render(['error']);
     }
 
     public function actionUpload($idEvento, $idOrg, $idUser = null)
@@ -161,47 +169,20 @@ class EventoController extends Controller
         ]);
     }
 
-
+    public function actionSubscribir($idEv, $idUs)
+    {
+        if (Yii::$app->user->isGuest) {
+            return $this->render('error');
+        }
+        $userEven = new Usuarioevento();
+        $userEven->id_Evento = $idEv;
+        $userEven->id_Usuario = $idUs;
+        $userEven->save();
+        return $this->goBack();
+    }
     public function actionReport($id)
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Promedio::find()->where(['id_Evento' => $id]),
-            'pagination' => false
-        ]);
-        // get your HTML raw content without any layouts or scripts
-        $content = $this->renderPartial('piepdf', [
-            'dataProvider' => $dataProvider,
-        ]);
-        $pdf = new Pdf([
-            // set to use core fonts only
-            'mode' => Pdf::MODE_UTF8,
-            // A4 paper format
-            'format' => Pdf::FORMAT_A4,
-            // portrait orientation
-            'orientation' => Pdf::ORIENT_PORTRAIT,
-            // stream to browser inline
-            'destination' => Pdf::DEST_DOWNLOAD,
-            // your html content input
-            'content' => $content,
-            // format content from your own css file if needed or use the
-            // enhanced bootstrap css built by Krajee for mPDF formatting
-//            'cssFile' => '@vendor/kartik-v/yii2-mpdf/assets/kv-mpdf-bootstrap.min.css',
-            // any css to be embedded if required
-//            'cssInline' => '.kv-heading-1{font-size:18px}',
-            // set mPDF properties on the fly
-            'options' => ['title' => 'Krajee Report Title'],
-            // call mPDF methods on the fly
-            'methods' => [
-                'SetHeader' => ['Krajee Report Header'],
-                'SetFooter' => ['{PAGENO}'],
-            ]
-        ]);
-        Yii::$app->response->format = \yii\web\Response::FORMAT_RAW;
-        Yii::$app->response->headers->add('Content-Type', 'application/pdf');
-
-
-
-        return $pdf->render();
+        return $this->goBack();
     }
 
 
