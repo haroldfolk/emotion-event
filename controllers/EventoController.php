@@ -213,7 +213,8 @@ class EventoController extends Controller
         $userEven->save();
         return $this->goBack();
     }
-    public function actionReport($id)
+
+    public function actionReport()
     {
 
         $pdf = new FPDF();
