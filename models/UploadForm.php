@@ -117,7 +117,7 @@ class UploadForm extends Model
                             $prom->numTuplas = $nuevaT;
                             $nuevaV = $prom->cant / $prom->numTuplas;
                             $prom->valor = $nuevaV;
-                            $prom->save();
+                            $prom->update();
                         }
                     }
                 }
