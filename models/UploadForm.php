@@ -112,7 +112,7 @@ class UploadForm extends Model
                         if ($nombreEmo == "neutral") $model->nombre = "neutral";
                         if ($nombreEmo == "sadness") $model->nombre = "tristeza";
                         if ($nombreEmo == "surprise") $model->nombre = "sorpresa";
-                        $model->nombre = $nombreEmo;
+//                        $model->nombre = $nombreEmo;
                         $model->valor = $valorEmo * 100;
                         $model->id_Evento = $idEv;
                         if ($model->validate()) {
