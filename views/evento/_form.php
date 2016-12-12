@@ -30,7 +30,7 @@ use yii\widgets\ActiveForm;
     <iframe width="400" height="400" src="//jsfiddle.net/eB2RX/1/embedded/result/" allowfullscreen="allowfullscreen"
             frameborder="0"></iframe>
 
-    <?= $form->field($model, 'id_Categoria')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\Categoria::findAll())) ?>
+    <?= $form->field($model, 'id_Categoria')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\Categoria::find()->all())) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
