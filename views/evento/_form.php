@@ -21,10 +21,10 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'fechaFin')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'id_Organizador')->hiddenInput() ?>
-    <iframe width="400" height="400" src="//jsfiddle.net/eB2RX/1/embedded/result/" allowfullscreen="allowfullscreen"
-            frameborder="0"></iframe><?= $form->field($model, 'ubicacionLongitud')->textInput(['maxlength' => true]) ?>
-
+    <?= $form->field($model, 'ubicacionLongitud')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'ubicacionLatitud')->textInput(['maxlength' => true]) ?>
+    <iframe width="400" height="400" src="//jsfiddle.net/eB2RX/1/embedded/result/" allowfullscreen="allowfullscreen"
+            frameborder="0"></iframe>
 
     <?= $form->field($model, 'id_Categoria')->textInput() ?>
 
