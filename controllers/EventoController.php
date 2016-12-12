@@ -149,7 +149,7 @@ class EventoController extends Controller
 
     public function actionPie($id)
     {
-        $sql = 'SELECT nombre,AVG( valor ) as promedio
+        $sql = 'SELECT nombre,AVG( valor ) as valor
 FROM  emocion
 WHERE  id_Evento =:id_E
 GROUP BY nombre';
