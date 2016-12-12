@@ -21,12 +21,16 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'fechaFin')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'id_Organizador')->hiddenInput() ?>
-    <?= $form->field($model, 'ubicacionLongitud')->textInput(['maxlength' => true]) ?>
+    <p><br>Copie las coordenadas para una ubicacion exacta de su eventoy que los usuarios lo encuentren en la app movil
+        <br></p>
     <?= $form->field($model, 'ubicacionLatitud')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'ubicacionLongitud')->textInput(['maxlength' => true]) ?>
+
     <iframe width="400" height="400" src="//jsfiddle.net/eB2RX/1/embedded/result/" allowfullscreen="allowfullscreen"
             frameborder="0"></iframe>
 
-    <?= $form->field($model, 'id_Categoria')->textInput() ?>
+    <?= $form->field($model, 'id_Categoria')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\Categoria::findAll())) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
