@@ -72,6 +72,11 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+    public function actionJs()
+    {
+
+        return $this->render('js');
+    }
 //    public function actionMiindex()
 //    {
 //        $model = new LoginForm();
