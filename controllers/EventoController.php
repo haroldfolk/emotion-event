@@ -162,8 +162,8 @@ GROUP BY nombre';
             'allModels' => $q,
             'pagination' => false
         ]);
-        print_r($dataFalso);
-        exit();
+//        print_r($dataFalso);
+//        exit();
         return $this->render('pie', [
             'dataProvider' => $dataFalso
         ]);
