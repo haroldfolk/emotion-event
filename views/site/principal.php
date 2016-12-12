@@ -228,7 +228,7 @@
                     <?php foreach ($categorias as $categoria) { ?>
                         <div class="list-group-item">
                             <a class="btn"
-                               href="/eventos/viewcatego?id=<?= $categoria->idCategoria ?>"><?= $categoria->nombre ?></a>
+                               href="/evento/viewcatego?id=<?= $categoria->idCategoria ?>"><?= $categoria->nombre ?></a>
                         </div>
                     <?php } ?>
 

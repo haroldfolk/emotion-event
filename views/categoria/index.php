@@ -23,7 +23,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'nombre',
             'descripcion',
 
-            ['class' => 'yii\grid\ActionColumn', 'template' => '{viewuser} '],
+            ['class' => 'yii\grid\ActionColumn', 'template' => '{view} '],
         ],
     ]); ?>
 </div>
