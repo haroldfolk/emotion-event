@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <a href="#" class="pull-left"><img alt="EN ALMACENAMIENTO EXTERNO S3"
                                                        src="<?= $evento->url ?>"
                                                        class="media-object"
-                                                       style="width:200px;height:200px"></a>
+                                                       style="width:300px;height:200px"></a>
                     <div class="media-body">
                         <h4 class="media-heading">
                             <?= $evento->nombre ?>
