@@ -8,6 +8,7 @@ use app\models\Usuarioevento;
 use Yii;
 use app\models\Evento;
 use yii\data\ActiveDataProvider;
+use yii\db\Query;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -152,9 +153,9 @@ class EventoController extends Controller
 FROM  emocion 
 WHERE  id_Evento =:id_Evento
 GROUP BY nombre';
-
+        $q = Emocion::findBySql($sql, [':id_Evento' => $id]);
         $dataProvider = new ActiveDataProvider([
-            'query' => Emocion::findBySql($sql, [':id_Evento' => $id])->all(),
+            'query' => $q,
             'pagination' => false
         ]);
 //        $dataProvider = new ActiveDataProvider([
