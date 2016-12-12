@@ -4,10 +4,12 @@ namespace app\controllers;
 
 use app\models\Categoria;
 use app\models\Cliente;
+use app\models\Emocion;
 use app\models\Evento;
 use app\models\Imagen;
 use app\models\Multimedia;
 use app\models\Organizador;
+use app\models\Promedio;
 use app\models\Tramite;
 use app\models\Usuario;
 use app\models\Usuarioevento;
@@ -135,10 +137,65 @@ class ApiproyfinalController extends Controller
 //        return $url.'+'.$id_tramite;
         if ($image->validate()) {
             if ($image->save()) {
+                $json = $this->ejecutarEmocionApi($url);
+                $this->reconocerEmocionesDeJSON($json, $idEvento);
                 return ['estado' => '1', 'contenido' => "Error"];
             } else {
                 return ['estado' => '2', 'contenido' => "Imagenes Subidas Correctamente"];
             }
+        }
+    }
+
+    public function ejecutarEmocionApi($urlToMicrosoft = null)
+    {
+        $client = new Client();
+        $response = $client->createRequest()
+            ->setMethod('post')
+            ->setUrl('https://api.projectoxford.ai/emotion/v1.0/recognize?subscription-key=0231135c1da34cc5970fa55a50ede63f')
+            ->addHeaders(['content-type' => 'application/json'])
+//            ->setContent('{"url":"' . $urlToMicrosoft . '"}')
+            ->setContent('{"url":"' . $urlToMicrosoft . '"}')
+            ->send();
+        if ($response->isOk) {
+
+            return $response->content;
+        } else {
+            print_r("la Error en la EmocionAPI nofunciona");
+            exit();
+        }
+        return [null];
+    }
+
+    public function reconocerEmocionesDeJSON($json, $idEv)
+    {
+        $decode = json_decode($json, true);
+        if ($decode != null) {
+            foreach ($decode as $js) {
+                if (isset($js["scores"])) {
+                    $emociones = $js["scores"];
+                    foreach ($emociones as $nombreEmo => $valorEmo) {
+                        $model = new Emocion();
+                        $model->nombre = $nombreEmo;
+                        $model->valor = $valorEmo * 100;
+                        $model->id_Evento = $idEv;
+                        if ($model->validate()) {
+                            $model->save();
+                            $prom = Promedio::findOne(['id_Evento' => $model->id_Evento, 'nombre' => $model->nombre]);
+                            $nuevaC = $prom->cant + $model->valor;
+                            $prom->cant = $nuevaC;
+                            $nuevaT = $prom->numTuplas + 1;
+                            $prom->numTuplas = $nuevaT;
+                            $nuevaV = $prom->cant / $prom->numTuplas;
+                            $prom->valor = $nuevaV;
+                            $prom->update();
+                        }
+                    }
+                }
+
+            }
+            return false;
+        } else {
+            return false;
         }
     }
 

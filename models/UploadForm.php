@@ -53,7 +53,6 @@ class UploadForm extends Model
                     $json = $this->ejecutarEmocionApi($url);
                     $this->reconocerEmocionesDeJSON($json, $ev);
                 }
-
             }
             return true;
         } else {
