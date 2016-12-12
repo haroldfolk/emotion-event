@@ -173,7 +173,7 @@ class EventoController extends Controller
             'dataProvider' => $dataProvider,
         ]);
         $pdf = new Pdf([
-            'mode' => Pdf::MODE_CORE, // leaner size using standard fonts
+            'mode' => Pdf::MODE_UTF8, // leaner size using standard fonts
             'content' => $content,
             'options' => [
                 'title' => 'Privacy Policy - Krajee.com',
