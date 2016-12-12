@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <h3 class="panel-title"><?= $doc->nombre ?></h3>
                     </div>
                     <a href="<?= $doc->path ?>">
-                        <img width="230" height="200" src="<?= $doc->url ?>">
+                        <img width="230" height="200" src="<?= $doc->path ?>">
                     </a>
 
 
