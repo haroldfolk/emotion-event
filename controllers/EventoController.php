@@ -380,14 +380,14 @@ class EventoController extends Controller
         $pdf->SetFont('Arial', 'B', 16);
         $pdf->Cell(0, 0);
 
-        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/caratula.jpg", 0, 0, 300, 200, '', '');
+        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/caratula.jpg", 0, 0, 150, 50, '', '');
 
 
         $pdf->AddPage();
         $pdf->SetFont('Arial', 'B', 16);
         $pdf->Cell(0, 0, "Grafico 1");
 
-        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf1.jpg", 0, 0, 300, 200, '', '');
+        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf1.jpg", 0, 0, 150, 50, '', '');
 
 /////////////////////////////////
 
@@ -396,7 +396,7 @@ class EventoController extends Controller
         $pdf->SetFont('Arial', 'B', 16);
         $pdf->Cell(0, 0, "Grafico 2");
 
-        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf2.jpg", 0, 0, 300, 200, '', '');
+        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf2.jpg", 0, 0, 150, 50, '', '');
 
 /////////////////////////////////
 
@@ -404,7 +404,7 @@ class EventoController extends Controller
         $pdf->SetFont('Arial', 'B', 16);
         $pdf->Cell(0, 0, "Grafica 3");
 //
-        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf3.jpg", 0, 0, 300, 200, '', '');
+        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf3.jpg", 0, 0, 150, 50, '', '');
 /////////////////////////////////
 
 
@@ -412,7 +412,7 @@ class EventoController extends Controller
         $pdf->SetFont('Arial', 'B', 16);
         $pdf->Cell(0, 0, "Grafico 4");
 
-        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf4.jpg", 0, 0, 300, 200, '', '');
+        $pdf->Image("https://s3-us-west-2.amazonaws.com/fotowebhd/pdf4.jpg", 0, 0, 150, 50, '', '');
 
 
         $pdf->Output();
