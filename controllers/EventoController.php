@@ -169,8 +169,8 @@ class EventoController extends Controller
             'pagination' => false
         ]);
         // get your HTML raw content without any layouts or scripts
-        $content = $this->renderPartial('pie', [
-            'dataProvider' => $dataProvider, 'idEvento' => $id,
+        $content = $this->renderPartial('piepdf', [
+            'dataProvider' => $dataProvider,
         ]);
 
         // setup kartik\mpdf\Pdf component
