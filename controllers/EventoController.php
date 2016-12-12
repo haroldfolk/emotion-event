@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Emocion;
+use app\models\Promedio;
 use app\models\UploadForm;
 use app\models\Usuarioevento;
 use Yii;
@@ -151,21 +152,12 @@ class EventoController extends Controller
 
     public function actionPie($id)
     {
-        $sql = 'SELECT nombre,AVG( valor ) as valor
-FROM  emocion
-WHERE  id_Evento =' . $id . '
-GROUP BY nombre';
-        $q = Emocion::findBySql($sql)->asArray()->all();
-
-
-        $dataFalso = new ArrayDataProvider([
-            'allModels' => $q,
+        $dataProvider = new ActiveDataProvider([
+            'query' => Promedio::find()->where(['id_Evento' => $id]),
             'pagination' => false
         ]);
-        print_r($dataFalso);
-        exit();
         return $this->render('pie', [
-            'dataProvider' => $dataFalso
+            'dataProvider' => $dataProvider
         ]);
     }
 

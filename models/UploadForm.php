@@ -110,7 +110,11 @@ class UploadForm extends Model
                         $model->id_Evento = $idEv;
                         if ($model->validate()) {
                             $model->save();
-
+                            $prom = Promedio::findOne(['id_Evento' => $model->id_Evento, 'nombre' => $model->nombre]);
+                            $prom->cant = $prom->cant + $model->valor;
+                            $prom->numTuplas = $prom->numTuplas + 1;
+                            $prom->valor = $prom->cant / $prom->numTuplas;
+                            $prom->save();
                         }
                     }
                 }
@@ -122,7 +126,14 @@ class UploadForm extends Model
         }
     }
 
-
+    protected function findPromedio($id)
+    {
+        if (($model = Promedio::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
 
     public function hayCara($json)
     {
