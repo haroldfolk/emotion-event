@@ -184,7 +184,7 @@ class EventoController extends Controller
         }
         $sus = Usuarioevento::findOne(['id_Usuario' => $idUs, 'id_Evento' => $idEv]);
         if ($sus != null) {
-            return $this->render('errorc', ['c' => "Udyaesta suscrito"]);
+            return $this->render('errorc', ['c' => "Udyaesta suscrito a este evento"]);
         }
         $userEven = new Usuarioevento();
         $userEven->id_Evento = $idEv;
