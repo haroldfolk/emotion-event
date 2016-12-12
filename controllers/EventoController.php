@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\Emocion;
+use app\models\Multimedia;
 use app\models\Promedio;
 use app\models\UploadForm;
 use app\models\Usuarioevento;
@@ -67,6 +68,13 @@ class EventoController extends Controller
         ]);
     }
 
+    public function actionViewuser($id)
+    {
+        $fotos = Multimedia::findAll(['id_Evento' => $id]);
+        return $this->render('viewuser', [
+            'model' => $this->findModel($id), 'fotos' => $fotos,
+        ]);
+    }
     /**
      * Creates a new evento model.
      * If creation is successful, the browser will be redirected to the 'view' page.

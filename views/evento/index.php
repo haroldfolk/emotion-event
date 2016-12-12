@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Evento', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Ir a Categorias', ['/categoria'], ['class' => 'btn btn-success']) ?>
     </p>
     <div class="list-group">
         <?php foreach ($eventos as $evento) { ?>

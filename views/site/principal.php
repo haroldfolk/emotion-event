@@ -92,11 +92,13 @@
         <div class="col-md-3">
 
             <h3><p class="bg-info">
+                    <?= Html::a('Eventos suscritos', ['/evento'], ['class' => 'btn btn-success']) ?>
 
-                    Eventos suscritos
                 </p></h3>
             <div class="list-group">
-                <?php foreach ($eventos as $evento) { ?>
+                <?php use yii\helpers\Html;
+
+                foreach ($eventos as $evento) { ?>
                     <!--                    <a href="#" class="list-group-item">Home</a>-->
                     <div class="list-group-item">
                         <a id="modal-702504" href="#<?= $evento->idEvento ?>" role="button" class="btn"
@@ -124,13 +126,11 @@
                                     <h4><?= $evento->fechaFin ?></h4>
                                 </div>
                                 <div class="modal-footer">
-
+                                    <?= Html::a('Ver Evento', ['view', 'id' => $evento->idEvento], ['class' => 'btn btn-success']) ?>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">
                                         Close
                                     </button>
-                                    <button type="button" class="btn btn-primary">
-                                        Save changes
-                                    </button>
+
                                 </div>
                             </div>
 
