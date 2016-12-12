@@ -197,13 +197,11 @@
                                     <h4><?= $evento->fechaFin ?></h4>
                                 </div>
                                 <div class="modal-footer">
-
+                                    <?= Html::a('Ver Evento', ['/evento/view', 'id' => $evento->idEvento], ['class' => 'btn btn-success']) ?>
                                     <button type="button" class="btn btn-default" data-dismiss="modal">
-                                        Cancelar
+                                        Close
                                     </button>
-                                    <button type="button" class="btn btn-primary">
-                                        Guardar Cambios
-                                    </button>
+
                                 </div>
                             </div>
 
